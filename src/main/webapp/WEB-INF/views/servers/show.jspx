@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_net_sereneproject_collector_domain_Server" object="${server}" path="/servers" z="yvDx7ozvpLbhpIYImzbMJx4nyfQ=">
+        <field:display field="hostname" id="s_net_sereneproject_collector_domain_Server_hostname" object="${server}" z="4WYYHAt+UBG9WMYkfy4911NiehA="/>
+        <field:display field="uuidMostSigBits" id="s_net_sereneproject_collector_domain_Server_uuidMostSigBits" object="${server}" z="pq7FkrGUrlzoyq+OYDFgQhfY1Uk="/>
+        <field:display field="uuidLeastSigBits" id="s_net_sereneproject_collector_domain_Server_uuidLeastSigBits" object="${server}" z="qvzCUxVkBTsi2HXmNrIcWkSiW0w="/>
+        <field:display field="serverGroup" id="s_net_sereneproject_collector_domain_Server_serverGroup" object="${server}" z="sOOpvTPDqp1r6hHThkPC9PQpno0="/>
+    </page:show>
+</div>

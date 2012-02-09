@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByNameEquals" id="ff_net_sereneproject_collector_domain_ServerGroup" path="/servergroups" z="0gz5yfeg4CdDYVY85guG0cPm0KQ=">
+        <field:input disableFormBinding="true" field="name" id="f_net_sereneproject_collector_domain_ServerGroup_name" max="20" min="3" required="true" z="/8m70hJMemao+SYs28btYxDmwjw="/>
+    </form:find>
+</div>

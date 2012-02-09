@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_net_sereneproject_collector_domain_ServerGroup" items="${servergroups}" z="5EesaQWTDt9FQYD1Qbh6o2yJFJI=">
+        <table:table data="${servergroups}" id="l_net_sereneproject_collector_domain_ServerGroup" path="/servergroups" z="Tv8GKS4JIf3cRC86360VQKhXtMM=">
+            <table:column id="c_net_sereneproject_collector_domain_ServerGroup_name" property="name" z="bF8VQVknUyT5f/Fj0jmOwPrf9OQ="/>
+        </table:table>
+    </page:list>
+</div>
