@@ -8,8 +8,8 @@
     <language>en-us</language>
     <copyright>&#169;2012</copyright>
     <item>
-      <title>File: 14,
-             Errors: 223,
+      <title>File: 15,
+             Errors: 222,
              Warnings: 0,
              Infos: 0
       </title>
@@ -52,7 +52,7 @@
                   0
                 </td>
                 <td>
-                  9
+                  8
                 </td>
               </tr>
                           <tr>
@@ -137,6 +137,20 @@
                 </td>
                 <td>
                   8
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.net/checkstyle.html#net.sereneproject.collector.domain.package-info.java">net/sereneproject/collector/domain/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
