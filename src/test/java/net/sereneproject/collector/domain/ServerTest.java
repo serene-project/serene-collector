@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.UUID;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -15,13 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ServerTest {
 
+    @Ignore
     @Test
-    public void doNothing() {
-        // stub so that test passes, will be removed once actual tests are
-        // implemented
-    }
-
-    // @Test
     public void findByUuid() {
         ServerGroup group = new ServerGroup();
         group.setName("my group");
