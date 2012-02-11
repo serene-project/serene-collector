@@ -24,7 +24,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
         Map<String, Server> serverCache = new HashMap<String, Server>();
         Map<String, ServerGroup> groupCache = new HashMap<String, ServerGroup>();
 
-        for (ProbeValueDto pvto : message.getProbeValues()) {
+        for (ProbeValueDto pvDto : message.getProbeValues()) {
             // add value to probe
             ProbeValue pv = new ProbeValue();
             pv.setProbe(findProbe(pvDto, message, serverCache, groupCache));
