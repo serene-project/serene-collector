@@ -9,28 +9,62 @@ digraph G {
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	nodesep=0.25;
 	ranksep=0.5;
-	// net.sereneproject.collector.domain.ProbeValue
-	c36 [label=<<table title="net.sereneproject.collector.domain.ProbeValue" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValue.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> ProbeValue </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.domain.Probe
-	c37 [label=<<table title="net.sereneproject.collector.domain.Probe" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Probe.html">
+	c18 [label=<<table title="net.sereneproject.collector.domain.Probe" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Probe.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Probe </td></tr>
 		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + Probe() </td></tr>
+<tr><td align="left" balign="left"> + setUuid(uuid : String) </td></tr>
+<tr><td align="left" balign="left"> + setUuid(uuid : UUID) </td></tr>
+<tr><td align="left" balign="left"> + getUuid() : UUID </td></tr>
+<tr><td align="left" balign="left"> + findProbeByUuidEquals(uuid : String) : Probe </td></tr>
+<tr><td align="left" balign="left"> + findProbeByUuidEquals(uuid : UUID) : Probe </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// net.sereneproject.collector.domain.ProbeValue
+	c19 [label=<<table title="net.sereneproject.collector.domain.ProbeValue" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValue.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> ProbeValue </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ProbeValue() </td></tr>
+		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.domain.Server
-	c38 [label=<<table title="net.sereneproject.collector.domain.Server" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Server.html">
+	c20 [label=<<table title="net.sereneproject.collector.domain.Server" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Server.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Server </td></tr>
 		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + Server() </td></tr>
+<tr><td align="left" balign="left"> + setUuid(uuid : String) </td></tr>
+<tr><td align="left" balign="left"> + setUuid(uuid : UUID) </td></tr>
+<tr><td align="left" balign="left"> + getUuid() : UUID </td></tr>
+<tr><td align="left" balign="left"> + findServerByUuidEquals(uuid : String) : Server </td></tr>
+<tr><td align="left" balign="left"> + findServerByUuidEquals(uuid : UUID) : Server </td></tr>
+		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.domain.ServerGroup
-	c39 [label=<<table title="net.sereneproject.collector.domain.ServerGroup" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroup.html">
+	c21 [label=<<table title="net.sereneproject.collector.domain.ServerGroup" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroup.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ServerGroup </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ServerGroup() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 }

@@ -9,16 +9,28 @@ digraph G {
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	nodesep=0.25;
 	ranksep=0.5;
+	// net.sereneproject.collector.web.ServerController
+	c0 [label=<<table title="net.sereneproject.collector.web.ServerController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerController.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> ServerController </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ServerController() </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.web.ServerGroupController
-	c0 [label=<<table title="net.sereneproject.collector.web.ServerGroupController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroupController.html">
+	c1 [label=<<table title="net.sereneproject.collector.web.ServerGroupController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroupController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ServerGroupController </td></tr>
 		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// net.sereneproject.collector.web.ProbeController
-	c1 [label=<<table title="net.sereneproject.collector.web.ProbeController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> ProbeController </td></tr>
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ServerGroupController() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean
@@ -26,11 +38,25 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ApplicationConversionServiceFactoryBean </td></tr>
 		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// net.sereneproject.collector.web.ServerController
-	c3 [label=<<table title="net.sereneproject.collector.web.ServerController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> ServerController </td></tr>
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ApplicationConversionServiceFactoryBean() </td></tr>
+<tr><td align="left" balign="left"> # installFormatters(registry : FormatterRegistry) </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// net.sereneproject.collector.web.ProbeController
+	c3 [label=<<table title="net.sereneproject.collector.web.ProbeController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeController.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> ProbeController </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ProbeController() </td></tr>
+<tr><td align="left" balign="left"> + postMonitoring(json : String) : ResponseEntity&lt;String&gt; </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 }

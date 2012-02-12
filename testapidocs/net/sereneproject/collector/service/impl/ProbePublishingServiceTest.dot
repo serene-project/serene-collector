@@ -10,9 +10,16 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.service.impl.ProbePublishingServiceTest
-	c125 [label=<<table title="net.sereneproject.collector.service.impl.ProbePublishingServiceTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ProbePublishingServiceTest.html">
+	c115 [label=<<table title="net.sereneproject.collector.service.impl.ProbePublishingServiceTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ProbePublishingServiceTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ProbePublishingServiceTest </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ProbePublishingServiceTest() </td></tr>
+<tr><td align="left" balign="left"> + publishingBrandNewValue() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 }
