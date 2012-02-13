@@ -1,5 +1,6 @@
 package net.sereneproject.collector.dto;
 
+import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -13,8 +14,10 @@ public class ProbeValueDto {
     @NotNull
     private String uuid;
 
+    @Nullable
     private String name;
 
+    @NotNull
     private String value;
 
 }

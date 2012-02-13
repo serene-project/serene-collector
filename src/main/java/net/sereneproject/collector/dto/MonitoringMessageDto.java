@@ -3,6 +3,7 @@ package net.sereneproject.collector.dto;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -19,10 +20,13 @@ public class MonitoringMessageDto {
     @NotNull
     private String uuid;
 
+    @Nullable
     private String hostname;
 
+    @Nullable
     private String group;
 
+    @Nullable
     private List<ProbeValueDto> probeValues;
 
     public String toJson() {

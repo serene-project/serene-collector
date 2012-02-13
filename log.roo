@@ -47,3 +47,6 @@ logging setup --level INFO --package PERSISTENCE
 logging setup --level DEBUG --package PROJECT 
 logging setup --level INFO --package SECURITY 
 logging setup --level INFO --package TRANSACTIONS 
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-13 11:32:06
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-13 18:17:06
+perform eclipse
