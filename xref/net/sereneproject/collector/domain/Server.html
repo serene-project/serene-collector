@@ -23,7 +23,7 @@
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
 <a class="jxr_linenumber" name="14" href="#14">14</a>  @RooJavaBean
 <a class="jxr_linenumber" name="15" href="#15">15</a>  @RooToString
-<a class="jxr_linenumber" name="16" href="#16">16</a>  @RooEntity(finders = { <span class="jxr_string">"findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals"</span> })
+<a class="jxr_linenumber" name="16" href="#16">16</a>  @RooEntity(finders = { <span class="jxr_string">"findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals"</span> })
 <a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../net/sereneproject/collector/domain/Server.html">Server</a> {
 <a class="jxr_linenumber" name="18" href="#18">18</a>  
 <a class="jxr_linenumber" name="19" href="#19">19</a>      @NotNull
@@ -66,7 +66,7 @@
 <a class="jxr_linenumber" name="56" href="#56">56</a>          <strong class="jxr_keyword">if</strong> (uuid == <strong class="jxr_keyword">null</strong>)
 <a class="jxr_linenumber" name="57" href="#57">57</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"The uuid argument is required"</span>);
 <a class="jxr_linenumber" name="58" href="#58">58</a>          <strong class="jxr_keyword">return</strong> <a href="../../../../net/sereneproject/collector/domain/Server.html">Server</a>
-<a class="jxr_linenumber" name="59" href="#59">59</a>                  .findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals(
+<a class="jxr_linenumber" name="59" href="#59">59</a>                  .findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(
 <a class="jxr_linenumber" name="60" href="#60">60</a>                          uuid.getMostSignificantBits(),
 <a class="jxr_linenumber" name="61" href="#61">61</a>                          uuid.getLeastSignificantBits()).getSingleResult();
 <a class="jxr_linenumber" name="62" href="#62">62</a>      }

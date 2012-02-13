@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.dto.AnalyzerRequestDtoTest
-	c21 [label=<<table title="net.sereneproject.collector.dto.AnalyzerRequestDtoTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnalyzerRequestDtoTest.html">
+	c34 [label=<<table title="net.sereneproject.collector.dto.AnalyzerRequestDtoTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnalyzerRequestDtoTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> AnalyzerRequestDtoTest </td></tr>
 		</table></td></tr>
@@ -23,7 +23,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.dto.DtoTests
-	c22 [label=<<table title="net.sereneproject.collector.dto.DtoTests" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DtoTests.html">
+	c35 [label=<<table title="net.sereneproject.collector.dto.DtoTests" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DtoTests.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> DtoTests </td></tr>
 		</table></td></tr>
@@ -35,7 +35,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.dto.MonitoringMessageTest
-	c23 [label=<<table title="net.sereneproject.collector.dto.MonitoringMessageTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MonitoringMessageTest.html">
+	c36 [label=<<table title="net.sereneproject.collector.dto.MonitoringMessageTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MonitoringMessageTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MonitoringMessageTest </td></tr>
 		</table></td></tr>
@@ -49,7 +49,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.dto.AnalyzerResponseDtoTest
-	c24 [label=<<table title="net.sereneproject.collector.dto.AnalyzerResponseDtoTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnalyzerResponseDtoTest.html">
+	c37 [label=<<table title="net.sereneproject.collector.dto.AnalyzerResponseDtoTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnalyzerResponseDtoTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> AnalyzerResponseDtoTest </td></tr>
 		</table></td></tr>
