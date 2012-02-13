@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.Nullable;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -27,6 +28,7 @@ public class MonitoringMessageDto {
     private String group;
 
     @Nullable
+    @Valid
     private List<ProbeValueDto> probeValues;
 
     public String toJson() {

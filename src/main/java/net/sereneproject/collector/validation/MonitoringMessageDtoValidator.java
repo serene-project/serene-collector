@@ -5,12 +5,14 @@ import java.util.UUID;
 import net.sereneproject.collector.dto.MonitoringMessageDto;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.google.common.base.Strings;
 
+@Component
 public class MonitoringMessageDtoValidator implements Validator {
 
 	@Override
@@ -49,6 +51,7 @@ public class MonitoringMessageDtoValidator implements Validator {
 		if (CollectionUtils.isEmpty(monitoringMessage.getProbeValues())) {
 			errors.rejectValue("probeValues", "probevalues.empty");
 		}
+
 	}
 
 }
