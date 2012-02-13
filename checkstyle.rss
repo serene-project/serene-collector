@@ -8,8 +8,8 @@
     <language>en-us</language>
     <copyright>&#169;2012</copyright>
     <item>
-      <title>File: 15,
-             Errors: 316,
+      <title>File: 17,
+             Errors: 501,
              Warnings: 0,
              Infos: 0
       </title>
@@ -113,6 +113,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.validation.ProbeValueDtoValidator.java">net/sereneproject/collector/validation/ProbeValueDtoValidator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  50
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.domain.Server.java">net/sereneproject/collector/domain/Server.java</a>
                 </td>
                 <td>
@@ -164,7 +178,7 @@
                   0
                 </td>
                 <td>
-                  51
+                  91
                 </td>
               </tr>
                           <tr>
@@ -235,6 +249,20 @@
                 </td>
                 <td>
                   21
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.validation.MonitoringMessageDtoValidator.java">net/sereneproject/collector/validation/MonitoringMessageDtoValidator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  95
                 </td>
               </tr>
                       </tbody>

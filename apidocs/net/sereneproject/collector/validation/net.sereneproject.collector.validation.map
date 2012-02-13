@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="c60" href="./MonitoringMessageDtoValidator.html" title="net.sereneproject.collector.validation.MonitoringMessageDtoValidator" alt="" coords="15,11,273,117"/>
+<area shape="rect" id="c61" href="./ProbeValueDtoValidator.html" title="net.sereneproject.collector.validation.ProbeValueDtoValidator" alt="" coords="317,11,574,117"/>
+</map>
