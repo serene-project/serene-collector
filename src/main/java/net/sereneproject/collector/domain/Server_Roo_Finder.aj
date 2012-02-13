@@ -10,11 +10,11 @@ import net.sereneproject.collector.domain.Server;
 
 privileged aspect Server_Roo_Finder {
     
-    public static TypedQuery<Server> Server.findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals(Long uuidMostSigBits, Long uuidLeastSigBits) {
+    public static TypedQuery<Server> Server.findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(Long uuidMostSigBits, Long uuidLeastSigBits) {
         if (uuidMostSigBits == null) throw new IllegalArgumentException("The uuidMostSigBits argument is required");
         if (uuidLeastSigBits == null) throw new IllegalArgumentException("The uuidLeastSigBits argument is required");
         EntityManager em = Server.entityManager();
-        TypedQuery<Server> q = em.createQuery("SELECT o FROM Server AS o WHERE o.uuidMostSigBits != :uuidMostSigBits  AND o.uuidLeastSigBits = :uuidLeastSigBits", Server.class);
+        TypedQuery<Server> q = em.createQuery("SELECT o FROM Server AS o WHERE o.uuidMostSigBits = :uuidMostSigBits  AND o.uuidLeastSigBits = :uuidLeastSigBits", Server.class);
         q.setParameter("uuidMostSigBits", uuidMostSigBits);
         q.setParameter("uuidLeastSigBits", uuidLeastSigBits);
         return q;

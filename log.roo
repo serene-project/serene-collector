@@ -34,3 +34,16 @@ finder add findServerGroupsByNameEquals
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-09 13:06:12
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-09 13:12:42
 security setup
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-12 22:27:58
+perform eclipse
+perform eclipse
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-12 23:34:35
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-13 09:52:08
+logging setup --level DEBUG --package net.sereneproject.collector
+logging setup --level INFO --package ALL_SPRING
+logging setup --level INFO --package WEB 
+logging setup --level INFO --package AOP 
+logging setup --level INFO --package PERSISTENCE 
+logging setup --level DEBUG --package PROJECT 
+logging setup --level INFO --package SECURITY 
+logging setup --level INFO --package TRANSACTIONS 

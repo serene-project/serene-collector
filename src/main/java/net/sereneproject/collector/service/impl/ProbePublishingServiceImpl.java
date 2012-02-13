@@ -12,12 +12,15 @@ import net.sereneproject.collector.dto.MonitoringMessageDto;
 import net.sereneproject.collector.dto.ProbeValueDto;
 import net.sereneproject.collector.service.ProbePublishingService;
 
+import org.apache.log4j.Logger;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProbePublishingServiceImpl implements ProbePublishingService {
 
+	private static Logger LOG = Logger.getLogger(ProbePublishingServiceImpl.class);
+	
     @Override
     public void publish(MonitoringMessageDto message) {
         // local caches to keep from accessing the DB at each iteration
@@ -40,17 +43,26 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
     private Probe findProbe(ProbeValueDto pvDto, MonitoringMessageDto message,
             Map<String, Server> serverCache, Map<String, ServerGroup> groupCache) {
         try {
+        	if (LOG.isDebugEnabled()) {
+        		LOG.debug("Looking for probe [" + pvDto.getUuid() + "]");
+        	}
             return Probe.findProbeByUuidEquals(pvDto.getUuid());
         } catch (EmptyResultDataAccessException dataEx) {
             // probe does not exist
             // TODO: if server does not exist, the group, hostname, etc...
             // should be specified
+        	if (LOG.isDebugEnabled()) {
+        		LOG.debug("Probe [" + pvDto.getUuid() + "] not found, creating it.");
+        	}
             Probe probe = new Probe();
             probe.setName(pvDto.getName());
             probe.setServer(findServer(message, serverCache, groupCache));
             probe.setUuid(pvDto.getUuid());
             probe.persist();
 
+        	if (LOG.isDebugEnabled()) {
+        		LOG.debug("Probe [" + probe + "] created.");
+        	}
             return probe;
         }
     }
@@ -58,17 +70,26 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
     private Server findServer(MonitoringMessageDto message,
             Map<String, Server> serverCache, Map<String, ServerGroup> groupCache) {
         if (serverCache.containsKey(message.getUuid())) {
+        	if (LOG.isDebugEnabled()) {
+        		LOG.debug("Returning server [" + message.getUuid() + "] from local cache.");
+        	}
             return serverCache.get(message.getUuid());
         }
         try {
             Server server = Server.findServerByUuidEquals(message.getUuid());
             serverCache.put(message.getUuid(), server);
+        	if (LOG.isDebugEnabled()) {
+        		LOG.debug("Returning server [" + message.getUuid() + "] from DB.");
+        	}
             return server;
         } catch (EmptyResultDataAccessException dataEx) {
 
             // server does not exist
             // TODO: if server does not exist, the group, hostname, etc...
             // should be specified
+        	if (LOG.isDebugEnabled()) {
+        		LOG.debug("Server [" + message.getUuid() + "] not found, creating it.");
+        	}
             Server server = new Server();
             server.setUuid(message.getUuid());
             server.setHostname(message.getHostname());
@@ -76,6 +97,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
                     groupCache));
             server.persist();
             serverCache.put(message.getUuid(), server);
+            LOG.debug("Server created.");
             return server;
         }
     }

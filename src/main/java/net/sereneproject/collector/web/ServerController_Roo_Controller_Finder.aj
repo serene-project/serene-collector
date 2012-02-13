@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 privileged aspect ServerController_Roo_Controller_Finder {
     
-    @RequestMapping(params = { "find=ByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals", "form" }, method = RequestMethod.GET)
-    public String ServerController.findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEqualsForm(Model uiModel) {
-        return "servers/findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals";
+    @RequestMapping(params = { "find=ByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals", "form" }, method = RequestMethod.GET)
+    public String ServerController.findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEqualsForm(Model uiModel) {
+        return "servers/findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals";
     }
     
-    @RequestMapping(params = "find=ByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals", method = RequestMethod.GET)
-    public String ServerController.findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals(@RequestParam("uuidMostSigBits") Long uuidMostSigBits, @RequestParam("uuidLeastSigBits") Long uuidLeastSigBits, Model uiModel) {
-        uiModel.addAttribute("servers", Server.findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals(uuidMostSigBits, uuidLeastSigBits).getResultList());
+    @RequestMapping(params = "find=ByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals", method = RequestMethod.GET)
+    public String ServerController.findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(@RequestParam("uuidMostSigBits") Long uuidMostSigBits, @RequestParam("uuidLeastSigBits") Long uuidLeastSigBits, Model uiModel) {
+        uiModel.addAttribute("servers", Server.findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(uuidMostSigBits, uuidLeastSigBits).getResultList());
         return "servers/list";
     }
     

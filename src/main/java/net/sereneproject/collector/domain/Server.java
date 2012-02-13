@@ -13,7 +13,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
-@RooEntity(finders = { "findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals" })
+@RooEntity(finders = { "findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals" })
 public class Server {
 
     @NotNull
@@ -56,7 +56,7 @@ public class Server {
         if (uuid == null)
             throw new IllegalArgumentException("The uuid argument is required");
         return Server
-                .findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals(
+                .findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(
                         uuid.getMostSignificantBits(),
                         uuid.getLeastSignificantBits()).getSingleResult();
     }

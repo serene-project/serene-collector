@@ -16,4 +16,7 @@
 <definition extends="default" name="servers/findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals">
         <put-attribute name="body" value="/WEB-INF/views/servers/findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals.jspx"/>
     </definition>
+<definition extends="default" name="servers/findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals">
+        <put-attribute name="body" value="/WEB-INF/views/servers/findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals.jspx"/>
+    </definition>
 </tiles-definitions>
