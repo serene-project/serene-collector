@@ -33,10 +33,10 @@ import com.google.common.io.ByteStreams;
 public class ProbeControllerIntegrationTest {
 
 	/** context under which the project is deployed for tests. */
-	private static final String CONTEXT = "/serene-collector";
+	private static final String CONTEXT = "/collector";
 	
 	/** server port. */
-	private static final int SERVER_PORT = 8080;
+	private static final int SERVER_PORT = 9090;
 
 	/**
 	 * Test that sending a new probe works.
