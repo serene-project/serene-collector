@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.domain.Probe
-	c20 [label=<<table title="net.sereneproject.collector.domain.Probe" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Probe.html">
+	c39 [label=<<table title="net.sereneproject.collector.domain.Probe" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Probe.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Probe </td></tr>
 		</table></td></tr>
@@ -27,7 +27,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.domain.ProbeValue
-	c21 [label=<<table title="net.sereneproject.collector.domain.ProbeValue" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValue.html">
+	c40 [label=<<table title="net.sereneproject.collector.domain.ProbeValue" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValue.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ProbeValue </td></tr>
 		</table></td></tr>
@@ -39,7 +39,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.domain.Server
-	c22 [label=<<table title="net.sereneproject.collector.domain.Server" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Server.html">
+	c41 [label=<<table title="net.sereneproject.collector.domain.Server" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Server.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Server </td></tr>
 		</table></td></tr>
@@ -56,7 +56,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.domain.ServerGroup
-	c23 [label=<<table title="net.sereneproject.collector.domain.ServerGroup" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroup.html">
+	c42 [label=<<table title="net.sereneproject.collector.domain.ServerGroup" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroup.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ServerGroup </td></tr>
 		</table></td></tr>

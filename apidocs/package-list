@@ -4,3 +4,4 @@ net.sereneproject.collector.service
 net.sereneproject.collector.service.impl
 net.sereneproject.collector.validation
 net.sereneproject.collector.web
+net.sereneproject.collector.web.utils

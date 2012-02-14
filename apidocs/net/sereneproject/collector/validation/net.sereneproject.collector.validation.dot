@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.validation.MonitoringMessageDtoValidator
-	c60 [label=<<table title="net.sereneproject.collector.validation.MonitoringMessageDtoValidator" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MonitoringMessageDtoValidator.html">
+	c81 [label=<<table title="net.sereneproject.collector.validation.MonitoringMessageDtoValidator" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MonitoringMessageDtoValidator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MonitoringMessageDtoValidator </td></tr>
 		</table></td></tr>
@@ -18,13 +18,13 @@ digraph G {
 <tr><td align="left" balign="left">  </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + MonitoringMessageDtoValidator() </td></tr>
+<tr><td align="left" balign="left"> + MonitoringMessageDtoValidator(probeValueValidator : ProbeValueDtoValidator) </td></tr>
 <tr><td align="left" balign="left"> + supports(clazz : Class&lt;?&gt;) : boolean </td></tr>
 <tr><td align="left" balign="left"> + validate(target : Object, errors : Errors) </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.validation.ProbeValueDtoValidator
-	c61 [label=<<table title="net.sereneproject.collector.validation.ProbeValueDtoValidator" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValueDtoValidator.html">
+	c82 [label=<<table title="net.sereneproject.collector.validation.ProbeValueDtoValidator" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValueDtoValidator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ProbeValueDtoValidator </td></tr>
 		</table></td></tr>

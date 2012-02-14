@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="c322" href="./MonitoringMessageDtoValidator.html" title="net.sereneproject.collector.validation.MonitoringMessageDtoValidator" alt="" coords="15,177,273,282"/>
-<area shape="rect" id="c326" href="http://java.sun.com/j2se/1.4.2/docs/api/org/springframework/validation/Validator.html" title="org.springframework.validation.Validator" alt="" coords="23,11,265,117"/>
+<area shape="rect" id="c376" href="./MonitoringMessageDtoValidator.html" title="net.sereneproject.collector.validation.MonitoringMessageDtoValidator" alt="" coords="16,177,509,282"/>
+<area shape="rect" id="c380" href="http://java.sun.com/j2se/1.4.2/docs/api/org/springframework/validation/Validator.html" title="org.springframework.validation.Validator" alt="" coords="142,11,383,117"/>
 </map>

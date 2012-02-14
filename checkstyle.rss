@@ -8,8 +8,8 @@
     <language>en-us</language>
     <copyright>&#169;2012</copyright>
     <item>
-      <title>File: 17,
-             Errors: 501,
+      <title>File: 18,
+             Errors: 190,
              Warnings: 0,
              Infos: 0
       </title>
@@ -94,7 +94,7 @@
                   0
                 </td>
                 <td>
-                  101
+                  19
                 </td>
               </tr>
                           <tr>
@@ -122,7 +122,7 @@
                   0
                 </td>
                 <td>
-                  50
+                  2
                 </td>
               </tr>
                           <tr>
@@ -136,7 +136,21 @@
                   0
                 </td>
                 <td>
-                  44
+                  26
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.web.utils.WebUtils.java">net/sereneproject/collector/web/utils/WebUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
                 </td>
               </tr>
                           <tr>
@@ -169,20 +183,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.web.ProbeController.java">net/sereneproject/collector/web/ProbeController.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  91
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.dto.AnalyzerResponseDto.java">net/sereneproject/collector/dto/AnalyzerResponseDto.java</a>
                 </td>
                 <td>
@@ -193,6 +193,20 @@
                 </td>
                 <td>
                   6
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.web.ProbeController.java">net/sereneproject/collector/web/ProbeController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  23
                 </td>
               </tr>
                           <tr>
@@ -234,7 +248,7 @@
                   0
                 </td>
                 <td>
-                  46
+                  26
                 </td>
               </tr>
                           <tr>
@@ -248,7 +262,7 @@
                   0
                 </td>
                 <td>
-                  21
+                  19
                 </td>
               </tr>
                           <tr>
@@ -262,7 +276,7 @@
                   0
                 </td>
                 <td>
-                  95
+                  15
                 </td>
               </tr>
                       </tbody>
