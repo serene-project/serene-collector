@@ -9,6 +9,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import com.google.common.base.Strings;
+
 @Component
 public class ProbeValueDtoValidator implements Validator {
 
@@ -20,16 +22,17 @@ public class ProbeValueDtoValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		ProbeValueDto probeValue = (ProbeValueDto) target;
+		ValidationUtils.rejectIfEmpty(errors, "uuid", "probeValue.uuid.empty");
 		ValidationUtils
-				.rejectIfEmpty(errors, "uuid", "probeValue.uuid.missing");
-		ValidationUtils.rejectIfEmpty(errors, "value",
-				"probeValue.value.missing");
+				.rejectIfEmpty(errors, "value", "probeValue.value.empty");
 
 		// check if UUID is valid
-		try {
-			UUID.fromString(probeValue.getUuid());
-		} catch (IllegalArgumentException iae) {
-			errors.rejectValue("uuid", "probeValue.uuid.invalid");
+		if (!Strings.isNullOrEmpty(probeValue.getUuid())) {
+			try {
+				UUID.fromString(probeValue.getUuid());
+			} catch (IllegalArgumentException iae) {
+				errors.rejectValue("uuid", "probeValue.uuid.invalid");
+			}
 		}
 	}
 
