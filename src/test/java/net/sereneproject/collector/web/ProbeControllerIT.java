@@ -30,7 +30,7 @@ import com.google.common.io.ByteStreams;
  * 
  * @author gehel
  */
-public class ProbeControllerIntegrationTest {
+public class ProbeControllerIT {
 
 	/** context under which the project is deployed for tests. */
 	private static final String CONTEXT = "/collector";
