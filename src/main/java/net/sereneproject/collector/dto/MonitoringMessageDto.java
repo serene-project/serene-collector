@@ -31,7 +31,7 @@ public class MonitoringMessageDto {
     @Valid
     private List<ProbeValueDto> probeValues;
 
-    public String toJson() {
+    public final String toJson() {
         return new JSONSerializer().exclude("*.class").deepSerialize(this);
     }
 

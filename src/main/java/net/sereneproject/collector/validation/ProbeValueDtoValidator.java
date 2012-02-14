@@ -14,26 +14,26 @@ import com.google.common.base.Strings;
 @Component
 public class ProbeValueDtoValidator implements Validator {
 
-	@Override
-	public boolean supports(Class<?> clazz) {
-		return ProbeValueDto.class.equals(clazz);
-	}
+    @Override
+    public final boolean supports(final Class<?> clazz) {
+        return ProbeValueDto.class.equals(clazz);
+    }
 
-	@Override
-	public void validate(Object target, Errors errors) {
-		ProbeValueDto probeValue = (ProbeValueDto) target;
-		ValidationUtils.rejectIfEmpty(errors, "uuid", "probeValue.uuid.empty");
-		ValidationUtils
-				.rejectIfEmpty(errors, "value", "probeValue.value.empty");
+    @Override
+    public final void validate(final Object target, final Errors errors) {
+        ProbeValueDto probeValue = (ProbeValueDto) target;
+        ValidationUtils.rejectIfEmpty(errors, "uuid", "probeValue.uuid.empty");
+        ValidationUtils
+                .rejectIfEmpty(errors, "value", "probeValue.value.empty");
 
-		// check if UUID is valid
-		if (!Strings.isNullOrEmpty(probeValue.getUuid())) {
-			try {
-				UUID.fromString(probeValue.getUuid());
-			} catch (IllegalArgumentException iae) {
-				errors.rejectValue("uuid", "probeValue.uuid.invalid");
-			}
-		}
-	}
+        // check if UUID is valid
+        if (!Strings.isNullOrEmpty(probeValue.getUuid())) {
+            try {
+                UUID.fromString(probeValue.getUuid());
+            } catch (IllegalArgumentException iae) {
+                errors.rejectValue("uuid", "probeValue.uuid.invalid");
+            }
+        }
+    }
 
 }

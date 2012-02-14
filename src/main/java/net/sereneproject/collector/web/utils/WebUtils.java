@@ -6,11 +6,11 @@ import flexjson.JSONSerializer;
 
 public final class WebUtils {
 
-	private WebUtils() {
-	}
+    private WebUtils() {
+    }
 
-	public static String toJson(Errors errors) {
-		return new JSONSerializer().exclude("*.class").serialize(
-				errors.getAllErrors());
-	}
+    public static String toJson(final Errors errors) {
+        return new JSONSerializer().exclude("*.class").serialize(
+                errors.getAllErrors());
+    }
 }

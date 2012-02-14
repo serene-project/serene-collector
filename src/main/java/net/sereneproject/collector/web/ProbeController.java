@@ -28,53 +28,53 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ProbeController {
 
-	private static final Logger LOG = Logger.getLogger(ProbeController.class);
+    private static final Logger LOG = Logger.getLogger(ProbeController.class);
 
-	@Autowired(required = true)
-	private ProbePublishingService probePublishingService;
+    @Autowired(required = true)
+    private ProbePublishingService probePublishingService;
 
-	@Autowired(required = true)
-	private MonitoringMessageDtoValidator validator;
+    @Autowired(required = true)
+    private MonitoringMessageDtoValidator validator;
 
-	/**
-	 * Post a set of new probe values.
-	 * 
-	 * @param json
-	 *            the {@link MonitoringMessageDto} in JSON format
-	 * @return HTTP 201 (CREATED) if successful, HTTP 500 in case of error. In
-	 *         case of error an error message in JSON format will also be
-	 *         returned.
-	 */
-	@RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
-	public ResponseEntity<String> postMonitoring(@RequestBody String json) {
-		if (LOG.isDebugEnabled()) {
-			LOG.debug("Received message : " + json);
-		}
+    /**
+     * Post a set of new probe values.
+     * 
+     * @param json
+     *            the {@link MonitoringMessageDto} in JSON format
+     * @return HTTP 201 (CREATED) if successful, HTTP 500 in case of error. In
+     *         case of error an error message in JSON format will also be
+     *         returned.
+     */
+    @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
+    public final ResponseEntity<String> postMonitoring(@RequestBody final String json) {
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Received message : " + json);
+        }
 
-		MonitoringMessageDto message = MonitoringMessageDto
-				.fromJsonToMonitoringMessageDto(json);
+        MonitoringMessageDto message = MonitoringMessageDto
+                .fromJsonToMonitoringMessageDto(json);
 
-		// validation
-		BindingResult bindingResult = new BeanPropertyBindingResult(message,
-				"message");
-		getValidator().validate(message, bindingResult);
-		if (bindingResult.hasErrors()) {
-			for (ObjectError error : bindingResult.getAllErrors()) {
-				LOG.error(error.getObjectName() + " : " + error.getCode());
-			}
-			return new ResponseEntity<String>(WebUtils.toJson(bindingResult),
-					HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+        // validation
+        BindingResult bindingResult = new BeanPropertyBindingResult(message,
+                "message");
+        getValidator().validate(message, bindingResult);
+        if (bindingResult.hasErrors()) {
+            for (ObjectError error : bindingResult.getAllErrors()) {
+                LOG.error(error.getObjectName() + " : " + error.getCode());
+            }
+            return new ResponseEntity<String>(WebUtils.toJson(bindingResult),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
-		getProbePublishingService().publish(message);
-		return new ResponseEntity<String>(HttpStatus.CREATED);
-	}
+        getProbePublishingService().publish(message);
+        return new ResponseEntity<String>(HttpStatus.CREATED);
+    }
 
-	private ProbePublishingService getProbePublishingService() {
-		return this.probePublishingService;
-	}
+    private ProbePublishingService getProbePublishingService() {
+        return this.probePublishingService;
+    }
 
-	private MonitoringMessageDtoValidator getValidator() {
-		return this.validator;
-	}
+    private MonitoringMessageDtoValidator getValidator() {
+        return this.validator;
+    }
 }
