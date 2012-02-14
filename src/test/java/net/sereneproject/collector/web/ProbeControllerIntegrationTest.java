@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import junit.framework.Assert;
-
 import net.sereneproject.collector.dto.MonitoringMessageDto;
 import net.sereneproject.collector.dto.ProbeValueDto;
 
@@ -15,7 +14,6 @@ import org.apache.http.HttpStatus;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.AuthCache;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.protocol.ClientContext;
 import org.apache.http.entity.StringEntity;
@@ -27,32 +25,49 @@ import org.junit.Test;
 
 import com.google.common.io.ByteStreams;
 
+/**
+ * Test {@link ProbeController}.
+ * 
+ * @author gehel
+ */
 public class ProbeControllerIntegrationTest {
 
-	private static String CONTEXT = "/serene-collector";
+	/** context under which the project is deployed for tests. */
+	private static final String CONTEXT = "/serene-collector";
+	
+	/** server port. */
+	private static final int SERVER_PORT = 8080;
 
+	/**
+	 * Test that sending a new probe works.
+	 * 
+	 * Sends a message containing a server / group / probe that isnt known yet
+	 * by the application.
+	 * 
+	 * @throws IOException in case of communication error
+	 */
 	@Test
-	public void sendProbe() throws ClientProtocolException, IOException {
-		
-        MonitoringMessageDto m = new MonitoringMessageDto();
-        m.setUuid(UUID.randomUUID().toString());
-        m.setGroup("non existing group");
-        m.setHostname("non existing hostname");
-        m.setProbeValues(new ArrayList<ProbeValueDto>());
+	public final void sendProbe() throws IOException {
 
-        ProbeValueDto pv = new ProbeValueDto();
-        pv.setName("CPU");
-        pv.setUuid(UUID.randomUUID().toString());
-        pv.setValue("35");
-        m.getProbeValues().add(pv);
+		MonitoringMessageDto m = new MonitoringMessageDto();
+		m.setUuid(UUID.randomUUID().toString());
+		m.setGroup("non existing group");
+		m.setHostname("non existing hostname");
+		m.setProbeValues(new ArrayList<ProbeValueDto>());
 
-        pv = new ProbeValueDto();
-        pv.setName("Disk");
-        pv.setUuid(UUID.randomUUID().toString());
-        pv.setValue("256");
-        m.getProbeValues().add(pv);
+		ProbeValueDto pv = new ProbeValueDto();
+		pv.setName("CPU");
+		pv.setUuid(UUID.randomUUID().toString());
+		pv.setValue("35");
+		m.getProbeValues().add(pv);
 
-		HttpHost host = new HttpHost("localhost", 8080, "http");
+		pv = new ProbeValueDto();
+		pv.setName("Disk");
+		pv.setUuid(UUID.randomUUID().toString());
+		pv.setValue("256");
+		m.getProbeValues().add(pv);
+
+		HttpHost host = new HttpHost("localhost", SERVER_PORT, "http");
 		DefaultHttpClient client = new DefaultHttpClient();
 		client.getCredentialsProvider().setCredentials(
 				new AuthScope(host.getHostName(), host.getPort()),

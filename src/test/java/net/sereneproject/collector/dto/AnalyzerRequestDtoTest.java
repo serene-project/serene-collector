@@ -4,15 +4,24 @@ import java.util.Date;
 
 import org.junit.Test;
 
+/**
+ * Test {@link AnalyzerRequestDto}.
+ * 
+ * @author gehel
+ * 
+ */
 public class AnalyzerRequestDtoTest {
 
-    @Test
-    public void printJson() {
-        AnalyzerRequestDto request = new AnalyzerRequestDto();
-        request.setValue("0.4");
-        request.setDate(new Date());
-        request.setSavedState("etat courant du model");
-        System.out.println(request.toJson());
-    }
+	/**
+	 * Print a JSON serialized {@link AnalyzerRequestDto}. Useful as an example.
+	 */
+	@Test
+	public final void printJson() {
+		AnalyzerRequestDto request = new AnalyzerRequestDto();
+		request.setValue("0.4");
+		request.setDate(new Date());
+		request.setSavedState("etat courant du model");
+		System.out.println(request.toJson());
+	}
 
 }
