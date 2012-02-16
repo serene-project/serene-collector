@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.dto.AnalyzerResponseDto
-	c60 [label=<<table title="net.sereneproject.collector.dto.AnalyzerResponseDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnalyzerResponseDto.html">
+	c39 [label=<<table title="net.sereneproject.collector.dto.AnalyzerResponseDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnalyzerResponseDto.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> AnalyzerResponseDto </td></tr>
 		</table></td></tr>
@@ -22,7 +22,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.dto.MonitoringMessageDto
-	c61 [label=<<table title="net.sereneproject.collector.dto.MonitoringMessageDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MonitoringMessageDto.html">
+	c40 [label=<<table title="net.sereneproject.collector.dto.MonitoringMessageDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MonitoringMessageDto.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MonitoringMessageDto </td></tr>
 		</table></td></tr>
@@ -35,20 +35,8 @@ digraph G {
 <tr><td align="left" balign="left"> + toJsonArray(collection : Collection&lt;MonitoringMessageDto&gt;) : String </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// net.sereneproject.collector.dto.ProbeValueDto
-	c62 [label=<<table title="net.sereneproject.collector.dto.ProbeValueDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValueDto.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> ProbeValueDto </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + ProbeValueDto() </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.dto.AnalyzerRequestDto
-	c63 [label=<<table title="net.sereneproject.collector.dto.AnalyzerRequestDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnalyzerRequestDto.html">
+	c41 [label=<<table title="net.sereneproject.collector.dto.AnalyzerRequestDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AnalyzerRequestDto.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> AnalyzerRequestDto </td></tr>
 		</table></td></tr>
@@ -57,6 +45,18 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> + AnalyzerRequestDto() </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// net.sereneproject.collector.dto.ProbeValueDto
+	c42 [label=<<table title="net.sereneproject.collector.dto.ProbeValueDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValueDto.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> ProbeValueDto </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ProbeValueDto() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 }

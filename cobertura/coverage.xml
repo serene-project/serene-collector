@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.4396551724137931" branch-rate="0.22972972972972974" lines-covered="306" lines-valid="696" branches-covered="85" branches-valid="370" complexity="2.310344827586207" version="1.9.4.1" timestamp="1329348609966">
+<coverage line-rate="0.4396551724137931" branch-rate="0.22972972972972974" lines-covered="306" lines-valid="696" branches-covered="85" branches-valid="370" complexity="2.310344827586207" version="1.9.4.1" timestamp="1329432290195">
 	<sources>
-		<source>/var/lib/jenkins/workspace/serene-collector-site/src/main/java</source>
-		<source>/var/lib/jenkins/workspace/serene-collector-site/src/main/aspect</source>
 		<source>--source</source>
+		<source>/home/gehel/dev/loganalyzer/serene-collector/src/main/aspect</source>
+		<source>/home/gehel/dev/loganalyzer/serene-collector/src/main/java</source>
 	</sources>
 	<packages>
 		<package name="net.sereneproject.collector.domain" line-rate="0.47592067988668557" branch-rate="0.276" complexity="1.8">
