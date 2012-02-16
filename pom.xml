@@ -437,6 +437,12 @@
 			<version>${spring-security.version}</version>
 			<classifier />
 		</dependency>
+		<!-- JavaMelody for monitoring -->
+		<dependency>
+			<groupId>net.bull.javamelody</groupId>
+			<artifactId>javamelody-core</artifactId>
+			<version>1.34.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
