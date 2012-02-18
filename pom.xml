@@ -648,7 +648,6 @@
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.0</version>
 			</plugin>
-			<!--
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
@@ -665,7 +664,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			-->
 			<plugin>
 				<groupId>org.codehaus.cargo</groupId>
 				<artifactId>cargo-maven2-plugin</artifactId>
