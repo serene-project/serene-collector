@@ -59,7 +59,7 @@ public class HttpAnalyzerPluginCommunication implements
         }
 
         Reader responseStream = new InputStreamReader(httpResponse.getEntity()
-                .getContent());
+                .getContent(), CharEncoding.UTF_8);
         try {
             String jsonResponse = CharStreams.toString(responseStream);
             return AnalyzerResponseDto
