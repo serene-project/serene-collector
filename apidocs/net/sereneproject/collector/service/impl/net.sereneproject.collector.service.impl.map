@@ -1,3 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="c42" href="./ProbePublishingServiceImpl.html" title="net.sereneproject.collector.service.impl.ProbePublishingServiceImpl" alt="" coords="15,11,297,101"/>
+<area shape="rect" id="c53" href="./ProbePublishingServiceImpl.html" title="net.sereneproject.collector.service.impl.ProbePublishingServiceImpl" alt="" coords="15,11,297,101"/>
+<area shape="rect" id="c54" href="./AnalyzerServiceImpl.html" title="net.sereneproject.collector.service.impl.AnalyzerServiceImpl" alt="" coords="341,11,955,101"/>
+<area shape="rect" id="c55" href="./HttpAnalyzerPluginCommunication.html" title="net.sereneproject.collector.service.impl.HttpAnalyzerPluginCommunication" alt="" coords="1000,11,1445,101"/>
 </map>

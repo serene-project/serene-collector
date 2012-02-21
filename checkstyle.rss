@@ -8,8 +8,8 @@
     <language>en-us</language>
     <copyright>&#169;2012</copyright>
     <item>
-      <title>File: 18,
-             Errors: 190,
+      <title>File: 23,
+             Errors: 282,
              Warnings: 0,
              Infos: 0
       </title>
@@ -85,6 +85,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.service.impl.AnalyzerServiceImpl.java">net/sereneproject/collector/service/impl/AnalyzerServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  25
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.service.impl.ProbePublishingServiceImpl.java">net/sereneproject/collector/service/impl/ProbePublishingServiceImpl.java</a>
                 </td>
                 <td>
@@ -94,7 +108,7 @@
                   0
                 </td>
                 <td>
-                  19
+                  18
                 </td>
               </tr>
                           <tr>
@@ -108,12 +122,12 @@
                   0
                 </td>
                 <td>
-                  5
+                  6
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.domain.Server.java">net/sereneproject/collector/domain/Server.java</a>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.service.impl.HttpAnalyzerPluginCommunication.java">net/sereneproject/collector/service/impl/HttpAnalyzerPluginCommunication.java</a>
                 </td>
                 <td>
                   0
@@ -122,7 +136,7 @@
                   0
                 </td>
                 <td>
-                  26
+                  30
                 </td>
               </tr>
                           <tr>
@@ -141,6 +155,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.domain.Server.java">net/sereneproject/collector/domain/Server.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  26
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.web.utils.WebUtils.java">net/sereneproject/collector/web/utils/WebUtils.java</a>
                 </td>
                 <td>
@@ -151,6 +179,20 @@
                 </td>
                 <td>
                   7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.service.AnalyzerService.java">net/sereneproject/collector/service/AnalyzerService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
                 </td>
               </tr>
                           <tr>
@@ -248,7 +290,21 @@
                   0
                 </td>
                 <td>
-                  26
+                  30
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.service.AnalyzerPluginCommunicationService.java">net/sereneproject/collector/service/AnalyzerPluginCommunicationService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
                 </td>
               </tr>
                           <tr>
@@ -263,6 +319,20 @@
                 </td>
                 <td>
                   18
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.domain.Plugin.java">net/sereneproject/collector/domain/Plugin.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  20
                 </td>
               </tr>
                           <tr>

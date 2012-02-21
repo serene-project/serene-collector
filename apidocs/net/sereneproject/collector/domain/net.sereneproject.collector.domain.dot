@@ -38,8 +38,21 @@ digraph G {
 <tr><td align="left" balign="left"> + findProbeByUuidEquals(uuid : UUID) : Probe </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// net.sereneproject.collector.domain.Plugin
+	c2 [label=<<table title="net.sereneproject.collector.domain.Plugin" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Plugin.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> Plugin </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + Plugin() </td></tr>
+<tr><td align="left" balign="left"> + getUri() : URI </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.domain.ServerGroup
-	c2 [label=<<table title="net.sereneproject.collector.domain.ServerGroup" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroup.html">
+	c3 [label=<<table title="net.sereneproject.collector.domain.ServerGroup" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroup.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ServerGroup </td></tr>
 		</table></td></tr>
@@ -51,7 +64,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.domain.Server
-	c3 [label=<<table title="net.sereneproject.collector.domain.Server" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Server.html">
+	c4 [label=<<table title="net.sereneproject.collector.domain.Server" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Server.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Server </td></tr>
 		</table></td></tr>

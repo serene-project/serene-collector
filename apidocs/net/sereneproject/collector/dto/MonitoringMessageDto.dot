@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.dto.MonitoringMessageDto
-	c264 [label=<<table title="net.sereneproject.collector.dto.MonitoringMessageDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MonitoringMessageDto.html">
+	c362 [label=<<table title="net.sereneproject.collector.dto.MonitoringMessageDto" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MonitoringMessageDto.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MonitoringMessageDto </td></tr>
 		</table></td></tr>

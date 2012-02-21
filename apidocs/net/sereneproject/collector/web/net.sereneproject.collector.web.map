@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="c115" href="./ServerGroupController.html" title="net.sereneproject.collector.web.ServerGroupController" alt="" coords="15,19,185,93"/>
-<area shape="rect" id="c116" href="./ServerController.html" title="net.sereneproject.collector.web.ServerController" alt="" coords="229,19,363,93"/>
-<area shape="rect" id="c117" href="./ProbeController.html" title="net.sereneproject.collector.web.ProbeController" alt="" coords="407,11,758,101"/>
-<area shape="rect" id="c118" href="./ApplicationConversionServiceFactoryBean.html" title="net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean" alt="" coords="802,11,1099,101"/>
+<area shape="rect" id="c150" href="./ServerGroupController.html" title="net.sereneproject.collector.web.ServerGroupController" alt="" coords="15,19,185,93"/>
+<area shape="rect" id="c151" href="./ServerController.html" title="net.sereneproject.collector.web.ServerController" alt="" coords="229,19,363,93"/>
+<area shape="rect" id="c152" href="./ProbeController.html" title="net.sereneproject.collector.web.ProbeController" alt="" coords="407,11,758,101"/>
+<area shape="rect" id="c153" href="./ApplicationConversionServiceFactoryBean.html" title="net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean" alt="" coords="802,11,1099,101"/>
 </map>

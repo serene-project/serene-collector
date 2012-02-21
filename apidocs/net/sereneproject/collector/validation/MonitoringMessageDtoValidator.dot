@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.validation.MonitoringMessageDtoValidator
-	c318 [label=<<table title="net.sereneproject.collector.validation.MonitoringMessageDtoValidator" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MonitoringMessageDtoValidator.html">
+	c523 [label=<<table title="net.sereneproject.collector.validation.MonitoringMessageDtoValidator" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MonitoringMessageDtoValidator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MonitoringMessageDtoValidator </td></tr>
 		</table></td></tr>
@@ -24,9 +24,9 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//net.sereneproject.collector.validation.MonitoringMessageDtoValidator implements org.springframework.validation.Validator
-	c325:p -> c318:p [dir=back,arrowtail=empty,style=dashed];
+	c530:p -> c523:p [dir=back,arrowtail=empty,style=dashed];
 	// org.springframework.validation.Validator
-	c325 [label=<<table title="org.springframework.validation.Validator" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/org/springframework/validation/Validator.html">
+	c530 [label=<<table title="org.springframework.validation.Validator" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/org/springframework/validation/Validator.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> Validator </td></tr>

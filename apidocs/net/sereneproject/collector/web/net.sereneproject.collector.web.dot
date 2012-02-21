@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.web.ServerGroupController
-	c115 [label=<<table title="net.sereneproject.collector.web.ServerGroupController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroupController.html">
+	c150 [label=<<table title="net.sereneproject.collector.web.ServerGroupController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroupController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ServerGroupController </td></tr>
 		</table></td></tr>
@@ -22,7 +22,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.web.ServerController
-	c116 [label=<<table title="net.sereneproject.collector.web.ServerController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerController.html">
+	c151 [label=<<table title="net.sereneproject.collector.web.ServerController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ServerController </td></tr>
 		</table></td></tr>
@@ -34,7 +34,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.web.ProbeController
-	c117 [label=<<table title="net.sereneproject.collector.web.ProbeController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeController.html">
+	c152 [label=<<table title="net.sereneproject.collector.web.ProbeController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ProbeController </td></tr>
 		</table></td></tr>
@@ -47,7 +47,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean
-	c118 [label=<<table title="net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ApplicationConversionServiceFactoryBean.html">
+	c153 [label=<<table title="net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ApplicationConversionServiceFactoryBean.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ApplicationConversionServiceFactoryBean </td></tr>
 		</table></td></tr>
