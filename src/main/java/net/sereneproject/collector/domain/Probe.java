@@ -1,5 +1,6 @@
 package net.sereneproject.collector.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -56,7 +57,7 @@ public class Probe {
     /** Plugins to use with this probe */
     @NotNull
     @OneToMany
-    private Set<Plugin> plugins;
+    private Set<Plugin> plugins = new HashSet<Plugin>();
 
     /**
      * Set the UUID of the probe from its String representation.
