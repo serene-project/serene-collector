@@ -9,18 +9,6 @@ digraph G {
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	nodesep=0.25;
 	ranksep=0.5;
-	// net.sereneproject.collector.validation.ValidationTests
-	c46 [label=<<table title="net.sereneproject.collector.validation.ValidationTests" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ValidationTests.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> ValidationTests </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + ValidationTests() </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.validation.ProbeValueDtoValidatorTest
 	c47 [label=<<table title="net.sereneproject.collector.validation.ProbeValueDtoValidatorTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeValueDtoValidatorTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
@@ -51,6 +39,18 @@ digraph G {
 <tr><td align="left" balign="left"> + MonitoringMessageDtoValidatorTest() </td></tr>
 <tr><td align="left" balign="left"> + setup() </td></tr>
 <tr><td align="left" balign="left"> + uuidNull() </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// net.sereneproject.collector.validation.ValidationTests
+	c49 [label=<<table title="net.sereneproject.collector.validation.ValidationTests" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ValidationTests.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> ValidationTests </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ValidationTests() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 }

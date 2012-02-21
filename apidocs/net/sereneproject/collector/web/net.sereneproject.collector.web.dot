@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.sereneproject.collector.web.ServerGroupController
-	c18 [label=<<table title="net.sereneproject.collector.web.ServerGroupController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroupController.html">
+	c115 [label=<<table title="net.sereneproject.collector.web.ServerGroupController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerGroupController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ServerGroupController </td></tr>
 		</table></td></tr>
@@ -21,8 +21,20 @@ digraph G {
 <tr><td align="left" balign="left"> + ServerGroupController() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// net.sereneproject.collector.web.ServerController
+	c116 [label=<<table title="net.sereneproject.collector.web.ServerController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerController.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> ServerController </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + ServerController() </td></tr>
+		</table></td></tr>
+		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.web.ProbeController
-	c19 [label=<<table title="net.sereneproject.collector.web.ProbeController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeController.html">
+	c117 [label=<<table title="net.sereneproject.collector.web.ProbeController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProbeController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ProbeController </td></tr>
 		</table></td></tr>
@@ -35,7 +47,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean
-	c20 [label=<<table title="net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ApplicationConversionServiceFactoryBean.html">
+	c118 [label=<<table title="net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ApplicationConversionServiceFactoryBean.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ApplicationConversionServiceFactoryBean </td></tr>
 		</table></td></tr>
@@ -45,18 +57,6 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> + ApplicationConversionServiceFactoryBean() </td></tr>
 <tr><td align="left" balign="left"> # installFormatters(registry : FormatterRegistry) </td></tr>
-		</table></td></tr>
-		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// net.sereneproject.collector.web.ServerController
-	c21 [label=<<table title="net.sereneproject.collector.web.ServerController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ServerController.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> ServerController </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + ServerController() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 }

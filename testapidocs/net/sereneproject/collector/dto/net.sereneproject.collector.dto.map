@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="c14" href="./MonitoringMessageTest.html" title="net.sereneproject.collector.dto.MonitoringMessageTest" alt="" coords="15,11,195,117"/>
-<area shape="rect" id="c15" href="./AnalyzerResponseDtoTest.html" title="net.sereneproject.collector.dto.AnalyzerResponseDtoTest" alt="" coords="240,19,437,109"/>
-<area shape="rect" id="c16" href="./AnalyzerRequestDtoTest.html" title="net.sereneproject.collector.dto.AnalyzerRequestDtoTest" alt="" coords="482,19,670,109"/>
-<area shape="rect" id="c17" href="./DtoTests.html" title="net.sereneproject.collector.dto.DtoTests" alt="" coords="714,27,809,101"/>
+<area shape="rect" id="c15" href="./AnalyzerResponseDtoTest.html" title="net.sereneproject.collector.dto.AnalyzerResponseDtoTest" alt="" coords="16,19,213,109"/>
+<area shape="rect" id="c16" href="./MonitoringMessageTest.html" title="net.sereneproject.collector.dto.MonitoringMessageTest" alt="" coords="258,11,438,117"/>
+<area shape="rect" id="c17" href="./DtoTests.html" title="net.sereneproject.collector.dto.DtoTests" alt="" coords="482,27,577,101"/>
+<area shape="rect" id="c18" href="./AnalyzerRequestDtoTest.html" title="net.sereneproject.collector.dto.AnalyzerRequestDtoTest" alt="" coords="621,19,809,109"/>
 </map>

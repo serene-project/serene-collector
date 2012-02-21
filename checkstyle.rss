@@ -29,20 +29,6 @@
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.dto.ProbeValueDto.java">net/sereneproject/collector/dto/ProbeValueDto.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  9
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.domain.ProbeValue.java">net/sereneproject/collector/domain/ProbeValue.java</a>
                 </td>
                 <td>
@@ -71,6 +57,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.dto.ProbeValueDto.java">net/sereneproject/collector/dto/ProbeValueDto.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.web.ServerGroupController.java">net/sereneproject/collector/web/ServerGroupController.java</a>
                 </td>
                 <td>
@@ -80,7 +80,7 @@
                   0
                 </td>
                 <td>
-                  3
+                  2
                 </td>
               </tr>
                           <tr>
@@ -113,20 +113,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.validation.ProbeValueDtoValidator.java">net/sereneproject/collector/validation/ProbeValueDtoValidator.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  3
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.domain.Server.java">net/sereneproject/collector/domain/Server.java</a>
                 </td>
                 <td>
@@ -137,6 +123,20 @@
                 </td>
                 <td>
                   26
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector//checkstyle.html#net.sereneproject.collector.validation.ProbeValueDtoValidator.java">net/sereneproject/collector/validation/ProbeValueDtoValidator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
                 </td>
               </tr>
                           <tr>
@@ -164,7 +164,7 @@
                   0
                 </td>
                 <td>
-                  8
+                  9
                 </td>
               </tr>
                           <tr>
@@ -234,7 +234,7 @@
                   0
                 </td>
                 <td>
-                  6
+                  7
                 </td>
               </tr>
                           <tr>
@@ -276,7 +276,7 @@
                   0
                 </td>
                 <td>
-                  14
+                  15
                 </td>
               </tr>
                       </tbody>
