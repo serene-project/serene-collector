@@ -5,6 +5,8 @@ package net.sereneproject.collector.domain;
 
 import java.lang.Long;
 import java.lang.String;
+import java.util.Set;
+import net.sereneproject.collector.domain.Plugin;
 import net.sereneproject.collector.domain.Server;
 
 privileged aspect Probe_Roo_JavaBean {
@@ -47,6 +49,14 @@ privileged aspect Probe_Roo_JavaBean {
     
     public void Probe.setServer(Server server) {
         this.server = server;
+    }
+    
+    public Set<Plugin> Probe.getPlugins() {
+        return this.plugins;
+    }
+    
+    public void Probe.setPlugins(Set<Plugin> plugins) {
+        this.plugins = plugins;
     }
     
 }

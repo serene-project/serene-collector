@@ -1,9 +1,11 @@
 package net.sereneproject.collector.domain;
 
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -50,6 +52,11 @@ public class Probe {
     @NotNull
     @ManyToOne
     private Server server;
+    
+    /** Plugins to use with this probe */
+    @NotNull
+    @OneToMany
+    private Set<Plugin> plugins;
 
     /**
      * Set the UUID of the probe from its String representation.

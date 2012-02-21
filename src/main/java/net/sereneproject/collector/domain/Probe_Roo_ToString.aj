@@ -11,6 +11,7 @@ privileged aspect Probe_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
+        sb.append("Plugins: ").append(getPlugins() == null ? "null" : getPlugins().size()).append(", ");
         sb.append("SavedState: ").append(getSavedState()).append(", ");
         sb.append("Server: ").append(getServer()).append(", ");
         sb.append("Uuid: ").append(getUuid()).append(", ");

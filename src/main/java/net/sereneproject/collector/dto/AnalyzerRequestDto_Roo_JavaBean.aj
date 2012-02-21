@@ -3,16 +3,17 @@
 
 package net.sereneproject.collector.dto;
 
+import java.lang.Long;
 import java.lang.String;
 import java.util.Date;
 
 privileged aspect AnalyzerRequestDto_Roo_JavaBean {
     
-    public String AnalyzerRequestDto.getValue() {
+    public Long AnalyzerRequestDto.getValue() {
         return this.value;
     }
     
-    public void AnalyzerRequestDto.setValue(String value) {
+    public void AnalyzerRequestDto.setValue(Long value) {
         this.value = value;
     }
     

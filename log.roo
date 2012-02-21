@@ -53,3 +53,7 @@ perform eclipse
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-14 03:53:34
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-14 12:21:44
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-14 12:48:18
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-21 21:27:31
+entity --class net.sereneproject.collector.domain.Plugin
+field string --fieldName url --sizeMin 6 --sizeMax 255
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-21 22:27:10
