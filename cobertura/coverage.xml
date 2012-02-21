@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.3839611178614824" branch-rate="0.2261904761904762" lines-covered="316" lines-valid="823" branches-covered="95" branches-valid="420" complexity="2.3947368421052633" version="1.9.4.1" timestamp="1329862380056">
+<coverage line-rate="0.3839611178614824" branch-rate="0.2261904761904762" lines-covered="316" lines-valid="823" branches-covered="95" branches-valid="420" complexity="2.3947368421052633" version="1.9.4.1" timestamp="1329863397989">
 	<sources>
 		<source>/scratch/hudson/workspace/serene-collector-site/src/main/aspect</source>
 		<source>/scratch/hudson/workspace/serene-collector-site/src/main/java</source>
