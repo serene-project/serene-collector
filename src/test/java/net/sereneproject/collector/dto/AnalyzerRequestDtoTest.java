@@ -18,7 +18,7 @@ public class AnalyzerRequestDtoTest {
 	@Test
 	public final void printJson() {
 		AnalyzerRequestDto request = new AnalyzerRequestDto();
-		request.setValue("0.4");
+		request.setValue(4L);
 		request.setDate(new Date());
 		request.setSavedState("etat courant du model");
 		System.out.println(request.toJson());
