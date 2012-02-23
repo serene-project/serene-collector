@@ -21,10 +21,10 @@ public class Plugin {
     @Size(min = 6, max = 255)
     private String url;
 
-    /** saved state for this plugin */
+    /** Saved state for this plugin. */
     private String savedState;
 
-    /** last status of the probe for this plugin */
+    /** Last status of the probe for this plugin. */
     private String status;
 
     /** Probe owning this sample. */
@@ -32,7 +32,13 @@ public class Plugin {
     @ManyToOne
     private Probe probe;
 
-    public URI getUri() {
+    /**
+     * Get the URI for this plugin.
+     * 
+     * Returns the URI representation of {@link Plugin#getUrl()}.
+     * @return the URI
+     */
+    public final URI getUri() {
         // TODO: syntax check should be done when setting value, unchecked
         // exception should be thrown when reading
         try {

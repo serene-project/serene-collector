@@ -35,7 +35,8 @@ public class MonitoringMessageDto {
         return new JSONSerializer().exclude("*.class").deepSerialize(this);
     }
 
-    public static String toJsonArray(Collection<MonitoringMessageDto> collection) {
+    public static String toJsonArray(
+            final Collection<MonitoringMessageDto> collection) {
         return new JSONSerializer().exclude("*.class")
                 .deepSerialize(collection);
     }
