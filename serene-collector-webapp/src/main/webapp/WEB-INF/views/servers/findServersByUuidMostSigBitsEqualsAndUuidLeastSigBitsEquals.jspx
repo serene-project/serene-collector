@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:find finderName="ByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals" id="ff_net_sereneproject_collector_domain_Server" path="/servers" z="7bfDiphwkgCSVHa5hhmUX1SyK0g=">
-        <field:input disableFormBinding="true" field="uuidMostSigBits" id="f_net_sereneproject_collector_domain_Server_uuidMostSigBits" required="true" validationMessageCode="field_invalid_integer" z="hg9Z2Ld9NfOIWYmeVFgAjRLIJ9g="/>
-        <field:input disableFormBinding="true" field="uuidLeastSigBits" id="f_net_sereneproject_collector_domain_Server_uuidLeastSigBits" required="true" validationMessageCode="field_invalid_integer" z="OF82CT4AQIHUC/hemTzyEo5lPeE="/>
-    </form:find>
-</div>
