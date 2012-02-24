@@ -1,0 +1,59 @@
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-07 20:39:04
+project --topLevelPackage org.orwellian --projectName Orwellian --java 6
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-07 20:39:04
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-07 20:39:06
+persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+entity --class ~.domain.ServerGroup
+field string --fieldName name --sizeMin 3 --sizeMax 40 --notNull true --unique true
+entity --class ~.domain.Server
+field string --fieldName name --sizeMin 3 --sizeMax 40 --notNull true --unique true
+field reference --fieldName serverGroup --type org.orwellian.domain.ServerGroup --cardinality MANY_TO_ONE --notNull true
+web mvc setup
+web mvc scaffold --class ~.web.ServerController --backingType ~.domain.Server
+web mvc scaffold --class ~.web.ServerGroupController --backingType ~.domain.ServerGroup
+perform eclipse
+focus --class ~.domain.ServerGroup
+field string --fieldName toto --sizeMax 20 
+class --class ~.dto.MonitoringMessage
+class --class ~.dto.MonitoringMessage
+class --class ~.dto.ProbeValue
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-07 21:42:10
+entity --class ~.domain.Probe 
+entity --class ~.domain.ProbeValue 
+focus --class ~.domain.Server 
+finder list 
+finder list --depth 2 --filter ByUuid
+finder add --finderName findServersByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals
+focus --class ~.domain.ServerGroup
+finder list --filter name
+finder add findServerGroupsByNameEquals
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-07 23:53:46
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-08 21:03:25
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-09 00:00:17
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-09 13:05:54
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-09 13:06:12
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-09 13:12:42
+security setup
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-12 22:27:58
+perform eclipse
+perform eclipse
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-12 23:34:35
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-13 09:52:08
+logging setup --level DEBUG --package net.sereneproject.collector
+logging setup --level INFO --package ALL_SPRING
+logging setup --level INFO --package WEB 
+logging setup --level INFO --package AOP 
+logging setup --level INFO --package PERSISTENCE 
+logging setup --level DEBUG --package PROJECT 
+logging setup --level INFO --package SECURITY 
+logging setup --level INFO --package TRANSACTIONS 
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-13 11:32:06
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-13 18:17:06
+perform eclipse
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-14 03:53:34
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-14 12:21:44
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-14 12:48:18
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-21 21:27:31
+entity --class net.sereneproject.collector.domain.Plugin
+field string --fieldName url --sizeMin 6 --sizeMax 255
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-21 22:27:10
