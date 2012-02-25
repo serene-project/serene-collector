@@ -23,8 +23,16 @@
 			<artifactId>httpclient</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-collections</groupId>
@@ -37,14 +45,17 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -214,6 +225,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<classifier />
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<classifier />
 			<exclusions>
@@ -341,8 +357,13 @@
 		<dependency>
 			<groupId>net.bull.javamelody</groupId>
 			<artifactId>javamelody-core</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
+
+	<properties>
+
+	</properties>
 
 	<build>
 		<plugins>
@@ -560,6 +581,7 @@
 				<version>0.5</version>
 				<configuration>
 					<message>Creating site for ${project.version}</message>
+					<path>collector-webapp</path>
 				</configuration>
 				<executions>
 					<execution>
@@ -591,7 +613,6 @@
 							<report>dependencies</report>
 							<report>dependency-convergence</report>
 							<report>dependency-management</report>
-							<report>distribution-management</report>
 						</reports>
 					</reportSet>
 				</reportSets>
