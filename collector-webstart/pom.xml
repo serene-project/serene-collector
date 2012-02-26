@@ -53,15 +53,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo.webstart</groupId>
 				<artifactId>webstart-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<!-- bind to phase, I prefer to call it manualls -->
-						<phase>package</phase>
-						<goals>
-							<goal>jnlp-inline</goal> <!-- use jnlp, jnlp-inline or jnlp-single as appropriate -->
-						</goals>
-					</execution>
-				</executions>
 				<configuration>
 					<!--outputDirectory></outputDirectory --> <!-- not required?? -->
 
