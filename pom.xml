@@ -444,6 +444,24 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<configuration>
+					<header>src/etc/header.txt</header>
+					<properties>
+						<year>${project.inceptionYear}</year>
+						<owner>${project.organization.name}</owner>
+					</properties>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.0</version>
@@ -607,6 +625,17 @@
 			<name>Spring Roo 
 			Repository</name>
 			<url>http://spring-roo-repository.springsource.org/release</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>mc-release</id>
+			<name>Local Maven repository of releases</name>
+			<url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
 		</pluginRepository>
 	</pluginRepositories>
 	<distributionManagement></distributionManagement>
