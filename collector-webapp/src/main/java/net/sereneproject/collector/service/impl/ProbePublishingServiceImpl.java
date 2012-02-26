@@ -44,9 +44,15 @@ import org.apache.log4j.Logger;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service used to publish monitoring values.
+ * 
+ * @author gehel
+ */
 @Service
 public class ProbePublishingServiceImpl implements ProbePublishingService {
 
+    /** Logger. */
     private static final Logger LOG = Logger
             .getLogger(ProbePublishingServiceImpl.class);
 
@@ -59,7 +65,8 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
         for (ProbeValueDto pvDto : message.getProbeValues()) {
             // add value to probe
             ProbeValue pv = new ProbeValue();
-            pv.setProbe(findProbe(pvDto, message, serverCache, groupCache));
+            pv.setProbe(findOrCreateProbe(pvDto, message, serverCache,
+                    groupCache));
             pv.setValue(Long.parseLong(pvDto.getValue()));
             pv.setDate(new Date());
             pv.persist();
@@ -69,7 +76,24 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
         // (message queue ?)
     }
 
-    private Probe findProbe(final ProbeValueDto pvDto,
+    /**
+     * Find a {@link Probe}, create it if it doesnt exist.
+     * 
+     * @param pvDto
+     *            the probe value whose probe we are looking for
+     * @param message
+     *            the current message, used to retreive the server / server
+     *            group if needed
+     * @param serverCache
+     *            cache local to the call, if a server is found or created, it
+     *            is stored in this cache
+     * @param groupCache
+     *            cache local to the call, if a server group is found or
+     *            created, it is stored in this cache
+     * @return the {@link Probe} we are looking for, either found in the DB or
+     *         freshly created
+     */
+    private Probe findOrCreateProbe(final ProbeValueDto pvDto,
             final MonitoringMessageDto message,
             final Map<String, Server> serverCache,
             final Map<String, ServerGroup> groupCache) {
@@ -88,7 +112,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             }
             Probe probe = new Probe();
             probe.setName(pvDto.getName());
-            probe.setServer(findServer(message, serverCache, groupCache));
+            probe.setServer(findOrCreateServer(message, serverCache, groupCache));
             probe.setUuid(pvDto.getUuid());
             probe.persist();
 
@@ -99,7 +123,21 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
         }
     }
 
-    private Server findServer(final MonitoringMessageDto message,
+    /**
+     * Finds a {@link Server}, create it if it doesnt exist.
+     * 
+     * @param message
+     *            the message whose server we are looking for
+     * @param serverCache
+     *            cache local to the call, if a server is found or created, it
+     *            is stored in this cache
+     * @param groupCache
+     *            cache local to the call, if a server group is found or
+     *            created, it is stored in this cache
+     * @return the {@link Server} we are looking for, either found in the DB or
+     *         freshly created
+     */
+    private Server findOrCreateServer(final MonitoringMessageDto message,
             final Map<String, Server> serverCache,
             final Map<String, ServerGroup> groupCache) {
         if (serverCache.containsKey(message.getUuid())) {
@@ -129,7 +167,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             Server server = new Server();
             server.setUuid(message.getUuid());
             server.setHostname(message.getHostname());
-            server.setServerGroup(findServerGroup(message.getGroup(),
+            server.setServerGroup(findOrCreateServerGroup(message.getGroup(),
                     groupCache));
             server.persist();
             serverCache.put(message.getUuid(), server);
@@ -138,7 +176,18 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
         }
     }
 
-    private ServerGroup findServerGroup(final String name,
+    /**
+     * Finds a {@link ServerGroup}, create it if it doesnt exist.
+     * 
+     * @param name
+     *            the name of the group
+     * @param groupCache
+     *            cache local to the call, if a server group is found or
+     *            created, it is stored in this cache
+     * @return the {@link ServerGroup} we are looking for, either found in the
+     *         DB or freshly created
+     */
+    private ServerGroup findOrCreateServerGroup(final String name,
             final Map<String, ServerGroup> groupCache) {
         if (groupCache.containsKey(name)) {
             return groupCache.get(name);

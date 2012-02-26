@@ -42,6 +42,9 @@ public interface ProbePublishingService {
     /**
      * Stores the monitoring message and dispatch it to the analyzers.
      * 
+     * If the needed structure doesnt exist (Server, ServerGroup, ...) it is
+     * created.
+     * 
      * @param message
      *            the message received from a monitoring agent
      */

@@ -32,11 +32,28 @@ import org.springframework.validation.Errors;
 
 import flexjson.JSONSerializer;
 
+/**
+ * Utility methods for the web.
+ * 
+ * @author gehel
+ */
 public final class WebUtils {
 
+    /**
+     * Utility class should not be constructed.
+     */
     private WebUtils() {
     }
 
+    /**
+     * Convert errors to JSON.
+     * 
+     * Can be used to report errors to the caller in a JSON call.
+     * 
+     * @param errors
+     *            errors to translate
+     * @return JSON representation of the errors
+     */
     public static String toJson(final Errors errors) {
         return new JSONSerializer().exclude("*.class").serialize(
                 errors.getAllErrors());
