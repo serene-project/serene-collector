@@ -1,0 +1,6 @@
+net.sereneproject.collector.web
+net.sereneproject.collector.dto
+net.sereneproject.collector.domain
+net.sereneproject.collector.validation
+net.sereneproject.collector
+net.sereneproject.collector.service.impl
