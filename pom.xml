@@ -454,10 +454,10 @@
 					</properties>
 					<excludes>
 						<exclude>target/**</exclude>
-                        <exclude>.clover/**</exclude>
-                        <exclude>**/.gitignore</exclude>
-                        <exclude>bin/**</exclude>
-                        <exclude>bin/src/etc/header.txt</exclude>
+						<exclude>.clover/**</exclude>
+						<exclude>**/.gitignore</exclude>
+						<exclude>bin/**</exclude>
+						<exclude>bin/src/etc/header.txt</exclude>
 					</excludes>
 				</configuration>
 				<executions>
@@ -610,16 +610,16 @@
 			<name>Spring Roo Repository</name>
 			<url>http://spring-roo-repository.springsource.org/release</url>
 		</repository>
-        <repository>
-            <id>JBoss Repo</id>
-            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-            <name>JBoss Repo</name>
-        </repository>
-        <repository>
-            <id>Serene Project Snapshot Repository</id>
-            <url>https://repository-serene-project.forge.cloudbees.com/snapshot/ </url>
-            <name>Serene Project Snapshot Repository</name>
-        </repository>
+		<repository>
+			<id>JBoss Repo</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+			<name>JBoss Repo</name>
+		</repository>
+		<repository>
+			<id>Serene Project Snapshot Repository</id>
+			<url>https://repository-serene-project.forge.cloudbees.com/snapshot/ </url>
+			<name>Serene Project Snapshot Repository</name>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -648,6 +648,16 @@
 			<releases>
 				<enabled>true</enabled>
 			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>bees-plugins-snapshots</id>
+			<url>http://repository-cloudbees.forge.cloudbees.com/public-snapshot/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 	<distributionManagement></distributionManagement>
