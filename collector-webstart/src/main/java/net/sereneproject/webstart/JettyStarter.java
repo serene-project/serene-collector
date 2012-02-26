@@ -41,15 +41,31 @@ import org.eclipse.jetty.util.URIUtil;
 import org.eclipse.jetty.webapp.WebAppClassLoader;
 import org.eclipse.jetty.webapp.WebAppContext;
 
+/**
+ * Starts a Jetty server with our application.
+ * 
+ * @author gehel
+ */
 public class JettyStarter {
 
-	public static void main(String[] args) throws Exception {
+	/** Port used by the Jetty server. */
+	private static final int SERVER_PORT = 8080;
+	/** Name of the WAR file to deploy. */
+	private static final String WAR_NAME = "collector-webapp-0.1.0.BUILD-SNAPSHOT.war";
+	/** Buffer size used to copy files. */
+	private static final int BUFFER_SIZE = 1024;
 
-		int port = 8080;
+	/**
+	 * Starts the server.
+	 * 
+	 * @param args
+	 * @throws Exception
+	 */
+	public static void main(final String[] args) throws Exception {
 
 		Server server = new Server();
 		SelectChannelConnector connector = new SelectChannelConnector();
-		connector.setPort(port);
+		connector.setPort(SERVER_PORT);
 		server.setConnectors(new Connector[] { connector });
 
 		System.setSecurityManager(null);
@@ -62,10 +78,10 @@ public class JettyStarter {
 			OutputStream warOut = new FileOutputStream(tmpFile);
 			// TODO: War file name must be retrieved from somewhere (to get
 			// correct version)
-			InputStream warIn = cl.getResourceAsStream("collector-webapp-0.1.0.BUILD-SNAPSHOT.war");
-			byte[] buf = new byte[1024];
+			InputStream warIn = cl.getResourceAsStream(WAR_NAME);
+			byte[] buf = new byte[BUFFER_SIZE];
 			int len;
-					while ((len = warIn.read(buf)) > 0) {
+			while ((len = warIn.read(buf)) > 0) {
 				warOut.write(buf, 0, len);
 			}
 			warIn.close();

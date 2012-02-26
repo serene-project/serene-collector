@@ -26,8 +26,22 @@ package net.sereneproject.collector.service;
 
 import net.sereneproject.collector.domain.ProbeValue;
 
+/**
+ * Service used to dispatch probe values to analyzers.
+ * 
+ * This service is responsible of locating the analyzers, preparing messages and
+ * handling results from the analyzers.
+ * 
+ * @author gehel
+ * 
+ */
 public interface AnalyzerService {
 
+    /**
+     * Dispatch a probe value to the configured analyzers.
+     * 
+     * @param probeValue
+     */
     void analyze(ProbeValue probeValue);
 
 }

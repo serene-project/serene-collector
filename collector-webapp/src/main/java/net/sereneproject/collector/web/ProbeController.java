@@ -44,19 +44,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Controller for posting probe values.
  * 
- * 
- * 
  * @author gehel
  */
 @RequestMapping("/probe")
 @Controller
 public class ProbeController {
 
+    /** Logger. */
     private static final Logger LOG = Logger.getLogger(ProbeController.class);
 
+    /** Service used to publish probe values. */
     @Autowired(required = true)
     private ProbePublishingService probePublishingService;
 
+    /** Validator. */
     @Autowired(required = true)
     private MonitoringMessageDtoValidator validator;
 
@@ -70,7 +71,8 @@ public class ProbeController {
      *         returned.
      */
     @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
-    public final ResponseEntity<String> postMonitoring(@RequestBody final String json) {
+    public final ResponseEntity<String> postMonitoring(
+            @RequestBody final String json) {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Received message : " + json);
         }
@@ -94,10 +96,20 @@ public class ProbeController {
         return new ResponseEntity<String>(HttpStatus.CREATED);
     }
 
+    /**
+     * The publishing service.
+     * 
+     * @return
+     */
     private ProbePublishingService getProbePublishingService() {
         return this.probePublishingService;
     }
 
+    /**
+     * The validator.
+     * 
+     * @return
+     */
     private MonitoringMessageDtoValidator getValidator() {
         return this.validator;
     }

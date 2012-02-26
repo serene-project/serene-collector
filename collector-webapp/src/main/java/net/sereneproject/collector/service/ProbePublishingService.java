@@ -24,12 +24,23 @@
  */
 package net.sereneproject.collector.service;
 
-import java.net.URL;
-
 import net.sereneproject.collector.dto.MonitoringMessageDto;
 
+/**
+ * Service used to publish monitoring values.
+ * 
+ * This service is used when receiving messages from monitoring agents.
+ * 
+ * @author gehel
+ */
 public interface ProbePublishingService {
 
+    /**
+     * Stores the monitoring message and dispatch it to the analyzers.
+     * 
+     * @param message
+     *            the message received from a monitoring agent
+     */
     void publish(MonitoringMessageDto message);
 
 }

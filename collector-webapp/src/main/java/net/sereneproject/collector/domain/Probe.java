@@ -78,7 +78,7 @@ public class Probe {
     @ManyToOne
     private Server server;
     
-    /** Plugins to use with this probe */
+    /** Plugins to use with this probe. */
     @NotNull
     @OneToMany
     private Set<Plugin> plugins = new HashSet<Plugin>();

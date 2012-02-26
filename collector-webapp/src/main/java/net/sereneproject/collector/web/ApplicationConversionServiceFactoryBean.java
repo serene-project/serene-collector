@@ -35,8 +35,13 @@ import org.springframework.roo.addon.web.mvc.controller.RooConversionService;
 public class ApplicationConversionServiceFactoryBean extends
         FormattingConversionServiceFactoryBean {
 
+    /**
+     * Install formatters.
+     * 
+     * @param registry the registry in which to install formatters
+     */
     @Override
-    protected void installFormatters(FormatterRegistry registry) {
+    protected final void installFormatters(final FormatterRegistry registry) {
         super.installFormatters(registry);
         // Register application converters and formatters
     }

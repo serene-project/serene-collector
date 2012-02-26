@@ -35,6 +35,11 @@ import org.springframework.validation.Validator;
 
 import com.google.common.base.Strings;
 
+/**
+ * Validator for probe values.
+ * 
+ * @author gehel
+ */
 @Component
 public class ProbeValueDtoValidator implements Validator {
 

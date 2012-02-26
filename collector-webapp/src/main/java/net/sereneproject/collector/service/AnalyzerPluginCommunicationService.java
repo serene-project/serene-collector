@@ -32,8 +32,28 @@ import org.apache.http.client.ClientProtocolException;
 import net.sereneproject.collector.dto.AnalyzerRequestDto;
 import net.sereneproject.collector.dto.AnalyzerResponseDto;
 
+/**
+ * Service used to send messages to analyzers.
+ * 
+ * This service is responsible only of the communication, not of the treatment
+ * of data.
+ * 
+ * @author gehel
+ */
 public interface AnalyzerPluginCommunicationService {
 
-    AnalyzerResponseDto send(URI uri, AnalyzerRequestDto request) throws ClientProtocolException, IOException;
+    /**
+     * Send a message to an analyzer.
+     * 
+     * @param uri
+     *            the URI of the analyzer
+     * @param request
+     *            the message to send
+     * @return the response from the analyzer
+     * @throws ClientProtocolException
+     * @throws IOException
+     */
+    AnalyzerResponseDto send(URI uri, AnalyzerRequestDto request)
+            throws ClientProtocolException, IOException;
 
 }

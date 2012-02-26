@@ -36,18 +36,30 @@ import net.sereneproject.collector.dto.AnalyzerResponseDto;
 import net.sereneproject.collector.service.AnalyzerPluginCommunicationService;
 import net.sereneproject.collector.service.AnalyzerService;
 
+/**
+ * Service used to dispatch probe values to analyzers.
+ * 
+ * @author gehel
+ */
 public class AnalyzerServiceImpl implements AnalyzerService {
 
-    private final AnalyzerPluginCommunicationService analyzerPluginCommunicationService;
+    /** The service used for communication with the analyzers. */
+    private final AnalyzerPluginCommunicationService communicationService;
 
+    /**
+     * Construct the analyzer service.
+     * 
+     * @param communicationService
+     *            the service used for communication with the analyzers
+     */
     @Autowired
     public AnalyzerServiceImpl(
-            AnalyzerPluginCommunicationService analyzerPluginCommunicationService) {
-        this.analyzerPluginCommunicationService = analyzerPluginCommunicationService;
+            final AnalyzerPluginCommunicationService communicationService) {
+        this.communicationService = communicationService;
     }
 
     @Override
-    public void analyze(ProbeValue probeValue) {
+    public final void analyze(final ProbeValue probeValue) {
         for (Plugin plugin : probeValue.getProbe().getPlugins()) {
             // create request
             AnalyzerRequestDto request = new AnalyzerRequestDto();
@@ -58,8 +70,8 @@ public class AnalyzerServiceImpl implements AnalyzerService {
             // send probe to analyzer plugins
             AnalyzerResponseDto response;
             try {
-                response = getAnalyzerPluginCommunicationService().send(
-                        plugin.getUri(), request);
+                response = getCommunicationService().send(plugin.getUri(),
+                        request);
 
                 // save response
                 plugin.setSavedState(response.getNewSavedState());
@@ -75,8 +87,13 @@ public class AnalyzerServiceImpl implements AnalyzerService {
         }
     }
 
-    private AnalyzerPluginCommunicationService getAnalyzerPluginCommunicationService() {
-        return this.analyzerPluginCommunicationService;
+    /**
+     * The service used for communication with the analyzers.
+     * 
+     * @return
+     */
+    private AnalyzerPluginCommunicationService getCommunicationService() {
+        return this.communicationService;
     }
 
 }

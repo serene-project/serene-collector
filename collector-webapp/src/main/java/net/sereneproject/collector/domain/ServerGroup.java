@@ -31,11 +31,23 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.Column;
 import javax.validation.constraints.Size;
 
+/**
+ * Used to create logical server groups.
+ * 
+ * For example, all web servers could be put in the same group. Or all servers
+ * for a particular application.
+ * 
+ * @author gehel
+ * 
+ */
 @RooJavaBean
 @RooToString
 @RooEntity(finders = { "findServerGroupsByNameEquals" })
 public class ServerGroup {
 
+    /**
+     * Name of the server group.
+     */
     @NotNull
     @Column(unique = true)
     @Size(min = 3, max = 20)

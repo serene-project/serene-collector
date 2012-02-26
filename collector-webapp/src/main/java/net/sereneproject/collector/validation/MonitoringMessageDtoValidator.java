@@ -38,11 +38,23 @@ import org.springframework.validation.Validator;
 
 import com.google.common.base.Strings;
 
+/**
+ * Validator for Monitoring messages.
+ * 
+ * @author gehel
+ */
 @Component
 public class MonitoringMessageDtoValidator implements Validator {
 
+    /** Validator used to validate probe values. */
     private final ProbeValueDtoValidator probeValueValidator;
 
+    /**
+     * Construct the validator.
+     * 
+     * @param probeValueValidator
+     *            the validator used to validate probe values
+     */
     @Autowired(required = true)
     public MonitoringMessageDtoValidator(
             ProbeValueDtoValidator probeValueValidator) {
@@ -56,27 +68,27 @@ public class MonitoringMessageDtoValidator implements Validator {
 
     @Override
     public final void validate(final Object target, final Errors errors) {
-        MonitoringMessageDto monitoringMessage = (MonitoringMessageDto) target;
+        MonitoringMessageDto message = (MonitoringMessageDto) target;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "uuid",
                 "server.uuid.empty");
 
         // check if UUID is valid
-        if (!Strings.isNullOrEmpty(monitoringMessage.getUuid())) {
+        if (!Strings.isNullOrEmpty(message.getUuid())) {
             try {
-                UUID.fromString(monitoringMessage.getUuid());
+                UUID.fromString(message.getUuid());
             } catch (IllegalArgumentException iae) {
                 errors.rejectValue("uuid", "server.uuid.invalid");
             }
         }
 
         // hostname and group need to be both empty or both have a value
-        if (Strings.isNullOrEmpty(monitoringMessage.getHostname())) {
-            if (!Strings.isNullOrEmpty(monitoringMessage.getGroup())) {
+        if (Strings.isNullOrEmpty(message.getHostname())) {
+            if (!Strings.isNullOrEmpty(message.getGroup())) {
                 // if hostname is null, group needs to be null as well
                 errors.rejectValue("group", "server.group.notempty");
             }
         } else {
-            if (Strings.isNullOrEmpty(monitoringMessage.getGroup())) {
+            if (Strings.isNullOrEmpty(message.getGroup())) {
                 // if hostname is given, we need the group in which the created
                 // server will be categorized
                 errors.rejectValue("group", "server.group.empty");
@@ -84,11 +96,11 @@ public class MonitoringMessageDtoValidator implements Validator {
         }
 
         // there should be at least on probe value for a message
-        if (CollectionUtils.isEmpty(monitoringMessage.getProbeValues())) {
+        if (CollectionUtils.isEmpty(message.getProbeValues())) {
             errors.rejectValue("probeValues", "probevalues.empty");
         } else {
             int i = 0;
-            for (ProbeValueDto probeValue : monitoringMessage.getProbeValues()) {
+            for (ProbeValueDto probeValue : message.getProbeValues()) {
                 errors.pushNestedPath("probeValues[" + i++ + "]");
                 ValidationUtils.invokeValidator(getProbeValueValidator(),
                         probeValue, errors);
@@ -97,6 +109,11 @@ public class MonitoringMessageDtoValidator implements Validator {
         }
     }
 
+    /**
+     * The validator used to validate dependent objects.
+     * 
+     * @return
+     */
     private ProbeValueDtoValidator getProbeValueValidator() {
         return this.probeValueValidator;
     }
