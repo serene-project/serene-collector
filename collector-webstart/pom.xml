@@ -7,7 +7,7 @@
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 	</parent>
 	<artifactId>collector-webstart</artifactId>
-	<name>Collector WebStart</name>
+	<name>Serene Collector - WebStart</name>
 
 	<dependencies>
 		<dependency>
@@ -128,6 +128,27 @@
 
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.5</version>
+				<configuration>
+					<message>Creating site for ${project.name} ${project.version}</message>
+					<path>collector-webstart</path>
+					<repositoryName>serene-collector</repositoryName>
+					<repositoryOwner>serene-project</repositoryOwner>
+					<merge>true</merge>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site</phase>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>

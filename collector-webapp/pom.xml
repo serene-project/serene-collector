@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>collector-webapp</artifactId>
 	<packaging>war</packaging>
-	<name>Serene Project - Collector</name>
+	<name>Serene Collector - Webapp</name>
 	<url>http://serene-project.github.com/serene-collector/collector-webapp/</url>
 
 	<dependencies>
@@ -591,6 +591,26 @@
 						<type>remote</type>
 					</deployer>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.5</version>
+				<configuration>
+					<message>Creating site for ${project.name} ${project.version}</message>
+					<path>collector-webapp</path>
+					<repositoryName>serene-collector</repositoryName>
+					<repositoryOwner>serene-project</repositoryOwner>
+					<merge>true</merge>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site</phase>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
