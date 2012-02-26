@@ -28,9 +28,6 @@
  */
 package net.sereneproject.collector.domain;
 
-import static net.sereneproject.collector.domain.DomainConstants.URL_MAX_SIZE;
-import static net.sereneproject.collector.domain.DomainConstants.URL_MIN_SIZE;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -48,7 +45,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 public class Plugin {
 
     /** URL of the plugin. */
-    @Size(min = URL_MIN_SIZE, max = URL_MAX_SIZE)
+    @Size(min = 6, max = 255)
     private String url;
 
     /** Saved state for this plugin. */

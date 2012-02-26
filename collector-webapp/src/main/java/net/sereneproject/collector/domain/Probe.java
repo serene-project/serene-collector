@@ -28,9 +28,6 @@
  */
 package net.sereneproject.collector.domain;
 
-import static net.sereneproject.collector.domain.DomainConstants.NAME_MAX_SIZE;
-import static net.sereneproject.collector.domain.DomainConstants.NAME_MIN_SIZE;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -59,7 +56,7 @@ public class Probe {
     /** Human readable probe name. */
     @NotNull
     @Column(unique = true)
-    @Size(min = NAME_MIN_SIZE, max = NAME_MAX_SIZE)
+    @Size(min = 3, max = 20)
     private String name;
 
     /** UUID is split in 2 {@link Long} fields. */
@@ -84,7 +81,7 @@ public class Probe {
     @NotNull
     @ManyToOne
     private Server server;
-    
+
     /** Plugins to use with this probe. */
     @NotNull
     @OneToMany
