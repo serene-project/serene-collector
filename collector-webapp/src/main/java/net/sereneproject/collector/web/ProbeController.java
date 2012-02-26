@@ -78,7 +78,7 @@ public class ProbeController {
     public final ResponseEntity<String> postMonitoring(
             @RequestBody final String json) {
         if (LOG.isDebugEnabled()) {
-            LOG.debug("Received message : " + json);
+            LOG.debug("Received message : [" + json + "]");
         }
 
         MonitoringMessageDto message = MonitoringMessageDto
