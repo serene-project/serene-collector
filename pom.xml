@@ -610,11 +610,16 @@
 			<name>Spring Roo Repository</name>
 			<url>http://spring-roo-repository.springsource.org/release</url>
 		</repository>
-		<repository>
-			<id>JBoss Repo</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-			<name>JBoss Repo</name>
-		</repository>
+        <repository>
+            <id>JBoss Repo</id>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+            <name>JBoss Repo</name>
+        </repository>
+        <repository>
+            <id>Serene Project Snapshot Repository</id>
+            <url>https://repository-serene-project.forge.cloudbees.com/snapshot/ </url>
+            <name>Serene Project Snapshot Repository</name>
+        </repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
