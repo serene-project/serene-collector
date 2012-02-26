@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>Serene Collector - Webapp - Checkstyle report</title>
+    <link>http://serene-project.github.com/serene-collector/collector-webapp/</link>
+    <description>Serene Collector - Webapp - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2012 Serene Project</copyright>
+    <item>
+      <title>File: 24,
+             Errors: 308,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html</link>
+      <description>
+        <p>Click <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.dto.ProbeValueDto.java">net/sereneproject/collector/dto/ProbeValueDto.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.domain.ProbeValue.java">net/sereneproject/collector/domain/ProbeValue.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.domain.ServerGroup.java">net/sereneproject/collector/domain/ServerGroup.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.web.ServerGroupController.java">net/sereneproject/collector/web/ServerGroupController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.service.impl.AnalyzerServiceImpl.java">net/sereneproject/collector/service/impl/AnalyzerServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  19
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.web.utils.ResourceAnchor.java">net/sereneproject/collector/web/utils/ResourceAnchor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.service.impl.ProbePublishingServiceImpl.java">net/sereneproject/collector/service/impl/ProbePublishingServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  17
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.service.ProbePublishingService.java">net/sereneproject/collector/service/ProbePublishingService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.service.impl.HttpAnalyzerPluginCommunication.java">net/sereneproject/collector/service/impl/HttpAnalyzerPluginCommunication.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.domain.Server.java">net/sereneproject/collector/domain/Server.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  20
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.validation.ProbeValueDtoValidator.java">net/sereneproject/collector/validation/ProbeValueDtoValidator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.web.utils.WebUtils.java">net/sereneproject/collector/web/utils/WebUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  10
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.service.AnalyzerService.java">net/sereneproject/collector/service/AnalyzerService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.dto.AnalyzerRequestDto.java">net/sereneproject/collector/dto/AnalyzerRequestDto.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.domain.package-info.java">net/sereneproject/collector/domain/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.dto.AnalyzerResponseDto.java">net/sereneproject/collector/dto/AnalyzerResponseDto.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  10
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.web.ProbeController.java">net/sereneproject/collector/web/ProbeController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  18
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.domain.Probe.java">net/sereneproject/collector/domain/Probe.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean.java">net/sereneproject/collector/web/ApplicationConversionServiceFactoryBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.web.ServerController.java">net/sereneproject/collector/web/ServerController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.service.AnalyzerPluginCommunicationService.java">net/sereneproject/collector/service/AnalyzerPluginCommunicationService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.dto.MonitoringMessageDto.java">net/sereneproject/collector/dto/MonitoringMessageDto.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  15
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.domain.Plugin.java">net/sereneproject/collector/domain/Plugin.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  14
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://serene-project.github.com/serene-collector/collector-webapp//checkstyle.html#net.sereneproject.collector.validation.MonitoringMessageDtoValidator.java">net/sereneproject/collector/validation/MonitoringMessageDtoValidator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  14
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+
