@@ -52,3 +52,37 @@ Communication between Probe and Collector
   Optional data can be omitted if an entry with this UUID already exists.
 
   Details about this communication can be found in the JavaDoc. TBD: add link.
+  
+  Example :
+  
+  Create a file named monitoring.json with the following content :
++------------------------------------------------------------------------------+
+{
+   "group":"My Group",
+   "hostname":"myhost",
+   "probeValues":[
+      {
+         "name":"CPU",
+         "uuid":"069ba4fb-3e1d-4baa-951c-bcd398379d34",
+         "value":"0.7"
+      },
+      {
+         "name":"disk",
+         "uuid":"ada1f0ec-76cf-4afd-889e-6c1c6a9ee7f3",
+         "value":"21"
+      }
+   ],
+   "uuid":"ce7f5a04-c94c-4eb3-b804-a3ad7f3e3251"
+}
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+wget \
+    --auth-no-challenge \
+    --http-user=admin \
+    --http-password=admin \
+    --header='Accept: application/json' \
+    --header='Content-Type: text/plain; charset=UTF-8' \
+    --post-file=monitoring.json \
+    http://serene-collector.serene-project.cloudbees.net/probe
++------------------------------------------------------------------------------+
