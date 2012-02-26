@@ -502,11 +502,15 @@
 						<buildCommand>
 							<name>org.springframework.ide.eclipse.core.springbuilder</name>
 						</buildCommand>
+						<buildCommand>
+							<name>net.sf.eclipsecs.core.CheckstyleBuilder</name>
+						</buildCommand>
 					</additionalBuildcommands>
 					<additionalProjectnatures>
 						<projectnature>org.eclipse.ajdt.ui.ajnature</projectnature>
 						<projectnature>com.springsource.sts.roo.core.nature</projectnature>
 						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+						<projectnature>net.sf.eclipsecs.core.CheckstyleNature</projectnature>
 					</additionalProjectnatures>
 				</configuration>
 			</plugin>

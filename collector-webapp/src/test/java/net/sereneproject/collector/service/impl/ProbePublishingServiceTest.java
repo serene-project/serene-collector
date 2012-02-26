@@ -51,41 +51,46 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml")
 public class ProbePublishingServiceTest {
 
-	/** The {@link ProbePublishingServiceImpl} to test. */
-	@Autowired(required = true)
-	private ProbePublishingService probePublishingService;
+    /** The {@link ProbePublishingServiceImpl} to test. */
+    @Autowired(required = true)
+    private ProbePublishingService probePublishingService;
 
-	/**
-	 * Test publishing new values.
-	 * 
-	 * This test ensures that publishing probe values where the server / probe /
-	 * group are not known by the system works.
-	 */
-	@Test
-	@Transactional
-	public final void publishingBrandNewValue() {
-		MonitoringMessageDto m = new MonitoringMessageDto();
-		m.setUuid(UUID.randomUUID().toString());
-		m.setGroup("non existing group");
-		m.setHostname("non existing hostname");
-		m.setProbeValues(new ArrayList<ProbeValueDto>());
+    /**
+     * Test publishing new values.
+     * 
+     * This test ensures that publishing probe values where the server / probe /
+     * group are not known by the system works.
+     */
+    @Test
+    @Transactional
+    public final void publishingBrandNewValue() {
+        MonitoringMessageDto m = new MonitoringMessageDto();
+        m.setUuid(UUID.randomUUID().toString());
+        m.setGroup("non existing group");
+        m.setHostname("non existing hostname");
+        m.setProbeValues(new ArrayList<ProbeValueDto>());
 
-		ProbeValueDto pv = new ProbeValueDto();
-		pv.setName("CPU");
-		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue("35");
-		m.getProbeValues().add(pv);
+        ProbeValueDto pv = new ProbeValueDto();
+        pv.setName("CPU");
+        pv.setUuid(UUID.randomUUID().toString());
+        pv.setValue("35");
+        m.getProbeValues().add(pv);
 
-		pv = new ProbeValueDto();
-		pv.setName("Disk");
-		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue("256");
-		m.getProbeValues().add(pv);
+        pv = new ProbeValueDto();
+        pv.setName("Disk");
+        pv.setUuid(UUID.randomUUID().toString());
+        pv.setValue("256");
+        m.getProbeValues().add(pv);
 
-		getProbePublishingService().publish(m);
-	}
+        getProbePublishingService().publish(m);
+    }
 
-	private ProbePublishingService getProbePublishingService() {
-		return this.probePublishingService;
-	}
+    /**
+     * The service under test.
+     * 
+     * @return the service
+     */
+    private ProbePublishingService getProbePublishingService() {
+        return this.probePublishingService;
+    }
 }

@@ -40,13 +40,16 @@ import org.junit.Test;
  */
 public class AnalyzerRequestDtoTest {
 
+    /** A dummy test value. */
+    private static final Long PROBE_VALUE = 4L;
+    
 	/**
 	 * Print a JSON serialized {@link AnalyzerRequestDto}. Useful as an example.
 	 */
 	@Test
 	public final void printJson() {
 		AnalyzerRequestDto request = new AnalyzerRequestDto();
-		request.setValue(4L);
+		request.setValue(PROBE_VALUE);
 		request.setDate(new Date());
 		request.setSavedState("etat courant du model");
 		System.out.println(request.toJson());

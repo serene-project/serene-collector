@@ -44,7 +44,7 @@ public interface AnalyzerService {
     /**
      * Dispatch a probe value to the configured analyzers.
      * 
-     * @param probeValue
+     * @param probeValue the value to analyze
      */
     void analyze(ProbeValue probeValue);
 

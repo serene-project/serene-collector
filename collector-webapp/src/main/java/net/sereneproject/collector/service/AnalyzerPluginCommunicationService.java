@@ -54,8 +54,8 @@ public interface AnalyzerPluginCommunicationService {
      * @param request
      *            the message to send
      * @return the response from the analyzer
-     * @throws ClientProtocolException
-     * @throws IOException
+     * @throws ClientProtocolException in case of protocol violation
+     * @throws IOException in case of generic communication errors
      */
     AnalyzerResponseDto send(URI uri, AnalyzerRequestDto request)
             throws ClientProtocolException, IOException;

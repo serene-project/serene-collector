@@ -28,12 +28,16 @@
  */
 package net.sereneproject.collector.domain;
 
+import static net.sereneproject.collector.domain.DomainConstants.NAME_MAX_SIZE;
+import static net.sereneproject.collector.domain.DomainConstants.NAME_MIN_SIZE;
+
+import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
-import javax.validation.constraints.NotNull;
-import javax.persistence.Column;
-import javax.validation.constraints.Size;
 
 /**
  * Used to create logical server groups.
@@ -54,6 +58,6 @@ public class ServerGroup {
      */
     @NotNull
     @Column(unique = true)
-    @Size(min = 3, max = 20)
+    @Size(min = NAME_MIN_SIZE, max = NAME_MAX_SIZE)
     private String name;
 }

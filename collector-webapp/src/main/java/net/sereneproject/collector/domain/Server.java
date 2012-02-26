@@ -28,6 +28,9 @@
  */
 package net.sereneproject.collector.domain;
 
+import static net.sereneproject.collector.domain.DomainConstants.HOSTNAME_MAX_SIZE;
+import static net.sereneproject.collector.domain.DomainConstants.NAME_MIN_SIZE;
+
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -53,7 +56,7 @@ public class Server {
     /** Hostname of the server. */
     @NotNull
     @Column(unique = true)
-    @Size(min = 3, max = 100)
+    @Size(min = NAME_MIN_SIZE, max = HOSTNAME_MAX_SIZE)
     private String hostname;
 
     /** UUID is split in 2 {@link Long} fields. */
