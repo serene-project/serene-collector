@@ -38,7 +38,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooJson
 public class AnalyzerRequestDto {
-    private Long value;
+    private Double value;
     private Date date;
     private String savedState;
 }

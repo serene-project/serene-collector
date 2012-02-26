@@ -33,11 +33,11 @@ import java.util.Date;
 
 privileged aspect AnalyzerRequestDto_Roo_JavaBean {
     
-    public Long AnalyzerRequestDto.getValue() {
+    public Double AnalyzerRequestDto.getValue() {
         return this.value;
     }
     
-    public void AnalyzerRequestDto.setValue(Long value) {
+    public void AnalyzerRequestDto.setValue(Double value) {
         this.value = value;
     }
     

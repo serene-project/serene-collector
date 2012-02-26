@@ -33,11 +33,11 @@ import net.sereneproject.collector.domain.Probe;
 
 privileged aspect ProbeValue_Roo_JavaBean {
     
-    public Long ProbeValue.getValue() {
+    public Double ProbeValue.getValue() {
         return this.value;
     }
     
-    public void ProbeValue.setValue(Long value) {
+    public void ProbeValue.setValue(Double value) {
         this.value = value;
     }
     

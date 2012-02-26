@@ -86,13 +86,13 @@ public class ProbeControllerIT {
 		ProbeValueDto pv = new ProbeValueDto();
 		pv.setName("CPU");
 		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue("35");
+		pv.setValue(35.0);
 		m.getProbeValues().add(pv);
 
 		pv = new ProbeValueDto();
 		pv.setName("Disk");
 		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue("256");
+		pv.setValue(256.3);
 		m.getProbeValues().add(pv);
 
 		HttpHost host = new HttpHost("localhost", SERVER_PORT, "http");

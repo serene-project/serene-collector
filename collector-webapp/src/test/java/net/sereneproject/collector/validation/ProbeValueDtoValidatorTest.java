@@ -127,7 +127,7 @@ public class ProbeValueDtoValidatorTest {
 	@Test
 	public final void valueEmpty() {
 		ProbeValueDto pv = new ProbeValueDto();
-		pv.setValue((String) null);
+		pv.setValue((Double) null);
 		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
 				"propertyValue");
 		this.validator.validate(pv, errors);

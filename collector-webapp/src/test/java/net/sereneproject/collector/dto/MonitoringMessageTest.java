@@ -56,12 +56,12 @@ public class MonitoringMessageTest {
 		ProbeValueDto pv = new ProbeValueDto();
 		pv.setName("CPU");
 		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue("0.7");
+		pv.setValue(0.7);
 		m.getProbeValues().add(pv);
 		pv = new ProbeValueDto();
 		pv.setName("disk");
 		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue("21");
+		pv.setValue(21.0);
 		m.getProbeValues().add(pv);
 		System.out.println(m.toJson());
 	}

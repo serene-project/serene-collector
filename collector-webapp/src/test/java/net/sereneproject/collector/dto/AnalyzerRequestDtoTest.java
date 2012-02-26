@@ -41,7 +41,7 @@ import org.junit.Test;
 public class AnalyzerRequestDtoTest {
 
     /** A dummy test value. */
-    private static final Long PROBE_VALUE = 4L;
+    private static final Double PROBE_VALUE = 0.4;
     
 	/**
 	 * Print a JSON serialized {@link AnalyzerRequestDto}. Useful as an example.

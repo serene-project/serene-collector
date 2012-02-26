@@ -46,6 +46,6 @@ public class ProbeValueDto {
     private String name;
 
     @NotNull
-    private String value;
+    private Double value;
 
 }

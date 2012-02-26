@@ -67,7 +67,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             ProbeValue pv = new ProbeValue();
             pv.setProbe(findOrCreateProbe(pvDto, message, serverCache,
                     groupCache));
-            pv.setValue(Long.parseLong(pvDto.getValue()));
+            pv.setValue(pvDto.getValue());
             pv.setDate(new Date());
             pv.persist();
         }

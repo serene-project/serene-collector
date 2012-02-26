@@ -56,7 +56,7 @@ public class ProbeValue {
      * The datatype will probably be modified to be more flexible.
      */
     @NotNull
-    private Long value;
+    private Double value;
 
     /** Date the sample was received. */
     @NotNull

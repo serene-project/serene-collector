@@ -47,11 +47,11 @@ privileged aspect ProbeValueDto_Roo_JavaBean {
         this.name = name;
     }
     
-    public String ProbeValueDto.getValue() {
+    public Double ProbeValueDto.getValue() {
         return this.value;
     }
     
-    public void ProbeValueDto.setValue(String value) {
+    public void ProbeValueDto.setValue(Double value) {
         this.value = value;
     }
     

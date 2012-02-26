@@ -53,7 +53,7 @@ import org.springframework.roo.addon.tostring.RooToString;
  */
 @RooJavaBean
 @RooToString
-@RooEntity(finders = { "findProbesByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals" })
+@RooEntity(finders = { "findProbesByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals" })
 public class Probe {
 
     /** Human readable probe name. */
@@ -152,7 +152,7 @@ public class Probe {
             throw new IllegalArgumentException("The uuid argument is required");
         }
         return Probe
-                .findProbesByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals(
+                .findProbesByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(
                         uuid.getMostSignificantBits(),
                         uuid.getLeastSignificantBits()).getSingleResult();
     }

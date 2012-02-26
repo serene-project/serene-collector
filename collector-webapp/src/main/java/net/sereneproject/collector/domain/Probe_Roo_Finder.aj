@@ -34,11 +34,11 @@ import net.sereneproject.collector.domain.Probe;
 
 privileged aspect Probe_Roo_Finder {
     
-    public static TypedQuery<Probe> Probe.findProbesByUuidMostSigBitsNotEqualsAndUuidLeastSigBitsEquals(Long uuidMostSigBits, Long uuidLeastSigBits) {
+    public static TypedQuery<Probe> Probe.findProbesByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(Long uuidMostSigBits, Long uuidLeastSigBits) {
         if (uuidMostSigBits == null) throw new IllegalArgumentException("The uuidMostSigBits argument is required");
         if (uuidLeastSigBits == null) throw new IllegalArgumentException("The uuidLeastSigBits argument is required");
         EntityManager em = Probe.entityManager();
-        TypedQuery<Probe> q = em.createQuery("SELECT o FROM Probe AS o WHERE o.uuidMostSigBits != :uuidMostSigBits  AND o.uuidLeastSigBits = :uuidLeastSigBits", Probe.class);
+        TypedQuery<Probe> q = em.createQuery("SELECT o FROM Probe AS o WHERE o.uuidMostSigBits = :uuidMostSigBits  AND o.uuidLeastSigBits = :uuidLeastSigBits", Probe.class);
         q.setParameter("uuidMostSigBits", uuidMostSigBits);
         q.setParameter("uuidLeastSigBits", uuidLeastSigBits);
         return q;
