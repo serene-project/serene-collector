@@ -71,30 +71,30 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <!--  --><!-- Copyright (c) 2012, Serene Project --><!-- All rights reserved. --><!--  --><!-- Redistribution and use in source and binary forms, with or without modification, --><!-- are permitted provided that the following conditions are met: --><!--  --><!-- Redistributions of source code must retain the above copyright notice, this list --><!-- of conditions and the following disclaimer. --><!-- Redistributions in binary form must reproduce the above copyright notice, this --><!-- list of conditions and the following disclaimer in the documentation and/or --><!-- other materials provided with the distribution. --><!--  --><!-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND --><!-- ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED --><!-- WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE --><!-- DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR --><!-- ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES --><!-- (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; --><!-- LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON --><!-- ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT --><!-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS --><!-- SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. --><!--  --><div class="section"><h2>Communication between Probe and Collector<a name="Communication_between_Probe_and_Collector"></a></h2><p>The probe sends data about the current state of the system to the collector. This data includes data about the server :</p><ul><li>UUID of the server</li><li>hostname of the server (optional)</li><li>group the server belongs to (optional)</li></ul><p>It also includes data from multiple probes. Data from the probes includes :</p><ul><li>UUID of the probe</li><li>value of the probe</li><li>name of the probe (optional)</li></ul><p>Optional data can be omitted if an entry with this UUID already exists.</p><p>Details about this communication can be found in the JavaDoc. TBD: add link.</p><p>Example :</p><p>Create a file named monitoring.json with the following content :</p><div class="source"><pre>\{
+        <!--  --><!-- Copyright (c) 2012, Serene Project --><!-- All rights reserved. --><!--  --><!-- Redistribution and use in source and binary forms, with or without modification, --><!-- are permitted provided that the following conditions are met: --><!--  --><!-- Redistributions of source code must retain the above copyright notice, this list --><!-- of conditions and the following disclaimer. --><!-- Redistributions in binary form must reproduce the above copyright notice, this --><!-- list of conditions and the following disclaimer in the documentation and/or --><!-- other materials provided with the distribution. --><!--  --><!-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND --><!-- ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED --><!-- WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE --><!-- DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR --><!-- ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES --><!-- (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; --><!-- LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON --><!-- ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT --><!-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS --><!-- SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. --><!--  --><div class="section"><h2>Communication between Probe and Collector<a name="Communication_between_Probe_and_Collector"></a></h2><p>The probe sends data about the current state of the system to the collector. This data includes data about the server :</p><ul><li>UUID of the server</li><li>hostname of the server (optional)</li><li>group the server belongs to (optional)</li></ul><p>It also includes data from multiple probes. Data from the probes includes :</p><ul><li>UUID of the probe</li><li>value of the probe</li><li>name of the probe (optional)</li></ul><p>Optional data can be omitted if an entry with this UUID already exists.</p><p>Details about this communication can be found in the JavaDoc. TBD: add link.</p><p>Example :</p><p>Create a file named monitoring.json with the following content :</p><div class="source"><pre>{
    &quot;group&quot;:&quot;My Group&quot;,
    &quot;hostname&quot;:&quot;myhost&quot;,
    &quot;probeValues&quot;:[
-      \{
+      {
          &quot;name&quot;:&quot;CPU&quot;,
          &quot;uuid&quot;:&quot;069ba4fb-3e1d-4baa-951c-bcd398379d34&quot;,
          &quot;value&quot;:&quot;0.7&quot;
-      \},
-      \{
+      },
+      {
          &quot;name&quot;:&quot;disk&quot;,
          &quot;uuid&quot;:&quot;ada1f0ec-76cf-4afd-889e-6c1c6a9ee7f3&quot;,
          &quot;value&quot;:&quot;21&quot;
-      \}
+      }
    ],
    &quot;uuid&quot;:&quot;ce7f5a04-c94c-4eb3-b804-a3ad7f3e3251&quot;
-\}</pre></div><div class="source"><pre>wget \
+}</pre></div></div><div class="section"><h2>Run the following command to send a test message to the server :<a name="Run_the_following_command_to_send_a_test_message_to_the_server_:"></a></h2><div class="source"><pre>wget \
     --auth-no-challenge \
     --http-user=admin \
     --http-password=admin \
     --header='Accept: application/json' \
-    --header='Content-Type: text/plain; charset=UTF-8' \
+    --header='Content-Type: application/json; charset=UTF-8' \
     --post-file=monitoring.json \
-    http://serene-collector.serene-project.cloudbees.net/probe</pre></div></div>
+    http://serene-collector.serene-project.cloudbees.net/probes</pre></div></div>
       </div>
     </div>
     <div class="clear">
