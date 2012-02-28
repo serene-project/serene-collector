@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_net_sereneproject_collector_domain_Plugin" modelAttribute="plugin" path="/plugins" versionField="Version" z="h3NPEld8bJtg5/BcNMnOZciycLs=">
+        <field:textarea field="url" id="c_net_sereneproject_collector_domain_Plugin_url" z="JoDquvDAa+ZUJkrfb4fjjLJOL7k="/>
+        <field:input field="savedState" id="c_net_sereneproject_collector_domain_Plugin_savedState" z="wlNQwWj7nQOP1D22aM5jL3tMAc4="/>
+        <field:input field="status" id="c_net_sereneproject_collector_domain_Plugin_status" z="WOVeXQU+yPMO9HtkaPhG79H8bZU="/>
+        <field:select field="probe" id="c_net_sereneproject_collector_domain_Plugin_probe" itemValue="id" items="${probes}" path="/probes" required="true" z="koM8uLLH2o+GLr7dhytBtRUCP48="/>
+    </form:update>
+</div>

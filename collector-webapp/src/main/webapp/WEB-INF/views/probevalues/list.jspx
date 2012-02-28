@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_net_sereneproject_collector_domain_ProbeValue" items="${probevalues}" z="LrxbrnCI/6OynHmuAKRMx5kluTc=">
+        <table:table data="${probevalues}" id="l_net_sereneproject_collector_domain_ProbeValue" path="/probevalues" z="RomI6WO1IOvXWIwgnS07VyjDjIw=">
+            <table:column id="c_net_sereneproject_collector_domain_ProbeValue_value" property="value" z="lDXJqj5pS7kjT91gtuRn8lcKSNE="/>
+            <table:column date="true" dateTimePattern="${probeValue_date_date_format}" id="c_net_sereneproject_collector_domain_ProbeValue_date" property="date" z="7E0OHShF/8OD5XrN8AfWFTpnblc="/>
+            <table:column id="c_net_sereneproject_collector_domain_ProbeValue_probe" property="probe" z="DT9upq6iO5co1yFNSO5vBEtFuT8="/>
+        </table:table>
+    </page:list>
+</div>

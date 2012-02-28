@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_net_sereneproject_collector_domain_Plugin" items="${plugins}" z="Dfmliwc8mCC6zby9jFYmTeDuSVY=">
+        <table:table data="${plugins}" id="l_net_sereneproject_collector_domain_Plugin" path="/plugins" z="OguyaJr+D2hcax4CeDU/U1wvaEY=">
+            <table:column id="c_net_sereneproject_collector_domain_Plugin_url" property="url" z="c1GwwmIP+CThBrl7V6XgiTXEV4k="/>
+            <table:column id="c_net_sereneproject_collector_domain_Plugin_savedState" property="savedState" z="15kaV3YJmjhvEPzshOCwkcVcOh8="/>
+            <table:column id="c_net_sereneproject_collector_domain_Plugin_status" property="status" z="MckFiWGL96eq5/NflV3DInOZnWI="/>
+            <table:column id="c_net_sereneproject_collector_domain_Plugin_probe" property="probe" z="1KbjLSqzxqwcz8uHyQU3uvEOrGc="/>
+        </table:table>
+    </page:list>
+</div>

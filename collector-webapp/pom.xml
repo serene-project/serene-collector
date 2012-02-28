@@ -8,6 +8,7 @@
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 	</parent>
 	<artifactId>collector-webapp</artifactId>
+	<version>0.1.0.BUILD-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Serene Collector - Webapp</name>
 	<url>http://serene-project.github.com/serene-collector/collector-webapp/</url>

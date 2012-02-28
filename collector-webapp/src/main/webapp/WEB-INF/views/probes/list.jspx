@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_net_sereneproject_collector_domain_Probe" items="${probes}" z="M9e0pS4wDBZcoKNr29pJ6uDQqsk=">
+        <table:table data="${probes}" id="l_net_sereneproject_collector_domain_Probe" path="/probes" z="NKX+cXWB2xFczdXQeE1sHcD9GDg=">
+            <table:column id="c_net_sereneproject_collector_domain_Probe_name" property="name" z="vLqPfvhtSppYM5uCWKVGtG2xCJs="/>
+            <table:column id="c_net_sereneproject_collector_domain_Probe_uuidMostSigBits" property="uuidMostSigBits" z="ml1xCTcBjsXaN1PQiF+uFML06Lk="/>
+            <table:column id="c_net_sereneproject_collector_domain_Probe_uuidLeastSigBits" property="uuidLeastSigBits" z="aEyU9J5sVrAJdOB6KSV1HM9TT+c="/>
+            <table:column id="c_net_sereneproject_collector_domain_Probe_savedState" property="savedState" z="9tzhpzOIABRacfP89rOr/sHWQZU="/>
+            <table:column id="c_net_sereneproject_collector_domain_Probe_server" property="server" z="r/Vz+TODfdUamKbzOc3+RLX0LQI="/>
+        </table:table>
+    </page:list>
+</div>

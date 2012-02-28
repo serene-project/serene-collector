@@ -32,12 +32,22 @@
         <menu:category id="c_server" z="Hm0GrFXfueKwxPqAQou++DaYysQ=">
             <menu:item id="i_server_new" messageCode="global_menu_new" url="/servers?form" z="yhR9MlzzLx68UV2kipD8FrmcRwY="/>
             <menu:item id="i_server_list" messageCode="global_menu_list" url="/servers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="qJbOjtfF1BszGNn3L9fGGwQWd54="/>
-            <menu:item id="fi_server_uuidmostsigbitsequalsanduuidleastsigbitsequals" messageCode="global_menu_find" url="/servers?find=ByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals&amp;form" z="vDda4+t4kq2VRASBcIVRcwNitno="/>
         </menu:category>
         <menu:category id="c_servergroup" z="Cc4jwnPoFZyP80Qz862ME84of0o=">
             <menu:item id="i_servergroup_new" messageCode="global_menu_new" url="/servergroups?form" z="ZS8qKzhZWFB3xDR+grEBy5ekiuQ="/>
             <menu:item id="i_servergroup_list" messageCode="global_menu_list" url="/servergroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="4o5bXy/I29DK2ZjHEPLP0u/Vr7E="/>
-            <menu:item id="fi_servergroup_nameequals" messageCode="global_menu_find" url="/servergroups?find=ByNameEquals&amp;form" z="6xG7GZsTXGaEyg8ZOm/Eaw3X90U="/>
+        </menu:category>
+        <menu:category id="c_probe" z="ci2oqgLTbQbT+fsJYWuxv+fLnZU=">
+            <menu:item id="i_probe_new" messageCode="global_menu_new" url="/probes?form" z="+AkaOaooNBTqOZlkuz4qYTT5ZTQ="/>
+            <menu:item id="i_probe_list" messageCode="global_menu_list" url="/probes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="+c3VdL/j6+oEsZBogMIgL2MSTek="/>
+        </menu:category>
+        <menu:category id="c_plugin" z="4mp/OGfx5o3ceBuqBV61xWxKI6Y=">
+            <menu:item id="i_plugin_new" messageCode="global_menu_new" url="/plugins?form" z="T9EAn/eqnz7orKYbjAzfB7+QVmc="/>
+            <menu:item id="i_plugin_list" messageCode="global_menu_list" url="/plugins?page=1&amp;size=${empty param.size ? 10 : param.size}" z="24p1BnugTQsT6DXIIUv3n5qe27k="/>
+        </menu:category>
+        <menu:category id="c_probevalue" z="4IHBlj61vOwhgpM5cPpY5tLRA7E=">
+            <menu:item id="i_probevalue_new" messageCode="global_menu_new" url="/probevalues?form" z="3ktyFq6xSG8p1jiSsmPUaWRhVzw="/>
+            <menu:item id="i_probevalue_list" messageCode="global_menu_list" url="/probevalues?page=1&amp;size=${empty param.size ? 10 : param.size}" z="yajlWdqawZ/0GePpNfeomDkI65g="/>
         </menu:category>
     </menu:menu>
 </div>

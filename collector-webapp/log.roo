@@ -66,3 +66,9 @@ field string --fieldName url --sizeMin 6 --sizeMax 255
 // Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-02-28 19:58:26
 // Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-02-28 20:05:20
 // Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-02-28 20:05:29
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-02-28 22:36:34
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-02-28 22:39:36
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-02-28 22:39:51
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-02-28 22:54:27
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-02-28 22:54:47
+web mvc all --package ~.web

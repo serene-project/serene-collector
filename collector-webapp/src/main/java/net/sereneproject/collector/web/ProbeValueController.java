@@ -1,12 +1,12 @@
 package net.sereneproject.collector.web;
 
-import net.sereneproject.collector.domain.Probe;
+import net.sereneproject.collector.domain.ProbeValue;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/probes")
+@RequestMapping("/probevalues")
 @Controller
-@RooWebScaffold(path = "probes", formBackingObject = Probe.class)
-public class ProbeController {
+@RooWebScaffold(path = "probevalues", formBackingObject = ProbeValue.class)
+public class ProbeValueController {
 }
