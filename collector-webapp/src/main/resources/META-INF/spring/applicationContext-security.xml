@@ -42,7 +42,9 @@
 		<intercept-url pattern="/monitoring/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/servers/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/serverGroups/**" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/probe/**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/probes/**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/plugins/**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/probevalues/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/resources/**" access="permitAll" />
 		<intercept-url pattern="/**" access="permitAll" />
 	</http>
