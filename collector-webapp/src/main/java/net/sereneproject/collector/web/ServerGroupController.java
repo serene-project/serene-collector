@@ -30,7 +30,7 @@ package net.sereneproject.collector.web;
 
 import net.sereneproject.collector.domain.ServerGroup;
 
-import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
+import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
