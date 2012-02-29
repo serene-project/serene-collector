@@ -26,4 +26,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
+/**
+ * Definition of the services used by this project.
+ */
 package net.sereneproject.collector.service;

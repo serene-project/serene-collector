@@ -476,8 +476,9 @@
 						<artifactId>doclet</artifactId>
 						<version>5.1</version>
 					</docletArtifact>
-					<additionalparam>-views -attributes -constructors -enumconstants
-						-enumerations -operations -types -visibility</additionalparam>
+					<additionalparam>-attributes -constructors -enumconstants
+						-enumerations -operations -types -visibility -inferdep
+						-inferrel</additionalparam>
 					<useStandardDocletOptions>true</useStandardDocletOptions>
 				</configuration>
 			</plugin>

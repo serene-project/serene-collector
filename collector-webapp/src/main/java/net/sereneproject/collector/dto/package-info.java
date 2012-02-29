@@ -26,4 +26,10 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
+/**
+ * Data Transfer Objects.
+ * 
+ * Classes in this package will not be persisted, but are used to transfer data
+ * between different components.
+ */
 package net.sereneproject.collector.dto;
