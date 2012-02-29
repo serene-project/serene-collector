@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c0" href="./ProbeValueController.html" title="net.sereneproject.collector.web.ProbeValueController" alt="" coords="15,11,489,101"/>
-<area shape="rect" id="c1" href="./CollectorController.html" title="net.sereneproject.collector.web.CollectorController" alt="" coords="533,11,883,101"/>
-<area shape="rect" id="c2" href="./ServerGroupController.html" title="net.sereneproject.collector.web.ServerGroupController" alt="" coords="927,19,1097,93"/>
-<area shape="rect" id="c3" href="./ProbeController.html" title="net.sereneproject.collector.web.ProbeController" alt="" coords="1141,19,1272,93"/>
-<area shape="rect" id="c4" href="./ApplicationConversionServiceFactoryBean.html" title="net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean" alt="" coords="1317,11,1614,101"/>
-<area shape="rect" id="c5" href="./ServerController.html" title="net.sereneproject.collector.web.ServerController" alt="" coords="1658,19,1793,93"/>
-<area shape="rect" id="c6" href="./PluginController.html" title="net.sereneproject.collector.web.PluginController" alt="" coords="1837,19,1971,93"/>
-</map>
