@@ -77,7 +77,7 @@ Communication between Probe and Collector
 }
 +------------------------------------------------------------------------------+
 
-Run the following command to send a test message to the server :
+  Run the following command to send a test message to the server :
 
 +------------------------------------------------------------------------------+
 wget \
