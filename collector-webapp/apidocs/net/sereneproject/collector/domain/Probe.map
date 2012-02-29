@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="c675" href="./ProbeValue.html" title="net.sereneproject.collector.domain.ProbeValue" alt="" coords="769,11,1225,101"/>
+<area shape="rect" id="c676" href="./Probe.html" title="net.sereneproject.collector.domain.Probe" alt="" coords="481,161,775,314"/>
+<area shape="rect" id="c691" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/UUID.html" title="java.util.UUID" alt="" coords="954,1267,1241,1565"/>
+<area shape="rect" id="c677" href="./Server.html" title="net.sereneproject.collector.domain.Server" alt="" coords="347,454,650,607"/>
+<area shape="rect" id="c688" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html" title="java.lang.String" alt="" coords="15,747,537,2085"/>
+<area shape="rect" id="c689" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Long.html" title="java.lang.Long" alt="" coords="610,1075,881,1757"/>
+<area shape="rect" id="c690" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Set.html" title="java.util.Set" alt="" coords="695,374,975,687"/>
+<area shape="rect" id="c678" href="./Plugin.html" title="net.sereneproject.collector.domain.Plugin" alt="" coords="71,11,183,101"/>
+<area shape="rect" id="c687" href="../service/impl/ProbePublishingServiceImpl.html" title="net.sereneproject.collector.service.impl.ProbePublishingServiceImpl" alt="" coords="293,11,574,101"/>
+</map>
