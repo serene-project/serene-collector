@@ -87,5 +87,5 @@ wget \
     --header='Accept: application/json' \
     --header='Content-Type: application/json; charset=UTF-8' \
     --post-file=monitoring.json \
-    http://serene-collector.serene-project.cloudbees.net/probes
+    http://serene-collector.serene-project.cloudbees.net/collector
 +------------------------------------------------------------------------------+

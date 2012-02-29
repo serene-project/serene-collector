@@ -28,6 +28,9 @@
  */
 package net.sereneproject.collector.web;
 
+import java.util.UUID;
+
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 import org.springframework.roo.addon.web.mvc.controller.converter.RooConversionService;
@@ -42,11 +45,32 @@ public class ApplicationConversionServiceFactoryBean extends
     /**
      * Install formatters.
      * 
-     * @param registry the registry in which to install formatters
+     * @param registry
+     *            the registry in which to install formatters
      */
     @Override
     protected final void installFormatters(final FormatterRegistry registry) {
         super.installFormatters(registry);
         // Register application converters and formatters
+        registry.addConverter(getUUIDToStringConverter());
+        registry.addConverter(getStringToUUIDConverter());
+    }
+
+    public Converter<UUID, String> getUUIDToStringConverter() {
+        return new Converter<UUID, String>() {
+            @Override
+            public String convert(UUID source) {
+                return source.toString();
+            }
+        };
+    }
+
+    public Converter<String, UUID> getStringToUUIDConverter() {
+        return new Converter<String, UUID>() {
+            @Override
+            public UUID convert(String source) {
+                return UUID.fromString(source);
+            }
+        };
     }
 }
