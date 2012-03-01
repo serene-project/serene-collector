@@ -111,7 +111,7 @@ public class ProbeControllerIT {
 		BasicHttpContext localcontext = new BasicHttpContext();
 		localcontext.setAttribute(ClientContext.AUTH_CACHE, authCache);
 
-		HttpPost post = new HttpPost(CONTEXT + "/probe");
+		HttpPost post = new HttpPost(CONTEXT + "/collector");
 		post.addHeader("Accept", "application/json");
 		StringEntity body = new StringEntity(m.toJson(), "UTF-8");
 		post.setEntity(body);
