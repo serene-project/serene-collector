@@ -7,8 +7,9 @@
         <field:display field="uuid" id="s_net_sereneproject_collector_domain_Probe_uuid" object="${probe}"/>
         <field:display field="savedState" id="s_net_sereneproject_collector_domain_Probe_savedState" object="${probe}" z="CwnjyMmF2uayhQ6tFfaWtfV3RRM="/>
         <field:display field="server" id="s_net_sereneproject_collector_domain_Probe_server" object="${probe}" z="rs+yDM3kn2QqTdSdS3Fr6MEuOas="/>
+        <field:display field="uuidMostSigBits" id="s_net_sereneproject_collector_domain_Probe_uuidMostSigBits" object="${probe}" z="Z4NdEapaxA96E/+BCFDY2jp/O/U="/>
+        <field:display field="uuidLeastSigBits" id="s_net_sereneproject_collector_domain_Probe_uuidLeastSigBits" object="${probe}" z="X3Y/MrHDgw5GsWn+bWZYla7ULzE="/>
     </page:show>
-    
     <script type="text/javascript">
     google.load("visualization", "1", {packages:["corechart"]});
     google.load("jquery", "1.7.1");
@@ -35,5 +36,5 @@
         });
     }
     </script>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div" style="width: 900px; height: 500px;"/>
 </div>

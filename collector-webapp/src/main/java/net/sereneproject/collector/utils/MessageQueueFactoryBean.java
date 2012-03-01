@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012, Serene Project
+ * Copyright  (c) 2012, Serene Project
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,34 +26,46 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.dto;
+package net.sereneproject.collector.utils;
 
-import java.io.Serializable;
+import org.springframework.beans.factory.FactoryBean;
 
-import javax.annotation.Nullable;
-import javax.validation.constraints.NotNull;
+import com.npstrandberg.simplemq.MessageQueue;
+import com.npstrandberg.simplemq.MessageQueueService;
 
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.json.RooJson;
-import org.springframework.roo.addon.tostring.RooToString;
+/**
+ * {@link FactoryBean} to create message queue.
+ * 
+ * @author gehel
+ */
+public class MessageQueueFactoryBean implements FactoryBean<MessageQueue> {
 
-@RooJavaBean
-@RooToString
-@RooJson
-public class ProbeValueDto implements Serializable {
-    /** Serial version UID. */
-    private static final long serialVersionUID = 1L;
+    /** Name of the queue that will be constructed. */
+    private final String queueName;
 
-    /** UUID of the probe */
-    @NotNull
-    private String uuid;
+    /**
+     * Construct the factory.
+     * 
+     * @param queueName
+     *            the name of the queue that will be created.
+     */
+    public MessageQueueFactoryBean(final String queueName) {
+        this.queueName = queueName;
+    }
 
-    /** Name of the probe. */
-    @Nullable
-    private String name;
+    @Override
+    public final MessageQueue getObject() throws Exception {
+        return MessageQueueService.getMessageQueue(this.queueName);
+    }
 
-    /** Value of the probe. */
-    @NotNull
-    private Double value;
+    @Override
+    public final Class<MessageQueue> getObjectType() {
+        return MessageQueue.class;
+    }
+
+    @Override
+    public final boolean isSingleton() {
+        return true;
+    }
 
 }

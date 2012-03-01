@@ -37,12 +37,17 @@ import net.sereneproject.collector.domain.ProbeValue;
 import net.sereneproject.collector.domain.Server;
 import net.sereneproject.collector.domain.ServerGroup;
 import net.sereneproject.collector.dto.MonitoringMessageDto;
+import net.sereneproject.collector.dto.ProbeValueDateDto;
 import net.sereneproject.collector.dto.ProbeValueDto;
 import net.sereneproject.collector.service.ProbePublishingService;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+
+import com.npstrandberg.simplemq.MessageInput;
+import com.npstrandberg.simplemq.MessageQueue;
 
 /**
  * Service used to publish monitoring values.
@@ -55,6 +60,13 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
     /** Logger. */
     private static final Logger LOG = Logger
             .getLogger(ProbePublishingServiceImpl.class);
+
+    private final MessageQueue queue;
+
+    @Autowired(required = true)
+    public ProbePublishingServiceImpl(MessageQueue queue) {
+        this.queue = queue;
+    }
 
     @Override
     public final void publish(final MonitoringMessageDto message) {
@@ -70,10 +82,18 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             pv.setValue(pvDto.getValue());
             pv.setDate(new Date());
             pv.persist();
+            // queue messages so they are processed by the analyzers
+            ProbeValueDateDto toAnalyze = new ProbeValueDateDto();
+            toAnalyze.setProbeUUID(pvDto.getUuid());
+            toAnalyze.setDate(pv.getDate());
+            toAnalyze.setValue(pvDto.getValue());
+            MessageInput msg = new MessageInput();
+            msg.setObject(toAnalyze);
+            synchronized (getQueue()) {
+                getQueue().send(msg);
+                getQueue().notifyAll();
+            }
         }
-
-        // TODO: send values to analyzers, should be done asynchronously
-        // (message queue ?)
     }
 
     /**
@@ -205,6 +225,10 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             groupCache.put(name, group);
             return group;
         }
+    }
+
+    private MessageQueue getQueue() {
+        return this.queue;
     }
 
 }

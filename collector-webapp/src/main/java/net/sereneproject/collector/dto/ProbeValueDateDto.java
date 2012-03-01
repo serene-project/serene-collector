@@ -29,8 +29,8 @@
 package net.sereneproject.collector.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -40,17 +40,17 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooJson
-public class ProbeValueDto implements Serializable {
+public class ProbeValueDateDto implements Serializable {
     /** Serial version UID. */
     private static final long serialVersionUID = 1L;
 
     /** UUID of the probe */
     @NotNull
-    private String uuid;
+    private String probeUUID;
 
-    /** Name of the probe. */
-    @Nullable
-    private String name;
+    /** Date of the sample. */
+    @NotNull
+    private Date date;
 
     /** Value of the probe. */
     @NotNull

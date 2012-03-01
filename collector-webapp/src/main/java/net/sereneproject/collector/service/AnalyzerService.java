@@ -29,6 +29,7 @@
 package net.sereneproject.collector.service;
 
 import net.sereneproject.collector.domain.ProbeValue;
+import net.sereneproject.collector.dto.ProbeValueDateDto;
 
 /**
  * Service used to dispatch probe values to analyzers.
@@ -47,5 +48,7 @@ public interface AnalyzerService {
      * @param probeValue the value to analyze
      */
     void analyze(ProbeValue probeValue);
+    
+    void analyze(ProbeValueDateDto probeValueDateDto);
 
 }

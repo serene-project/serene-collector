@@ -17,6 +17,12 @@
 				<artifactId>javamelody-core</artifactId>
 				<version>1.34.0</version>
 			</dependency>
+			<!-- Dependencies specific to the project -->
+			<dependency>
+				<groupId>com.npstrandberg.simplemq</groupId>
+				<artifactId>simplemq</artifactId>
+				<version>1.2-SNAPSHOT</version>
+			</dependency>
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpclient</artifactId>
@@ -566,11 +572,16 @@
 			<name>Spring Roo Repository</name>
 			<url>http://spring-roo-repository.springsource.org/release</url>
 		</repository>
-		<repository>
-			<id>Serene Project Snapshot Repository</id>
-			<url>https://repository-serene-project.forge.cloudbees.com/snapshot/ </url>
-			<name>Serene Project Snapshot Repository</name>
-		</repository>
+        <repository>
+            <id>Serene Project Snapshot Repository</id>
+            <url>https://repository-serene-project.forge.cloudbees.com/snapshot/</url>
+            <name>Serene Project Snapshot Repository</name>
+        </repository>
+        <repository>
+            <id>Simple MQ Repository</id>
+            <url>http://simple-mq.googlecode.com/svn/repository/</url>
+            <name>Simple MQ Repository</name>
+        </repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012, Serene Project
+ * Copyright  (c) 2012, Serene Project
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,15 @@ package net.sereneproject.collector.service.impl;
 import java.io.IOException;
 
 import org.apache.http.client.ClientProtocolException;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import net.sereneproject.collector.domain.Plugin;
 import net.sereneproject.collector.domain.ProbeValue;
 import net.sereneproject.collector.dto.AnalyzerRequestDto;
 import net.sereneproject.collector.dto.AnalyzerResponseDto;
+import net.sereneproject.collector.dto.ProbeValueDateDto;
 import net.sereneproject.collector.service.AnalyzerPluginCommunicationService;
 import net.sereneproject.collector.service.AnalyzerService;
 
@@ -45,7 +48,12 @@ import net.sereneproject.collector.service.AnalyzerService;
  * 
  * @author gehel
  */
+@Service
 public class AnalyzerServiceImpl implements AnalyzerService {
+
+    /** Logger. */
+    private static final Logger LOG = Logger
+            .getLogger(AnalyzerServiceImpl.class);
 
     /** The service used for communication with the analyzers. */
     private final AnalyzerPluginCommunicationService communicationService;
@@ -60,6 +68,13 @@ public class AnalyzerServiceImpl implements AnalyzerService {
     public AnalyzerServiceImpl(
             final AnalyzerPluginCommunicationService communicationService) {
         this.communicationService = communicationService;
+    }
+
+    @Override
+    public final void analyze(final ProbeValueDateDto probeValueDateDto) {
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Processing [" + probeValueDateDto + "]");
+        }
     }
 
     @Override

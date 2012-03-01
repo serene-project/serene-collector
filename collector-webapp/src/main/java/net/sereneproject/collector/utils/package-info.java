@@ -26,34 +26,8 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.dto;
+/**
+ * General utility classes.
+ */
+package net.sereneproject.collector.utils;
 
-import java.io.Serializable;
-
-import javax.annotation.Nullable;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.json.RooJson;
-import org.springframework.roo.addon.tostring.RooToString;
-
-@RooJavaBean
-@RooToString
-@RooJson
-public class ProbeValueDto implements Serializable {
-    /** Serial version UID. */
-    private static final long serialVersionUID = 1L;
-
-    /** UUID of the probe */
-    @NotNull
-    private String uuid;
-
-    /** Name of the probe. */
-    @Nullable
-    private String name;
-
-    /** Value of the probe. */
-    @NotNull
-    private Double value;
-
-}

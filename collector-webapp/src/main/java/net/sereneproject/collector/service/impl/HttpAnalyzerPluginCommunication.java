@@ -47,10 +47,12 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.google.common.io.CharStreams;
 import com.google.common.io.Closeables;
 
+@Service
 public class HttpAnalyzerPluginCommunication implements
         AnalyzerPluginCommunicationService {
 
