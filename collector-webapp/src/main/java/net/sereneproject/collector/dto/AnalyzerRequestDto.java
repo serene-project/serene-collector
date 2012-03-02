@@ -34,11 +34,23 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+/**
+ * DTO exposing a request to an analyzer.
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJson
 public class AnalyzerRequestDto {
+
+    /** New value to analyze. */
     private Double value;
+
+    /** Date this value was observed. */
     private Date date;
+
+    /** Last saved state of the analyzer. */
     private String savedState;
+
 }

@@ -45,10 +45,18 @@ public interface AnalyzerService {
     /**
      * Dispatch a probe value to the configured analyzers.
      * 
-     * @param probeValue the value to analyze
+     * @param probeValue
+     *            the value to analyze
      */
     void analyze(ProbeValue probeValue);
-    
+
+    /**
+     * Load a {@link ProbeValue} from permanent storage and dispatch it to the
+     * configured analyzers.
+     * 
+     * @param probeValueDateDto
+     *            object disconnected from permanent storage
+     */
     void analyze(ProbeValueDateDto probeValueDateDto);
 
 }

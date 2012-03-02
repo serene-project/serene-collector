@@ -41,28 +41,55 @@ import org.springframework.roo.addon.tostring.RooToString;
 
 import flexjson.JSONSerializer;
 
+/**
+ * DTO exposing a message sent from a probe agent to the collector.
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJson
 public class MonitoringMessageDto {
 
+    /** String representation of the UUID of the server. */
     @NotNull
     private String uuid;
 
+    /** Hostname of the server. */
     @Nullable
     private String hostname;
 
+    /** Group in which this server is located. */
     @Nullable
     private String group;
 
+    /** List of probe values for this server. */
     @Nullable
     @Valid
     private List<ProbeValueDto> probeValues;
 
+    /**
+     * Serialize this object as JSON.
+     * 
+     * The ROO generated serializer doesnt do a
+     * {@link JSONSerializer#deepSerialize(Object)}, so we override it.
+     * 
+     * @return this object serialized as JSON
+     */
     public final String toJson() {
         return new JSONSerializer().exclude("*.class").deepSerialize(this);
     }
 
+    /**
+     * Serialize a collection of {@link MonitoringMessageDto}s to JSON.
+     * 
+     * The ROO generated serializer doesnt do a
+     * {@link JSONSerializer#deepSerialize(Object)}, so we override it.
+     * 
+     * @param collection
+     *            the collection to serialize
+     * @return a JSON representation of the collection
+     */
     public static String toJsonArray(
             final Collection<MonitoringMessageDto> collection) {
         return new JSONSerializer().exclude("*.class")

@@ -103,7 +103,7 @@ public class AnalyzerQueueExecutor implements Runnable {
     /**
      * The message queue.
      * 
-     * @return
+     * @return the queue
      */
     private MessageQueue getQueue() {
         return this.queue;
@@ -112,7 +112,7 @@ public class AnalyzerQueueExecutor implements Runnable {
     /**
      * The analyzer service.
      * 
-     * @return
+     * @return the service
      */
     private AnalyzerService getAnalyzerService() {
         return this.analyzerService;

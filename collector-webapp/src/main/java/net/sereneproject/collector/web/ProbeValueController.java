@@ -42,16 +42,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Roo controller for {@link ProbeValue}s.
+ * 
+ * @author gehel
+ */
 @RequestMapping("/probevalues")
 @Controller
 @RooWebScaffold(path = "probevalues", formBackingObject = ProbeValue.class)
 @RooWebJson(jsonObject = ProbeValue.class)
 public class ProbeValueController {
 
+    /**
+     * Custom finder.
+     * 
+     * Find all probe values for a plugin.
+     * 
+     * @param uuid
+     *            the plugin {@link UUID}
+     * @return a list of all probe values for the given plugin
+     */
     @RequestMapping(params = "find=ByProbeUUID", headers = "Accept=application/json")
     @ResponseBody
-    public ResponseEntity<String> jsonFindProbeValuesByProbeUUID(
-            @RequestParam("probeUUID") UUID uuid) {
+    public final ResponseEntity<String> jsonFindProbeValuesByProbeUUID(
+            @RequestParam("probeUUID") final UUID uuid) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
         return new ResponseEntity<String>(ProbeValue.toJsonArray(ProbeValue

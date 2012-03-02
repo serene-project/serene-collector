@@ -30,36 +30,62 @@ package net.sereneproject.collector.domain;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+/**
+ * Instance of a plugin, configured for a specific {@link Probe}.
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
 @RooJson
 public class Plugin {
 
+    /** URL of the plugin. */
     @Size(min = 6, max = 255)
     private String url;
 
+    /**
+     * Saved state of the plugin.
+     * 
+     * This state is sent to the plugin each time it is called and updated with
+     * the response from the plugin.
+     */
     private String savedState;
 
+    /**
+     * Last status from the analyzer.
+     * 
+     * @todo Should probably be changed to keep the history of the status
+     */
     private String status;
 
+    /** The {@link Probe} for which this plugin is configured. */
     @NotNull
     @ManyToOne
     private Probe probe;
 
+    /**
+     * Get the {@link URI} of the plugin from its internal representation.
+     * 
+     * @return the {@link URI}
+     */
     public final URI getUri() {
         try {
             return new URI(this.url);
         } catch (URISyntaxException e) {
-            throw new IllegalStateException("URL is invalid [" + this.url + "]", e);
+            throw new IllegalStateException(
+                    "URL is invalid [" + this.url + "]", e);
         }
     }
 }

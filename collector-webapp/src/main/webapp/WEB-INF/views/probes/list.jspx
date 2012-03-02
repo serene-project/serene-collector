@@ -39,7 +39,6 @@
             <table:column id="c_net_sereneproject_collector_domain_Probe_server" property="server" z="r/Vz+TODfdUamKbzOc3+RLX0LQI="/>
             <table:column id="c_net_sereneproject_collector_domain_Probe_uuidMostSigBits" property="uuidMostSigBits" z="ml1xCTcBjsXaN1PQiF+uFML06Lk="/>
             <table:column id="c_net_sereneproject_collector_domain_Probe_uuidLeastSigBits" property="uuidLeastSigBits" z="aEyU9J5sVrAJdOB6KSV1HM9TT+c="/>
-            <table:column id="c_net_sereneproject_collector_domain_Probe_savedState" property="savedState" z="9tzhpzOIABRacfP89rOr/sHWQZU="/>
         </table:table>
     </page:list>
 </div>

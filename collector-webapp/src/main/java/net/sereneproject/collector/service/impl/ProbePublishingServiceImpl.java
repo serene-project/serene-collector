@@ -61,13 +61,30 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
     private static final Logger LOG = Logger
             .getLogger(ProbePublishingServiceImpl.class);
 
+    /** The message queue used to publish messages to analyzers. */
     private final MessageQueue queue;
 
+    /**
+     * Construct the service.
+     * 
+     * @param queue
+     *            the message queue used to publish messages to analyzers.
+     */
     @Autowired(required = true)
-    public ProbePublishingServiceImpl(MessageQueue queue) {
+    public ProbePublishingServiceImpl(final MessageQueue queue) {
         this.queue = queue;
     }
 
+    /**
+     * Publish a monitoring message.
+     * 
+     * Takes care of storing values in persistent storage, creating intermedite
+     * nodes if needed. Probe values are then dispatched to a message queue for
+     * analysis.
+     * 
+     * @param message
+     *            contains data about all probe values and where to store them
+     */
     @Override
     public final void publish(final MonitoringMessageDto message) {
         // local caches to keep from accessing the DB at each iteration
@@ -227,6 +244,11 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
         }
     }
 
+    /**
+     * Get the message queue.
+     * 
+     * @return the queue
+     */
     private MessageQueue getQueue() {
         return this.queue;
     }

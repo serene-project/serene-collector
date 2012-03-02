@@ -39,53 +39,105 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+/**
+ * A server.
+ * 
+ * This object is used mainly for logical grouping and better user interface.
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord(finders = { "findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals" })
 @RooJson
 public class Server {
 
+    /** The name of the server. */
     @NotNull
     @Column(unique = true)
     @Size(min = 3, max = 50)
     private String hostname;
 
+    /**
+     * {@link UUID} is stored in 2 longs, this is the most significant bits.
+     */
     @NotNull
     @Column
     private Long uuidMostSigBits;
 
+    /**
+     * {@link UUID} is stored in 2 longs, this is the least significant bits.
+     */
     @NotNull
     @Column
     private Long uuidLeastSigBits;
 
+    /**
+     * The ServerGroup to which this server belongs.
+     */
     @NotNull
     @ManyToOne
     private ServerGroup serverGroup;
 
-    public final void setUuid(String uuid) {
+    /**
+     * Set the {@link UUID} of this server from its {@link String}
+     * representation.
+     * 
+     * @param uuid
+     *            the {@link String} representation of the {@link UUID}
+     */
+    public final void setUuid(final String uuid) {
         setUuid(UUID.fromString(uuid));
     }
 
-    public final void setUuid(UUID uuid) {
+    /**
+     * Set the {@link UUID} of a server.
+     * 
+     * @param uuid
+     *            the {@link UUID} to set
+     */
+    public final void setUuid(final UUID uuid) {
         this.uuidLeastSigBits = uuid.getLeastSignificantBits();
         this.uuidMostSigBits = uuid.getMostSignificantBits();
     }
 
+    /**
+     * Get the {@link UUID} of the server.
+     * 
+     * @return the {@link UUID} of the server
+     */
     public final UUID getUuid() {
         return new UUID(this.uuidMostSigBits, this.uuidLeastSigBits);
     }
 
-    public static net.sereneproject.collector.domain.Server findServerByUuidEquals(String uuid) {
+    /**
+     * Find a server by its UUID.
+     * 
+     * @param uuid
+     *            the {@link String} representation of the {@link UUID}
+     * @return the server
+     */
+    public static Server findServerByUuidEquals(final String uuid) {
         if (uuid == null) {
             throw new IllegalArgumentException("The uuid argument is required");
         }
         return findServerByUuidEquals(UUID.fromString(uuid));
     }
 
-    public static net.sereneproject.collector.domain.Server findServerByUuidEquals(UUID uuid) {
+    /**
+     * Find a server by its UUID.
+     * 
+     * @param uuid
+     *            the {@link UUID}
+     * @return the server
+     */
+    public static Server findServerByUuidEquals(final UUID uuid) {
         if (uuid == null) {
             throw new IllegalArgumentException("The uuid argument is required");
         }
-        return Server.findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(uuid.getMostSignificantBits(), uuid.getLeastSignificantBits()).getSingleResult();
+        return Server
+                .findServersByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(
+                        uuid.getMostSignificantBits(),
+                        uuid.getLeastSignificantBits()).getSingleResult();
     }
 }

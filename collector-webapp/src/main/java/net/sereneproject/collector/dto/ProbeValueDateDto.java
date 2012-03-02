@@ -37,14 +37,22 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+/**
+ * DTO exposing values of a probe at a given date.
+ * 
+ * Used for communication between publishing service and analyzer service.
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJson
 public class ProbeValueDateDto implements Serializable {
+    
     /** Serial version UID. */
     private static final long serialVersionUID = 1L;
 
-    /** UUID of the probe */
+    /** UUID of the probe. */
     @NotNull
     private String probeUUID;
 

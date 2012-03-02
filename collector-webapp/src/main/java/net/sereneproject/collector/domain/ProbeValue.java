@@ -42,26 +42,43 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+/**
+ * The value of a probe at a specific date.
+ * 
+ * Each probe contains a list of {@link ProbeValue}.
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord(finders = { "findProbeValuesByProbe" })
 @RooJson
 public class ProbeValue {
 
+    /** Value of the probe. */
     @NotNull
     private Double value;
 
+    /** Date at which the sample was measured. */
     @NotNull
     @DateTimeFormat(pattern = "yyyy.MM.dd HH.mm.ss")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
+    /** The {@link Probe} to which this value belongs. */
     @NotNull
     @ManyToOne
     private Probe probe;
 
-    public static TypedQuery<net.sereneproject.collector.domain.ProbeValue> findProbeValuesByProbeUUID(
-            UUID uuid) {
+    /**
+     * Find all values for a {@link Probe}.
+     * 
+     * @param uuid
+     *            the {@link UUID} of the {@link Probe}
+     * @return the list of values
+     */
+    public static TypedQuery<ProbeValue> findProbeValuesByProbeUUID(
+            final UUID uuid) {
         if (uuid == null) {
             throw new IllegalArgumentException("The uuid argument is required");
         }

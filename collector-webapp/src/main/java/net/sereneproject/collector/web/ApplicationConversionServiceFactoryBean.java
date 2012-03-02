@@ -56,19 +56,29 @@ public class ApplicationConversionServiceFactoryBean extends
         registry.addConverter(getStringToUUIDConverter());
     }
 
-    public Converter<UUID, String> getUUIDToStringConverter() {
+    /**
+     * A converter from {@link UUID} to {@link String}.
+     * 
+     * @return the converter
+     */
+    public final Converter<UUID, String> getUUIDToStringConverter() {
         return new Converter<UUID, String>() {
             @Override
-            public String convert(UUID source) {
+            public String convert(final UUID source) {
                 return source.toString();
             }
         };
     }
 
-    public Converter<String, UUID> getStringToUUIDConverter() {
+    /**
+     * A converter from {@link String} to {@link UUID}.
+     * 
+     * @return the converter
+     */
+    public final Converter<String, UUID> getStringToUUIDConverter() {
         return new Converter<String, UUID>() {
             @Override
-            public UUID convert(String source) {
+            public UUID convert(final String source) {
                 return UUID.fromString(source);
             }
         };

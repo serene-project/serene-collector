@@ -28,6 +28,7 @@
  */
 package net.sereneproject.collector.web;
 
+import net.sereneproject.collector.domain.ProbeValue;
 import net.sereneproject.collector.dto.MonitoringMessageDto;
 import net.sereneproject.collector.service.ProbePublishingService;
 import net.sereneproject.collector.validation.MonitoringMessageDtoValidator;
@@ -45,21 +46,76 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Custom controller collecting {@link ProbeValue}s.
+ * 
+ * @author gehel
+ */
 @RequestMapping("/collector")
 @Controller
 public class CollectorController {
 
-    private static final Logger LOG = Logger.getLogger(CollectorController.class);
+    /** Logger. */
+    private static final Logger LOG = Logger
+            .getLogger(CollectorController.class);
 
+    /** Publishing service doing the actuall collection. */
     @Autowired(required = true)
     private ProbePublishingService probePublishingService;
 
+    /** Validator used to validate requests. */
     @Autowired(required = true)
     private MonitoringMessageDtoValidator validator;
 
+    /**
+     * Collect probe values.
+     * 
+     * Agents can publish values for different probes using this service. They
+     * should send POST requests to this URL. The body of the POST should
+     * contain a monitoring message in JSON format.
+     * 
+     * Element not already existing will be created automatically.
+     * 
+     * TODO: better documentation of the exact mechanism
+     * 
+     * The message is a JSON serialized {@link MonitoringMessageDto}. It looks
+     * like :
+     * 
+     * <pre>
+     * {
+     *    "group":"My Group",
+     *    "hostname":"myhost",
+     *    "probeValues":[
+     *       {
+     *          "name":"CPU",
+     *          "uuid":"069ba4fb-3e1d-4baa-951c-bcd398379d34",
+     *          "value":"0.7"
+     *       },
+     *       {
+     *          "name":"disk",
+     *          "uuid":"ada1f0ec-76cf-4afd-889e-6c1c6a9ee7f3",
+     *          "value":"21"
+     *       }
+     *    ],
+     *    "uuid":"ce7f5a04-c94c-4eb3-b804-a3ad7f3e3251"
+     * }
+     * </pre>
+     * 
+     * Requests should be sent with a "Accept: application/json" header. The
+     * body should be of content type "application/json" and be encoded in
+     * UTF-8. The "Content-Type: application/json; charset=UTF-8" header is not
+     * required, but should be used anyway for clarity.
+     * 
+     * @param json
+     *            a message contining the new probe values
+     * @return HTTP status 201 (CREATED) if post is successfull, HTTP status 400
+     *         (BAD REQUEST) if the message was not valid. In case the message
+     *         is not valid, a JSON response containing the error's detail is
+     *         returned
+     */
     @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
-    public final ResponseEntity<java.lang.String> postMonitoring(
-            @RequestBody String json) {
+    public final ResponseEntity<String> postMonitoring(
+            @RequestBody final String json) {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Received message : [" + json + "]");
         }
@@ -79,10 +135,20 @@ public class CollectorController {
         return new ResponseEntity<String>(HttpStatus.CREATED);
     }
 
+    /**
+     * Probe publishing service.
+     * 
+     * @return the service
+     */
     private ProbePublishingService getProbePublishingService() {
         return this.probePublishingService;
     }
 
+    /**
+     * Monitoring message validator.
+     * 
+     * @return the validator
+     */
     private MonitoringMessageDtoValidator getValidator() {
         return this.validator;
     }

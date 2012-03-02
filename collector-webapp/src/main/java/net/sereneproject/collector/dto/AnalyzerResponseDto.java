@@ -32,10 +32,26 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+/**
+ * DTO exposing a response from an analyzer.
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJson
 public class AnalyzerResponseDto {
+
+    /**
+     * Result of the analysis.
+     * 
+     * Could be OK, KO, ...
+     * 
+     * @todo : better specification of authorized values
+     */
     private String status;
+
+    /** THe new saved state resulting from the request. */
     private String newSavedState;
+
 }

@@ -52,17 +52,46 @@ import org.springframework.stereotype.Service;
 import com.google.common.io.CharStreams;
 import com.google.common.io.Closeables;
 
+/**
+ * A service to communicate with plugins.
+ * 
+ * This service does no treatment of the request or the response and cares only
+ * about the communication itself.
+ * 
+ * @author gehel
+ */
 @Service
 public class HttpAnalyzerPluginCommunication implements
         AnalyzerPluginCommunicationService {
 
+    /** The HTTP client used for communciation. */
     private final HttpClient client;
 
+    /**
+     * Construct the service.
+     * 
+     * @param client
+     *            the HTTP client used for communication
+     */
     @Autowired
     public HttpAnalyzerPluginCommunication(final HttpClient client) {
         this.client = client;
     }
 
+    /**
+     * Implementation of
+     * {@link AnalyzerPluginCommunicationService#send(URI, AnalyzerRequestDto)}.
+     * 
+     * @param uri
+     *            the URI of the analyzer
+     * @param request
+     *            the message to send
+     * @return the response from the analyzer
+     * @throws ClientProtocolException
+     *             in case of protocol violation
+     * @throws IOException
+     *             in case of generic communication errors
+     */
     @Override
     public final AnalyzerResponseDto send(final URI uri,
             final AnalyzerRequestDto request) throws ClientProtocolException,
@@ -105,6 +134,11 @@ public class HttpAnalyzerPluginCommunication implements
         }
     }
 
+    /**
+     * The HTTP client used for communication.
+     * 
+     * @return the HTTP client
+     */
     private HttpClient getClient() {
         return this.client;
     }
