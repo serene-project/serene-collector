@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="c908" href="./Probe.html" title="net.sereneproject.collector.domain.Probe" alt="" coords="89,161,384,314"/>
+<area shape="rect" id="c909" href="./Server.html" title="net.sereneproject.collector.domain.Server" alt="" coords="392,374,695,527"/>
+<area shape="rect" id="c920" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html" title="java.lang.String" alt="" coords="141,1329,663,2666"/>
+<area shape="rect" id="c921" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Long.html" title="java.lang.Long" alt="" coords="101,587,372,1269"/>
+<area shape="rect" id="c922" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/UUID.html" title="java.util.UUID" alt="" coords="416,779,703,1077"/>
+<area shape="rect" id="c911" href="./ServerGroup.html" title="net.sereneproject.collector.domain.ServerGroup" alt="" coords="821,891,935,965"/>
+<area shape="rect" id="c919" href="../service/impl/ProbePublishingServiceImpl.html" title="net.sereneproject.collector.service.impl.ProbePublishingServiceImpl" alt="" coords="191,11,533,101"/>
+</map>
