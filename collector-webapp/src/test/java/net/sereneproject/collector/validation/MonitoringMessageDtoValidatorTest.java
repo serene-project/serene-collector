@@ -30,9 +30,11 @@ package net.sereneproject.collector.validation;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Collections;
 import java.util.List;
 
 import net.sereneproject.collector.dto.MonitoringMessageDto;
+import net.sereneproject.collector.dto.ProbeValueDto;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,31 +48,99 @@ import org.springframework.validation.FieldError;
  */
 public class MonitoringMessageDtoValidatorTest {
 
-	/** The validator to be tested. */
-	private MonitoringMessageDtoValidator validator;
+    /** The validator to be tested. */
+    private MonitoringMessageDtoValidator validator;
 
-	/**
-	 * Setup the validator to be tested.
-	 */
-	@Before
-	public final void setup() {
-		this.validator = new MonitoringMessageDtoValidator(
-				new ProbeValueDtoValidator());
-	}
+    /**
+     * Setup the validator to be tested.
+     */
+    @Before
+    public final void setup() {
+        this.validator = new MonitoringMessageDtoValidator(
+                new ProbeValueDtoValidator());
+    }
 
-	/**
-	 * Null UUID should not be accepted.
-	 */
-	@Test
-	public final void uuidNull() {
-		MonitoringMessageDto message = new MonitoringMessageDto();
-		message.setUuid((String) null);
-		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(
-				message, "propertyValue");
-		this.validator.validate(message, errors);
-		List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
-		assertEquals(1, fieldErrors.size());
-		assertEquals("server.uuid.empty", fieldErrors.get(0).getCode());
-	}
+    /**
+     * Make sure the validator supports the right class.
+     */
+    @Test
+    public final void testClassSupported() {
+        this.validator.supports(MonitoringMessageDto.class);
+    }
+
+    /**
+     * Null UUID should not be accepted.
+     */
+    @Test
+    public final void uuidNull() {
+        MonitoringMessageDto message = new MonitoringMessageDto();
+        message.setUuid((String) null);
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(
+                message, "monitoringMessage");
+        this.validator.validate(message, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("server.uuid.empty", fieldErrors.get(0).getCode());
+    }
+
+    /**
+     * Empty UUID should not be accepted.
+     */
+    @Test
+    public final void uuidEmpty() {
+        MonitoringMessageDto message = new MonitoringMessageDto();
+        message.setUuid("");
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(
+                message, "monitoringMessage");
+        this.validator.validate(message, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("server.uuid.empty", fieldErrors.get(0).getCode());
+    }
+
+    /**
+     * Invalid format of UUID should not be accepted.
+     */
+    @Test
+    public final void uuidInvalid() {
+        MonitoringMessageDto message = new MonitoringMessageDto();
+        message.setUuid("abcd");
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(
+                message, "monitoringMessage");
+        this.validator.validate(message, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("server.uuid.invalid", fieldErrors.get(0).getCode());
+    }
+
+    /**
+     * List of probe values should not be null.
+     */
+    @Test
+    public final void probeValuesNotNull() {
+        MonitoringMessageDto message = new MonitoringMessageDto();
+        message.setProbeValues((List<ProbeValueDto>)null);
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(
+                message, "monitoringMessage");
+        this.validator.validate(message, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("probeValues");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("probevalues.empty", fieldErrors.get(0).getCode());
+    }
+
+    /**
+     * List of probe values should not be null.
+     */
+    @Test
+    public final void probeValuesNotEmpty() {
+        MonitoringMessageDto message = new MonitoringMessageDto();
+        message.setProbeValues(Collections.<ProbeValueDto>emptyList());
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(
+                message, "monitoringMessage");
+        this.validator.validate(message, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("probeValues");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("probevalues.empty", fieldErrors.get(0).getCode());
+    }
 
 }

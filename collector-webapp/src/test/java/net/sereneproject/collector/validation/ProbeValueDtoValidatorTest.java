@@ -47,92 +47,100 @@ import org.springframework.validation.FieldError;
  */
 public class ProbeValueDtoValidatorTest {
 
-	/** The validator to be tested. */
-	private ProbeValueDtoValidator validator;
+    /** The validator to be tested. */
+    private ProbeValueDtoValidator validator;
 
-	/**
-	 * Create the {@link ProbeValueDtoValidator} to be validated.
-	 */
-	@Before
-	public final void setup() {
-		this.validator = new ProbeValueDtoValidator();
-	}
+    /**
+     * Create the {@link ProbeValueDtoValidator} to be validated.
+     */
+    @Before
+    public final void setup() {
+        this.validator = new ProbeValueDtoValidator();
+    }
 
-	/**
-	 * Null UUID should not be accepted.
-	 */
-	@Test
-	public final void uuidNull() {
-		ProbeValueDto pv = new ProbeValueDto();
-		pv.setUuid((String) null);
-		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
-				"propertyValue");
-		this.validator.validate(pv, errors);
-		List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
-		assertEquals(1, fieldErrors.size());
-		assertEquals("probeValue.uuid.empty", fieldErrors.get(0).getCode());
-	}
+    /**
+     * Make sure the validator supports the right class.
+     */
+    @Test
+    public final void testClassSupported() {
+        this.validator.supports(ProbeValueDto.class);
+    }
 
-	/**
-	 * Empty UUID should not be accepted.
-	 */
-	@Test
-	public final void uuidEmpty() {
-		ProbeValueDto pv = new ProbeValueDto();
-		pv.setUuid("");
-		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
-				"propertyValue");
-		this.validator.validate(pv, errors);
-		List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
-		assertEquals(1, fieldErrors.size());
-		assertEquals("probeValue.uuid.empty", fieldErrors.get(0).getCode());
-	}
+    /**
+     * Null UUID should not be accepted.
+     */
+    @Test
+    public final void uuidNull() {
+        ProbeValueDto pv = new ProbeValueDto();
+        pv.setUuid((String) null);
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
+                "propertyValue");
+        this.validator.validate(pv, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("probeValue.uuid.empty", fieldErrors.get(0).getCode());
+    }
 
-	/**
-	 * UUID sould conform to the Java specification {@link UUID#toString()}.
-	 * 
-	 * Test that if UUID is not valid, a validation error is thrown.
-	 */
-	@Test
-	public final void uuidNotValid() {
-		ProbeValueDto pv = new ProbeValueDto();
-		pv.setUuid("toto");
-		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
-				"propertyValue");
-		this.validator.validate(pv, errors);
-		List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
-		assertEquals(1, fieldErrors.size());
-		assertEquals("probeValue.uuid.invalid", fieldErrors.get(0).getCode());
-	}
+    /**
+     * Empty UUID should not be accepted.
+     */
+    @Test
+    public final void uuidEmpty() {
+        ProbeValueDto pv = new ProbeValueDto();
+        pv.setUuid("");
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
+                "propertyValue");
+        this.validator.validate(pv, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("probeValue.uuid.empty", fieldErrors.get(0).getCode());
+    }
 
-	/**
-	 * UUID sould conform to the Java specification {@link UUID#toString()}.
-	 * 
-	 * Test that if UUID is valid, no validation error is thrown.
-	 */
-	@Test
-	public final void uuidValid() {
-		ProbeValueDto pv = new ProbeValueDto();
-		pv.setUuid(UUID.randomUUID().toString());
-		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
-				"propertyValue");
-		this.validator.validate(pv, errors);
-		List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
-		assertEquals(0, fieldErrors.size());
-	}
+    /**
+     * UUID sould conform to the Java specification {@link UUID#toString()}.
+     * 
+     * Test that if UUID is not valid, a validation error is thrown.
+     */
+    @Test
+    public final void uuidNotValid() {
+        ProbeValueDto pv = new ProbeValueDto();
+        pv.setUuid("toto");
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
+                "propertyValue");
+        this.validator.validate(pv, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("probeValue.uuid.invalid", fieldErrors.get(0).getCode());
+    }
 
-	/**
-	 * Empty value should not be accepted.
-	 */
-	@Test
-	public final void valueEmpty() {
-		ProbeValueDto pv = new ProbeValueDto();
-		pv.setValue((Double) null);
-		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
-				"propertyValue");
-		this.validator.validate(pv, errors);
-		List<FieldError> fieldErrors = errors.getFieldErrors("value");
-		assertEquals(1, fieldErrors.size());
-		assertEquals("probeValue.value.empty", fieldErrors.get(0).getCode());
-	}
+    /**
+     * UUID sould conform to the Java specification {@link UUID#toString()}.
+     * 
+     * Test that if UUID is valid, no validation error is thrown.
+     */
+    @Test
+    public final void uuidValid() {
+        ProbeValueDto pv = new ProbeValueDto();
+        pv.setUuid(UUID.randomUUID().toString());
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
+                "propertyValue");
+        this.validator.validate(pv, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("uuid");
+        assertEquals(0, fieldErrors.size());
+    }
+
+    /**
+     * Empty value should not be accepted.
+     */
+    @Test
+    public final void valueEmpty() {
+        ProbeValueDto pv = new ProbeValueDto();
+        pv.setValue((Double) null);
+        BeanPropertyBindingResult errors = new BeanPropertyBindingResult(pv,
+                "propertyValue");
+        this.validator.validate(pv, errors);
+        List<FieldError> fieldErrors = errors.getFieldErrors("value");
+        assertEquals(1, fieldErrors.size());
+        assertEquals("probeValue.value.empty", fieldErrors.get(0).getCode());
+    }
 }

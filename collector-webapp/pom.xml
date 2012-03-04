@@ -22,6 +22,10 @@
 		</dependency>
 		<!-- Dependencies specific to the project -->
 		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.npstrandberg.simplemq</groupId>
 			<artifactId>simplemq</artifactId>
 		</dependency>

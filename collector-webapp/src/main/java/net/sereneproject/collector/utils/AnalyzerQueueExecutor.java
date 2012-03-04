@@ -75,28 +75,28 @@ public class AnalyzerQueueExecutor implements Runnable {
      */
     @Override
     public final void run() {
-        while (true) {
-            Message msg = getQueue().receiveAndDelete();
-            if (msg != null) {
-                ProbeValueDateDto pv = (ProbeValueDateDto) msg.getObject();
-                if (pv == null) {
-                    LOG.error("Message queue returned empty message, "
-                            + "it should have returned a value to analyze.");
-                }
-                if (LOG.isDebugEnabled()) {
-                    LOG.debug("Processing message [" + pv + "]");
-                }
-                getAnalyzerService().analyze(pv);
-            } else {
-                try {
+        try {
+            while (true) {
+                Message msg = getQueue().receiveAndDelete();
+                if (msg != null) {
+                    ProbeValueDateDto pv = (ProbeValueDateDto) msg.getObject();
+                    if (pv == null) {
+                        LOG.error("Message queue returned empty message, "
+                                + "it should have returned a value to analyze.");
+                    }
+                    if (LOG.isDebugEnabled()) {
+                        LOG.debug("Processing message [" + pv + "]");
+                    }
+                    getAnalyzerService().analyze(pv);
+                } else {
                     synchronized (getQueue()) {
                         getQueue().wait();
                     }
-                } catch (InterruptedException ie) {
-                    LOG.error("Analyzer Queue Executor has been interrupted !",
-                            ie);
                 }
             }
+        } catch (InterruptedException ie) {
+            LOG.error("Analyzer Queue Executor has been interrupted !", ie);
+            Thread.currentThread().interrupt();
         }
     }
 

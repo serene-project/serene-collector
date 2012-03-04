@@ -33,6 +33,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.roo.addon.equals.RooEquals;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -46,6 +47,7 @@ import org.springframework.roo.addon.tostring.RooToString;
  */
 @RooJavaBean
 @RooToString
+@RooEquals
 @RooJson
 public class ProbeValueDateDto implements Serializable {
     

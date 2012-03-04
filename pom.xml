@@ -19,6 +19,12 @@
 			</dependency>
 			<!-- Dependencies specific to the project -->
 			<dependency>
+				<groupId>org.jmock</groupId>
+				<artifactId>jmock</artifactId>
+				<version>2.5.1</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
 				<groupId>com.npstrandberg.simplemq</groupId>
 				<artifactId>simplemq</artifactId>
 				<version>1.2-SNAPSHOT</version>
@@ -438,8 +444,8 @@
 					<excludes>
 						<exclude>target/**</exclude>
 						<exclude>.clover/**</exclude>
-                        <exclude>**/.gitignore</exclude>
-                        <exclude>**/*.aj</exclude>
+						<exclude>**/.gitignore</exclude>
+						<exclude>**/*.aj</exclude>
 						<exclude>bin/**</exclude>
 						<exclude>bin/src/etc/header.txt</exclude>
 					</excludes>
@@ -573,16 +579,16 @@
 			<name>Spring Roo Repository</name>
 			<url>http://spring-roo-repository.springsource.org/release</url>
 		</repository>
-        <repository>
-            <id>Serene Project Snapshot Repository</id>
-            <url>https://repository-serene-project.forge.cloudbees.com/snapshot/</url>
-            <name>Serene Project Snapshot Repository</name>
-        </repository>
-        <repository>
-            <id>Simple MQ Repository</id>
-            <url>http://simple-mq.googlecode.com/svn/repository/</url>
-            <name>Simple MQ Repository</name>
-        </repository>
+		<repository>
+			<id>Serene Project Snapshot Repository</id>
+			<url>https://repository-serene-project.forge.cloudbees.com/snapshot/</url>
+			<name>Serene Project Snapshot Repository</name>
+		</repository>
+		<repository>
+			<id>Simple MQ Repository</id>
+			<url>http://simple-mq.googlecode.com/svn/repository/</url>
+			<name>Simple MQ Repository</name>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
