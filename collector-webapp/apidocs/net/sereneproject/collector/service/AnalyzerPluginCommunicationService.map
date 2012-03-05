@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c1090" href="../dto/AnalyzerResponseDto.html" title="net.sereneproject.collector.dto.AnalyzerResponseDto" alt="" coords="15,739,187,813"/>
-<area shape="rect" id="c1093" href="../dto/AnalyzerRequestDto.html" title="net.sereneproject.collector.dto.AnalyzerRequestDto" alt="" coords="246,739,407,813"/>
-<area shape="rect" id="c1103" href="./AnalyzerPluginCommunicationService.html" title="net.sereneproject.collector.service.AnalyzerPluginCommunicationService" alt="" coords="255,177,700,266"/>
-<area shape="rect" id="c1105" href="./impl/HttpAnalyzerPluginCommunication.html" title="net.sereneproject.collector.service.impl.HttpAnalyzerPluginCommunication" alt="" coords="120,326,565,415"/>
-<area shape="rect" id="c1108" href="http://java.sun.com/j2se/1.4.2/docs/api/java/net/URI.html" title="java.net.URI" alt="" coords="452,475,1041,1077"/>
-<area shape="rect" id="c1106" href="./impl/AnalyzerServiceImpl.html" title="net.sereneproject.collector.service.impl.AnalyzerServiceImpl" alt="" coords="214,11,741,117"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c1053" href="../web/CollectorController.html" title="net.sereneproject.collector.web.CollectorController" alt="" coords="57,11,407,101"/>
-<area shape="rect" id="c1073" href="./ProbePublishingService.html" title="net.sereneproject.collector.service.ProbePublishingService" alt="" coords="91,161,373,250"/>
-<area shape="rect" id="c1062" href="../dto/MonitoringMessageDto.html" title="net.sereneproject.collector.dto.MonitoringMessageDto" alt="" coords="16,459,448,565"/>
-<area shape="rect" id="c1078" href="./impl/ProbePublishingServiceImpl.html" title="net.sereneproject.collector.service.impl.ProbePublishingServiceImpl" alt="" coords="171,310,512,399"/>
-</map>

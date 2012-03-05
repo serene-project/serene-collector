@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c318" href="./MessageQueueFactoryBean.html" title="net.sereneproject.collector.utils.MessageQueueFactoryBean" alt="" coords="639,193,961,314"/>
-<area shape="rect" id="c351" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html" title="java.lang.String" alt="" coords="15,374,537,1711"/>
-<area shape="rect" id="c369" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Class.html" title="java.lang.Class" alt="" coords="581,558,1019,1527"/>
-<area shape="rect" id="c370" href="http://java.sun.com/j2se/1.4.2/docs/api/com/npstrandberg/simplemq/MessageQueue.html" title="com.npstrandberg.simplemq.MessageQueue" alt="" coords="1063,902,1393,1183"/>
-<area shape="rect" id="c346" href="http://java.sun.com/j2se/1.4.2/docs/api/org/springframework/beans/factory/FactoryBean.html" title="org.springframework.beans.factory.FactoryBean" alt="" coords="703,11,897,133"/>
-</map>

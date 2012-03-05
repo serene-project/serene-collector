@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c236" href="./AnalyzerQueueExecutor.html" title="net.sereneproject.collector.utils.AnalyzerQueueExecutor" alt="" coords="103,161,631,250"/>
-<area shape="rect" id="c305" href="../service/AnalyzerService.html" title="net.sereneproject.collector.service.AnalyzerService" alt="" coords="16,398,344,503"/>
-<area shape="rect" id="c316" href="http://java.sun.com/j2se/1.4.2/docs/api/com/npstrandberg/simplemq/MessageQueue.html" title="com.npstrandberg.simplemq.MessageQueue" alt="" coords="389,310,718,591"/>
-<area shape="rect" id="c314" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Runnable.html" title="java.lang.Runnable" alt="" coords="324,11,409,101"/>
-</map>
