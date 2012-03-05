@@ -22,12 +22,8 @@
 		</dependency>
 		<!-- Dependencies specific to the project -->
 		<dependency>
-			<groupId>org.jmock</groupId>
-			<artifactId>jmock</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.npstrandberg.simplemq</groupId>
-			<artifactId>simplemq</artifactId>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>

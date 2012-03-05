@@ -1,5 +1,5 @@
 /**
- * Copyright  (c) 2012, Serene Project
+ * Copyright (c) 2012, Serene Project
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,44 +28,39 @@
  */
 package net.sereneproject.collector.utils;
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
+import net.sereneproject.collector.dto.ProbeValueDateDto;
+
 import org.springframework.beans.factory.FactoryBean;
 
-import com.npstrandberg.simplemq.MessageQueue;
-import com.npstrandberg.simplemq.MessageQueueService;
+public class BlockingQueueProbeValueDateFactoryBean implements
+        FactoryBean<BlockingQueue<ProbeValueDateDto>> {
 
-/**
- * {@link FactoryBean} to create message queue.
- * 
- * @author gehel
- */
-public class MessageQueueFactoryBean implements FactoryBean<MessageQueue> {
+    private final int capacity;
 
-    /** Name of the queue that will be constructed. */
-    private final String queueName;
-
-    /**
-     * Construct the factory.
-     * 
-     * @param queueName
-     *            the name of the queue that will be created.
-     */
-    public MessageQueueFactoryBean(final String queueName) {
-        this.queueName = queueName;
+    public BlockingQueueProbeValueDateFactoryBean(final int capacity) {
+        this.capacity = capacity;
     }
 
     @Override
-    public final MessageQueue getObject() throws Exception {
-        return MessageQueueService.getMessageQueue(this.queueName);
+    public BlockingQueue<ProbeValueDateDto> getObject() throws Exception {
+        return new ArrayBlockingQueue<ProbeValueDateDto>(getCapacity());
     }
 
     @Override
-    public final Class<MessageQueue> getObjectType() {
-        return MessageQueue.class;
+    public Class<BlockingQueue> getObjectType() {
+        return BlockingQueue.class;
     }
 
     @Override
-    public final boolean isSingleton() {
-        return true;
+    public boolean isSingleton() {
+        return false;
+    }
+
+    public final int getCapacity() {
+        return this.capacity;
     }
 
 }

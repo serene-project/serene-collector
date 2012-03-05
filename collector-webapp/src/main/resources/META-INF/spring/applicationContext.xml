@@ -94,14 +94,16 @@
 	</bean>
 
 	<bean id="probeToAnalyzeQueue"
-		class="net.sereneproject.collector.utils.MessageQueueFactoryBean">
-		<constructor-arg value="probeValueDateMessageQueue" />
+		class="net.sereneproject.collector.utils.BlockingQueueProbeValueDateFactoryBean">
+		<constructor-arg value="10" />
 	</bean>
 
 	<bean id="analyzerQueueExecutor" class="java.lang.Thread"
 		lazy-init="false" init-method="start">
 		<constructor-arg>
-			<bean class="net.sereneproject.collector.utils.AnalyzerQueueExecutor" />
+			<bean class="net.sereneproject.collector.utils.AnalyzerQueueExecutor">
+				<constructor-arg ref="probeToAnalyzeQueue" />
+			</bean>
 		</constructor-arg>
 		<constructor-arg value="Analyzer Thread" />
 	</bean>

@@ -28,14 +28,15 @@
  */
 package net.sereneproject.collector.utils;
 
+import java.util.concurrent.BlockingQueue;
+
+import javax.annotation.Resource;
+
 import net.sereneproject.collector.dto.ProbeValueDateDto;
 import net.sereneproject.collector.service.AnalyzerService;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.npstrandberg.simplemq.Message;
-import com.npstrandberg.simplemq.MessageQueue;
 
 /**
  * Simple {@link Runnable} class that consumes a {@link MessageQueue} and send
@@ -50,7 +51,8 @@ public class AnalyzerQueueExecutor implements Runnable {
             .getLogger(AnalyzerQueueExecutor.class);
 
     /** Queue of {@link ProbeValueDateDto} to be consumed. */
-    private final MessageQueue queue;
+    @Resource(name = "probeToAnalyzeQueue")
+    private BlockingQueue<ProbeValueDateDto> queue;
 
     /** Service to which we send the {@link ProbeValueDateDto}s. */
     private final AnalyzerService analyzerService;
@@ -64,9 +66,7 @@ public class AnalyzerQueueExecutor implements Runnable {
      *            the service used to analyze probe values
      */
     @Autowired(required = true)
-    public AnalyzerQueueExecutor(final MessageQueue queue,
-            final AnalyzerService analyzerService) {
-        this.queue = queue;
+    public AnalyzerQueueExecutor(final AnalyzerService analyzerService) {
         this.analyzerService = analyzerService;
     }
 
@@ -77,25 +77,19 @@ public class AnalyzerQueueExecutor implements Runnable {
     public final void run() {
         try {
             while (true) {
-                Message msg = getQueue().receiveAndDelete();
-                if (msg != null) {
-                    ProbeValueDateDto pv = (ProbeValueDateDto) msg.getObject();
-                    if (pv == null) {
-                        LOG.error("Message queue returned empty message, "
-                                + "it should have returned a value to analyze.");
-                    }
+                ProbeValueDateDto pv = getQueue().take();
+                if (pv == null) {
+                    LOG.error("Message queue returned empty message, "
+                            + "it should have returned a value to analyze.");
+                } else {
                     if (LOG.isDebugEnabled()) {
                         LOG.debug("Processing message [" + pv + "]");
                     }
                     getAnalyzerService().analyze(pv);
-                } else {
-                    synchronized (getQueue()) {
-                        getQueue().wait();
-                    }
                 }
             }
         } catch (InterruptedException ie) {
-            LOG.error("Analyzer Queue Executor has been interrupted !", ie);
+            LOG.error("Analyzer Queue Executor has been interrupted !");
             Thread.currentThread().interrupt();
         }
     }
@@ -105,7 +99,7 @@ public class AnalyzerQueueExecutor implements Runnable {
      * 
      * @return the queue
      */
-    private MessageQueue getQueue() {
+    private BlockingQueue<ProbeValueDateDto> getQueue() {
         return this.queue;
     }
 
@@ -116,5 +110,9 @@ public class AnalyzerQueueExecutor implements Runnable {
      */
     private AnalyzerService getAnalyzerService() {
         return this.analyzerService;
+    }
+
+    void setQueue(BlockingQueue<ProbeValueDateDto> queue) {
+        this.queue = queue;
     }
 }

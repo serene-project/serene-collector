@@ -31,6 +31,9 @@ package net.sereneproject.collector.service.impl;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.BlockingQueue;
+
+import javax.annotation.Resource;
 
 import net.sereneproject.collector.domain.Probe;
 import net.sereneproject.collector.domain.ProbeValue;
@@ -42,12 +45,8 @@ import net.sereneproject.collector.dto.ProbeValueDto;
 import net.sereneproject.collector.service.ProbePublishingService;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-
-import com.npstrandberg.simplemq.MessageInput;
-import com.npstrandberg.simplemq.MessageQueue;
 
 /**
  * Service used to publish monitoring values.
@@ -62,18 +61,8 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             .getLogger(ProbePublishingServiceImpl.class);
 
     /** The message queue used to publish messages to analyzers. */
-    private final MessageQueue queue;
-
-    /**
-     * Construct the service.
-     * 
-     * @param queue
-     *            the message queue used to publish messages to analyzers.
-     */
-    @Autowired(required = true)
-    public ProbePublishingServiceImpl(final MessageQueue queue) {
-        this.queue = queue;
-    }
+    @Resource(name="probeToAnalyzeQueue")
+    private BlockingQueue<ProbeValueDateDto> queue;
 
     /**
      * Publish a monitoring message.
@@ -104,12 +93,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             toAnalyze.setProbeUUID(pvDto.getUuid());
             toAnalyze.setDate(pv.getDate());
             toAnalyze.setValue(pvDto.getValue());
-            MessageInput msg = new MessageInput();
-            msg.setObject(toAnalyze);
-            synchronized (getQueue()) {
-                getQueue().send(msg);
-                getQueue().notifyAll();
-            }
+            getQueue().add(toAnalyze);
         }
     }
 
@@ -249,7 +233,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
      * 
      * @return the queue
      */
-    private MessageQueue getQueue() {
+    private BlockingQueue<ProbeValueDateDto> getQueue() {
         return this.queue;
     }
 
