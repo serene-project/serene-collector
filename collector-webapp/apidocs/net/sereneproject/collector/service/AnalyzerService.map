@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c1109" href="../utils/AnalyzerQueueExecutor.html" title="net.sereneproject.collector.utils.AnalyzerQueueExecutor" alt="" coords="148,11,529,101"/>
-<area shape="rect" id="c1133" href="./AnalyzerService.html" title="net.sereneproject.collector.service.AnalyzerService" alt="" coords="175,161,503,266"/>
-<area shape="rect" id="c1121" href="../dto/ProbeValueDateDto.html" title="net.sereneproject.collector.dto.ProbeValueDateDto" alt="" coords="16,499,173,573"/>
-<area shape="rect" id="c1124" href="../domain/ProbeValue.html" title="net.sereneproject.collector.domain.ProbeValue" alt="" coords="353,491,809,581"/>
-<area shape="rect" id="c1135" href="./impl/AnalyzerServiceImpl.html" title="net.sereneproject.collector.service.impl.AnalyzerServiceImpl" alt="" coords="75,326,602,431"/>
-</map>
