@@ -61,7 +61,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             .getLogger(ProbePublishingServiceImpl.class);
 
     /** The message queue used to publish messages to analyzers. */
-    @Resource(name="probeToAnalyzeQueue")
+    @Resource(name = "probeToAnalyzeQueue")
     private BlockingQueue<ProbeValueDateDto> queue;
 
     /**

@@ -60,8 +60,6 @@ public class AnalyzerQueueExecutor implements Runnable {
     /**
      * Construct the executor.
      * 
-     * @param queue
-     *            a queue of {@link ProbeValueDateDto}
      * @param analyzerService
      *            the service used to analyze probe values
      */
@@ -112,7 +110,12 @@ public class AnalyzerQueueExecutor implements Runnable {
         return this.analyzerService;
     }
 
-    void setQueue(BlockingQueue<ProbeValueDateDto> queue) {
+    /**
+     * Set the queue.
+     * 
+     * @param queue the queue
+     */
+    final void setQueue(final BlockingQueue<ProbeValueDateDto> queue) {
         this.queue = queue;
     }
 }

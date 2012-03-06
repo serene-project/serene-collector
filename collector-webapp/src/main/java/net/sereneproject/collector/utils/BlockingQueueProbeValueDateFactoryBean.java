@@ -35,31 +35,49 @@ import net.sereneproject.collector.dto.ProbeValueDateDto;
 
 import org.springframework.beans.factory.FactoryBean;
 
+/**
+ * {@link FactoryBean} used to create {@link BlockingQueue}s.
+ * 
+ * @author gehel
+ */
 public class BlockingQueueProbeValueDateFactoryBean implements
         FactoryBean<BlockingQueue<ProbeValueDateDto>> {
 
+    /** Capacity of the queues that will be created by this factory. */
     private final int capacity;
 
+    /**
+     * Construct a FactoryBean that creates BlockingQueues of a certain size.
+     * 
+     * @param capacity
+     *            capacity of the queues that will be created
+     */
     public BlockingQueueProbeValueDateFactoryBean(final int capacity) {
         this.capacity = capacity;
     }
 
     @Override
-    public BlockingQueue<ProbeValueDateDto> getObject() throws Exception {
+    public final BlockingQueue<ProbeValueDateDto> getObject() throws Exception {
         return new ArrayBlockingQueue<ProbeValueDateDto>(getCapacity());
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
-    public Class<BlockingQueue> getObjectType() {
+    public final Class<BlockingQueue> getObjectType() {
         return BlockingQueue.class;
     }
 
     @Override
-    public boolean isSingleton() {
+    public final boolean isSingleton() {
         return false;
     }
 
-    public final int getCapacity() {
+    /**
+     * Capacity of the queues created by this factory.
+     * 
+     * @return the capacity
+     */
+    private int getCapacity() {
         return this.capacity;
     }
 

@@ -28,7 +28,6 @@
  */
 package net.sereneproject.collector.web;
 
-import net.sereneproject.collector.domain.ProbeValue;
 import net.sereneproject.collector.dto.MonitoringMessageDto;
 import net.sereneproject.collector.service.ProbePublishingService;
 import net.sereneproject.collector.validation.MonitoringMessageDtoValidator;
@@ -47,7 +46,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Custom controller collecting {@link ProbeValue}s.
+ * Custom controller collecting ProbeValues.
  * 
  * @author gehel
  */

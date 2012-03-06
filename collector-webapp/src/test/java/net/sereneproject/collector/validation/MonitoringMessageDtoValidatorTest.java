@@ -119,7 +119,7 @@ public class MonitoringMessageDtoValidatorTest {
     @Test
     public final void probeValuesNotNull() {
         MonitoringMessageDto message = new MonitoringMessageDto();
-        message.setProbeValues((List<ProbeValueDto>)null);
+        message.setProbeValues((List<ProbeValueDto>) null);
         BeanPropertyBindingResult errors = new BeanPropertyBindingResult(
                 message, "monitoringMessage");
         this.validator.validate(message, errors);
@@ -134,7 +134,7 @@ public class MonitoringMessageDtoValidatorTest {
     @Test
     public final void probeValuesNotEmpty() {
         MonitoringMessageDto message = new MonitoringMessageDto();
-        message.setProbeValues(Collections.<ProbeValueDto>emptyList());
+        message.setProbeValues(Collections.<ProbeValueDto> emptyList());
         BeanPropertyBindingResult errors = new BeanPropertyBindingResult(
                 message, "monitoringMessage");
         this.validator.validate(message, errors);
