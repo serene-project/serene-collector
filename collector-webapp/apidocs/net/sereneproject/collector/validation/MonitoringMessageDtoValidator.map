@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="c986" href="../web/CollectorController.html" title="net.sereneproject.collector.web.CollectorController" alt="" coords="203,19,554,109"/>
+<area shape="rect" id="c1004" href="./MonitoringMessageDtoValidator.html" title="net.sereneproject.collector.validation.MonitoringMessageDtoValidator" alt="" coords="143,177,636,282"/>
+<area shape="rect" id="c1005" href="./ProbeValueDtoValidator.html" title="net.sereneproject.collector.validation.ProbeValueDtoValidator" alt="" coords="437,342,694,447"/>
+<area shape="rect" id="c1013" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Class.html" title="java.lang.Class" alt="" coords="271,507,710,1477"/>
+<area shape="rect" id="c1014" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Object.html" title="java.lang.Object" alt="" coords="16,867,227,1117"/>
+<area shape="rect" id="c1015" href="http://java.sun.com/j2se/1.4.2/docs/api/org/springframework/validation/Errors.html" title="org.springframework.validation.Errors" alt="" coords="754,723,1179,1261"/>
+<area shape="rect" id="c1012" href="http://java.sun.com/j2se/1.4.2/docs/api/org/springframework/validation/Validator.html" title="org.springframework.validation.Validator" alt="" coords="598,11,839,117"/>
+</map>
