@@ -39,6 +39,7 @@ import net.sereneproject.collector.dto.AnalyzerResponseDto;
 import net.sereneproject.collector.service.AnalyzerPluginCommunicationService;
 
 import org.apache.commons.codec.CharEncoding;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
@@ -46,6 +47,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,7 +66,19 @@ import com.google.common.io.Closeables;
 public class HttpAnalyzerPluginCommunication implements
         AnalyzerPluginCommunicationService {
 
-    /** The HTTP client used for communciation. */
+    /** Accept header sent to the plugin. */
+    private static final Header ACCEPT_HEADER = new BasicHeader("Accept",
+            "application/json");
+
+    /** Content-type header sent to the plugin. */
+    private static final Header CONTENT_TYPE_HEADER = new BasicHeader("Accept",
+            "application/json");
+
+    /** Logger. */
+    private static final Logger LOG = Logger
+            .getLogger(HttpAnalyzerPluginCommunication.class);
+
+    /** The HTTP client used for communication. */
     private final HttpClient client;
 
     /**
@@ -96,8 +110,14 @@ public class HttpAnalyzerPluginCommunication implements
     public final AnalyzerResponseDto send(final URI uri,
             final AnalyzerRequestDto request) throws ClientProtocolException,
             IOException {
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Sending message " + request.toJson() + " to plugin ["
+                    + uri + "]");
+        }
+
         HttpPut putRequest = new HttpPut(uri);
-        putRequest.setHeader(new BasicHeader("Accept", "application/json"));
+        putRequest.setHeader(ACCEPT_HEADER);
+        putRequest.setHeader(CONTENT_TYPE_HEADER);
 
         try {
             putRequest.setEntity(new StringEntity(request.toJson(),
