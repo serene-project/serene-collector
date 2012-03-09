@@ -31,6 +31,8 @@ package net.sereneproject.collector.utils;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import java.util.Date;
+import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -90,7 +92,8 @@ public class AnalyzerQueueExecutorTest {
      */
     @Test
     public final void messagesDispatched() throws InterruptedException {
-        final ProbeValueDateDto pv = new ProbeValueDateDto();
+        final ProbeValueDateDto pv = new ProbeValueDateDto(UUID.randomUUID(),
+                new Date(), 0.1);
 
         this.queue.add(pv);
 

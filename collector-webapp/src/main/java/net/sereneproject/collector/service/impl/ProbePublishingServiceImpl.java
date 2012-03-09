@@ -31,6 +31,7 @@ package net.sereneproject.collector.service.impl;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.BlockingQueue;
 
 import javax.annotation.Resource;
@@ -89,10 +90,9 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             pv.setDate(new Date());
             pv.persist();
             // queue messages so they are processed by the analyzers
-            ProbeValueDateDto toAnalyze = new ProbeValueDateDto();
-            toAnalyze.setProbeUUID(pvDto.getUuid());
-            toAnalyze.setDate(pv.getDate());
-            toAnalyze.setValue(pvDto.getValue());
+            ProbeValueDateDto toAnalyze = new ProbeValueDateDto(
+                    UUID.fromString(pvDto.getUuid()), pv.getDate(),
+                    pvDto.getValue());
             getQueue().add(toAnalyze);
         }
     }
