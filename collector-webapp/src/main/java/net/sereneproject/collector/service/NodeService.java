@@ -26,20 +26,16 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.validation;
+package net.sereneproject.collector.service;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
+import java.util.List;
 
-/**
- * Tun all validators tests.
- * 
- * @author gehel
- */
-@RunWith(Suite.class)
-@SuiteClasses({ MonitoringMessageDtoValidatorTest.class,
-		ProbeValueDtoValidatorTest.class })
-public class ValidationTests {
+import net.sereneproject.collector.dto.NodeDto;
+
+public interface NodeService {
+
+    List<NodeDto> findAncestors(Long id);
+
+    NodeDto findNodeAndDescendent(Long id);
 
 }

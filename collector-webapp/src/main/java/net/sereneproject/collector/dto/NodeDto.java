@@ -26,36 +26,50 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.service;
+package net.sereneproject.collector.dto;
 
-import net.sereneproject.collector.dto.ProbeValueDateDto;
+import java.util.Set;
+
+import javax.annotation.concurrent.Immutable;
+
+import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.json.RooJson;
+import org.springframework.roo.addon.tostring.RooToString;
+
+import com.google.common.collect.ImmutableSet;
 
 /**
- * Service used to dispatch probe values to analyzers.
- * 
- * This service is responsible of locating the analyzers, preparing messages and
- * handling results from the analyzers.
+ * Tree structure used to categorize all probes and other values.
  * 
  * @author gehel
- * 
  */
-public interface AnalyzerService {
+@Immutable
+@RooJavaBean
+@RooToString
+@RooJson
+public class NodeDto {
+
+    /** Id of the node. */
+    private final Long id;
+
+    /** Node name. */
+    private final String name;
+
+    /** Children of the node. */
+    private final Set<NodeDto> children;
 
     /**
-     * Dispatch a probe value to the configured analyzers.
+     * Construct the node.
      * 
-     * @param probeValue
-     *            the value to analyze
+     * @param name
+     *            name of the node
+     * @param children
+     *            children of the node
      */
-//    void analyze(ProbeValue probeValue);
-
-    /**
-     * Load a {@link ProbeValue} from permanent storage and dispatch it to the
-     * configured analyzers.
-     * 
-     * @param probeValueDateDto
-     *            object disconnected from permanent storage
-     */
-    void analyze(ProbeValueDateDto probeValueDateDto);
-
+    public NodeDto(final Long id, final String name, final Set<NodeDto> children) {
+        this.id = id;
+        this.name = name;
+        this.children = new ImmutableSet.Builder<NodeDto>().addAll(children)
+                .build();
+    }
 }

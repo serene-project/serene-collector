@@ -35,7 +35,6 @@
     <form:create id="fc_net_sereneproject_collector_domain_Plugin" modelAttribute="plugin" path="/plugins" render="${empty dependencies}" z="QmB6gXLMONjzOqmyyEbP+px5W8s=">
         <field:textarea field="url" id="c_net_sereneproject_collector_domain_Plugin_url" z="JoDquvDAa+ZUJkrfb4fjjLJOL7k="/>
         <field:input field="savedState" id="c_net_sereneproject_collector_domain_Plugin_savedState" z="wlNQwWj7nQOP1D22aM5jL3tMAc4="/>
-        <field:input field="status" id="c_net_sereneproject_collector_domain_Plugin_status" z="WOVeXQU+yPMO9HtkaPhG79H8bZU="/>
         <field:select field="probe" id="c_net_sereneproject_collector_domain_Plugin_probe" itemValue="id" items="${probes}" path="/probes" required="true" z="koM8uLLH2o+GLr7dhytBtRUCP48="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_net_sereneproject_collector_domain_Plugin" render="${not empty dependencies}" z="vw/eEs88diX5ocV+V5Se3TPmERI="/>

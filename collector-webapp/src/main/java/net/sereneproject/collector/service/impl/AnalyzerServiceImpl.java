@@ -31,19 +31,18 @@ package net.sereneproject.collector.service.impl;
 import java.io.IOException;
 import java.util.Date;
 
-import org.apache.http.client.ClientProtocolException;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import net.sereneproject.collector.domain.Plugin;
 import net.sereneproject.collector.domain.Probe;
-import net.sereneproject.collector.domain.ProbeValue;
 import net.sereneproject.collector.dto.AnalyzerRequestDto;
 import net.sereneproject.collector.dto.AnalyzerResponseDto;
 import net.sereneproject.collector.dto.ProbeValueDateDto;
 import net.sereneproject.collector.service.AnalyzerPluginCommunicationService;
 import net.sereneproject.collector.service.AnalyzerService;
+
+import org.apache.http.client.ClientProtocolException;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Service used to dispatch probe values to analyzers.
@@ -80,11 +79,11 @@ public class AnalyzerServiceImpl implements AnalyzerService {
                 probeValueDateDto.getValue());
     }
 
-    @Override
-    public final void analyze(final ProbeValue probeValue) {
-        Probe probe = probeValue.getProbe();
-        analyze(probe, probeValue.getDate(), probeValue.getValue());
-    }
+//    @Override
+//    public final void analyze(final ProbeValue probeValue) {
+//        Probe probe = probeValue.getProbe();
+//        analyze(probe, probeValue.getDate(), probeValue.getValue());
+//    }
 
     /**
      * Dispatch a probe value to the configured analyzers.
@@ -112,7 +111,7 @@ public class AnalyzerServiceImpl implements AnalyzerService {
 
                 // save response
                 plugin.setSavedState(response.getNewSavedState());
-                plugin.setStatus(response.getStatus());
+                //plugin.setStatus(response.getStatus());
             } catch (ClientProtocolException e) {
                 // TODO encapsulate and rethrow the exception
                 LOG.error(e);

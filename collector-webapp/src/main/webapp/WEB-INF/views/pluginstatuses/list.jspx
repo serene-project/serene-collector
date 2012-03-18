@@ -29,12 +29,14 @@
     POSSIBILITY OF SUCH DAMAGE.
 
 -->
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_net_sereneproject_collector_domain_Plugin" object="${plugin}" path="/plugins" z="mSIvSYo3Jk2bxdte4zq3ALKUMBE=">
-        <field:display field="url" id="s_net_sereneproject_collector_domain_Plugin_url" object="${plugin}" z="SuzjM4OpjCiO6yMb6REbAc9vOKk="/>
-        <field:display field="savedState" id="s_net_sereneproject_collector_domain_Plugin_savedState" object="${plugin}" z="hyGjIceAnLvsnP4vbng+PcGm2bA="/>
-        <field:display field="probe" id="s_net_sereneproject_collector_domain_Plugin_probe" object="${plugin}" z="PPryVxtazEG3i/0BDw4yPEqhXOk="/>
-    </page:show>
+    <page:list id="pl_net_sereneproject_collector_domain_PluginStatus" items="${pluginstatuses}" z="18NNjC4qcbbe8GNGsNQNIcT8PiA=">
+        <table:table data="${pluginstatuses}" id="l_net_sereneproject_collector_domain_PluginStatus" path="/pluginstatuses" z="gpp+6bX4dN6Vjsmht8poXo6Ov5o=">
+            <table:column id="c_net_sereneproject_collector_domain_PluginStatus_status" property="status" z="0XWVp7dkpeGO1BbO7aDFoKEbqAM="/>
+            <table:column id="c_net_sereneproject_collector_domain_PluginStatus_plugin" property="plugin" z="7vt3fP9fv3hzx7i2/anMiujY02A="/>
+            <table:column date="true" dateTimePattern="${pluginStatus_date_date_format}" id="c_net_sereneproject_collector_domain_PluginStatus_date" property="date" z="KXc7rhDLgct043+J3Nj94lAWVvA="/>
+        </table:table>
+    </page:list>
 </div>

@@ -29,67 +29,29 @@
 package net.sereneproject.collector.domain;
 
 import java.util.Date;
-import java.util.UUID;
-import javax.persistence.EntityManager;
+
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.TypedQuery;
 import javax.validation.constraints.NotNull;
-import org.springframework.format.annotation.DateTimeFormat;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
-/**
- * The value of a probe at a specific date.
- * 
- * Each probe contains a list of {@link ProbeValue}.
- * 
- * @author gehel
- */
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(finders = { "findProbeValuesByProbe" })
+@RooJpaActiveRecord
 @RooJson
-public class ProbeValue {
+public class PluginStatus {
 
-    /** Value of the probe. */
-    @NotNull
-    private Double value;
+    /** Status from the analyzer. */
+    private String status;
 
-    /** Date at which the sample was measured. */
-    @NotNull
-    @DateTimeFormat(pattern = "yyyy.MM.dd HH.mm.ss")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
-
-    /** The {@link Probe} to which this value belongs. */
+    /** The {@link Plugin} to which this status belongs. */
     @NotNull
     @ManyToOne
-    private Probe probe;
+    private Plugin plugin;
 
-    /**
-     * Find all values for a {@link Probe}.
-     * 
-     * @param uuid
-     *            the {@link UUID} of the {@link Probe}
-     * @return the list of values
-     */
-    public static TypedQuery<ProbeValue> findProbeValuesByProbeUUID(
-            final UUID uuid) {
-        if (uuid == null) {
-            throw new IllegalArgumentException("The uuid argument is required");
-        }
-        EntityManager em = ProbeValue.entityManager();
-        TypedQuery<ProbeValue> q = em.createQuery(
-                "SELECT o FROM ProbeValue AS o JOIN o.probe AS p "
-                        + "  WHERE p.uuidMostSigBits = :uuidMostSigBits "
-                        + "    AND p.uuidLeastSigBits = :uuidLeastSigBits",
-                ProbeValue.class);
-        q.setParameter("uuidMostSigBits", uuid.getMostSignificantBits());
-        q.setParameter("uuidLeastSigBits", uuid.getLeastSignificantBits());
-        return q;
-    }
+    /** The date at which this status was set. */
+    private Date date;
 }

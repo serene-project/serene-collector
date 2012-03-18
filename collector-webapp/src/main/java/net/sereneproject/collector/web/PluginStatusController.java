@@ -26,40 +26,15 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.dto;
+package net.sereneproject.collector.web;
 
-import java.io.Serializable;
+import net.sereneproject.collector.domain.PluginStatus;
+import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.annotation.Nullable;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.json.RooJson;
-import org.springframework.roo.addon.tostring.RooToString;
-
-/**
- * DTO presenting data about a probe and one of its value.
- * 
- * @author gehel
- */
-@RooJavaBean
-@RooToString
-@RooJson
-public class ProbeValueDto implements Serializable {
-
-    /** Serial version UID. */
-    private static final long serialVersionUID = 1L;
-
-    /** UUID of the probe. */
-    @NotNull
-    private String uuid;
-
-    /** Name of the probe. */
-    @Nullable
-    private String name;
-
-    /** Value of the probe. */
-    @NotNull
-    private Double value;
-
+@RequestMapping("/pluginstatuses")
+@Controller
+@RooWebScaffold(path = "pluginstatuses", formBackingObject = PluginStatus.class)
+public class PluginStatusController {
 }

@@ -28,12 +28,13 @@
  */
 package net.sereneproject.collector.dto;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Test {@link MonitoringMessageDto}.
@@ -43,45 +44,51 @@ import static org.junit.Assert.assertEquals;
  */
 public class MonitoringMessageTest {
 
-	/**
-	 * Print a {@link MonitoringMessageDto} serialized as JSON.
-	 */
-	@Test
-	public final void printJson() {
-		MonitoringMessageDto m = new MonitoringMessageDto();
-		m.setGroup("My Group");
-		m.setHostname("myhost");
-		m.setUuid(UUID.randomUUID().toString());
-		m.setProbeValues(new ArrayList<ProbeValueDto>());
-		ProbeValueDto pv = new ProbeValueDto();
-		pv.setName("CPU");
-		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue(0.7);
-		m.getProbeValues().add(pv);
-		pv = new ProbeValueDto();
-		pv.setName("disk");
-		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue(21.0);
-		m.getProbeValues().add(pv);
-		System.out.println(m.toJson());
-	}
+    /**
+     * Print a {@link MonitoringMessageDto} serialized as JSON.
+     */
+    @Test
+    public final void printJson() {
 
-	/**
-	 * Test deserializing a JSON {@link MonitoringMessageDto}.
-	 */
-	@Test
-	public final void deserialize() {
-		MonitoringMessageDto m = MonitoringMessageDto
-				.fromJsonToMonitoringMessageDto("{\"" + "group\":\"My Group\","
-						+ "\"hostname\":\"myhost\"," + "\"probeValues\":[{\""
-						+ "name\":\"CPU\","
-						+ "\"uuid\":\"3ab61912-761b-4e68-9c92-a61f55daa310\","
-						+ "\"value\":\"0.7\"" + "},{\"" + "name\":\"disk\","
-						+ "\"uuid\":\"07185ca2-954a-4a79-8b17-da44251f9751\","
-						+ "\"value\":\"21\"" + "}],"
-						+ "\"uuid\":\"410f8c3d-f8d2-4597-ad49-2ad23bde306f\"}");
-		assertEquals("My Group", m.getGroup());
-		assertEquals(2, m.getProbeValues().size());
-		assertEquals("CPU", m.getProbeValues().get(0).getName());
-	}
+        System.out.println(createTestMessage().toJson());
+    }
+
+    /**
+     * Test deserializing a JSON {@link MonitoringMessageDto}.
+     */
+    @Test
+    public final void deserialize() {
+        MonitoringMessageDto m = MonitoringMessageDto
+                .fromJsonToMonitoringMessageDto("{\"hostname\":\"myhost\","
+                        + "\"probes\":[{" + "\"name\":\"CPU\","
+                        + "\"values\":["
+                        + "{\"name\":\"user\",\"value\":20.0},"
+                        + "{\"name\":\"system\",\"value\":10.0},"
+                        + "{\"name\":\"idle\",\"value\":80.0}],"
+                        + "\"uuid\":\"723d2203-04e8-47b2-addc-c3b96f6ab751\""
+                        + "}]}");
+        assertEquals("myhost", m.getHostname());
+        assertEquals(1, m.getProbes().size());
+        assertEquals("CPU", m.getProbes().get(0).getName());
+        assertEquals(Double.valueOf(10.0), m.getProbes().get(0)
+                .getValues().get(1).getValue());
+    }
+    
+    public static final MonitoringMessageDto createTestMessage() {
+        List<ProbeDto> probes = new ArrayList<ProbeDto>();
+
+        List<ValueDto> pvs = new ArrayList<ValueDto>();
+        pvs.add(new ValueDto("user", 20.0));
+        pvs.add(new ValueDto("system", 10.0));
+        pvs.add(new ValueDto("idle", 80.0));
+        probes.add(new ProbeDto(UUID.randomUUID().toString(), "CPU", pvs));
+
+        pvs = new ArrayList<ValueDto>();
+        pvs.add(new ValueDto("/dev/sda1", 50.0));
+        pvs.add(new ValueDto("/dev/sda2", 150.0));
+        pvs.add(new ValueDto("/dev/sdb1", 10.0));
+        probes.add(new ProbeDto(UUID.randomUUID().toString(), "disk", pvs));
+
+        return new MonitoringMessageDto("myhost", probes);
+    }
 }

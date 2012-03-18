@@ -59,21 +59,24 @@ Communication between Probe and Collector
 
 +------------------------------------------------------------------------------+
 {
-   "group":"My Group",
-   "hostname":"myhost",
-   "probeValues":[
-      {
-         "name":"CPU",
-         "uuid":"069ba4fb-3e1d-4baa-951c-bcd398379d34",
-         "value":"0.7"
-      },
-      {
-         "name":"disk",
-         "uuid":"ada1f0ec-76cf-4afd-889e-6c1c6a9ee7f3",
-         "value":"21"
-      }
-   ],
-   "uuid":"ce7f5a04-c94c-4eb3-b804-a3ad7f3e3251"
+    "hostname":"myhost",
+    "probes":[{
+        "name":"CPU",
+        "uuid":"1aebd508-c0f1-4d3c-8019-68268492ee44",
+        "values":[
+            {"name":"user","value":20.0},
+            {"name":"system","value":10.0},
+            {"name":"idle","value":80.0}
+        ]
+    },{
+        "name":"disk",
+        "uuid":"770d021b-38d4-4a57-8d92-536873860661",
+        "values":[
+            {"name":"/dev/sda1","value":50.0},
+            {"name":"/dev/sda2","value":150.0},
+            {"name":"/dev/sdb1","value":10.0}
+        ]
+    }]
 }
 +------------------------------------------------------------------------------+
 

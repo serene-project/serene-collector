@@ -31,6 +31,7 @@ package net.sereneproject.collector.domain;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.annotation.Nullable;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -63,18 +64,11 @@ public class Plugin {
      */
     private String savedState;
 
-    /**
-     * Last status from the analyzer.
-     * 
-     * @todo Should probably be changed to keep the history of the status
-     */
-    private String status;
-
     /** The {@link Probe} for which this plugin is configured. */
     @NotNull
     @ManyToOne
     private Probe probe;
-
+    
     /**
      * Get the {@link URI} of the plugin from its internal representation.
      * 

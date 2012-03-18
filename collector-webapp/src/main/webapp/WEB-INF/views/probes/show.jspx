@@ -35,9 +35,10 @@
     <page:show id="ps_net_sereneproject_collector_domain_Probe" object="${probe}" path="/probes" z="LNBad6Tbm7VNwzuELdIeWkZ2f+8=">
         <field:display field="name" id="s_net_sereneproject_collector_domain_Probe_name" object="${probe}" z="TdydORFCQyWiq2eQ4i4s5DoG34E="/>
         <field:display field="uuid" id="s_net_sereneproject_collector_domain_Probe_uuid" object="${probe}"/>
-        <field:display field="server" id="s_net_sereneproject_collector_domain_Probe_server" object="${probe}" z="rs+yDM3kn2QqTdSdS3Fr6MEuOas="/>
         <field:display field="uuidMostSigBits" id="s_net_sereneproject_collector_domain_Probe_uuidMostSigBits" object="${probe}" z="Z4NdEapaxA96E/+BCFDY2jp/O/U="/>
         <field:display field="uuidLeastSigBits" id="s_net_sereneproject_collector_domain_Probe_uuidLeastSigBits" object="${probe}" z="X3Y/MrHDgw5GsWn+bWZYla7ULzE="/>
+        <field:display field="node" id="s_net_sereneproject_collector_domain_Probe_node" object="${probe}" z="Yia2hWXqnlpTfThYPr9NwwohFlE="/>
+        <field:display field="rrd" id="s_net_sereneproject_collector_domain_Probe_rrd" object="${probe}" z="3rRKabouJ57FyfDWtvWvfWNUoHA="/>
     </page:show>
     <script type="text/javascript">
     google.load("visualization", "1", {packages:["corechart"]});

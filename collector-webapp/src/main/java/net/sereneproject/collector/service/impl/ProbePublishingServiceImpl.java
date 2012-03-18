@@ -28,24 +28,29 @@
  */
 package net.sereneproject.collector.service.impl;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import static org.rrd4j.ConsolFun.AVERAGE;
+import static org.rrd4j.DsType.GAUGE;
+
+import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 
 import javax.annotation.Resource;
 
 import net.sereneproject.collector.domain.Probe;
-import net.sereneproject.collector.domain.ProbeValue;
-import net.sereneproject.collector.domain.Server;
-import net.sereneproject.collector.domain.ServerGroup;
 import net.sereneproject.collector.dto.MonitoringMessageDto;
+import net.sereneproject.collector.dto.ProbeDto;
 import net.sereneproject.collector.dto.ProbeValueDateDto;
-import net.sereneproject.collector.dto.ProbeValueDto;
+import net.sereneproject.collector.dto.ValueDto;
 import net.sereneproject.collector.service.ProbePublishingService;
 
 import org.apache.log4j.Logger;
+import org.rrd4j.ConsolFun;
+import org.rrd4j.DsType;
+import org.rrd4j.core.RrdBackendFactory;
+import org.rrd4j.core.RrdDb;
+import org.rrd4j.core.RrdDef;
+import org.rrd4j.core.Sample;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -65,6 +70,13 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
     @Resource(name = "probeToAnalyzeQueue")
     private BlockingQueue<ProbeValueDateDto> queue;
 
+    private final RrdBackendFactory rrdBackendFactory;
+
+    @Autowired
+    public ProbePublishingServiceImpl(final RrdBackendFactory rrdBackendFactory) {
+        this.rrdBackendFactory = rrdBackendFactory;
+    }
+
     /**
      * Publish a monitoring message.
      * 
@@ -74,158 +86,65 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
      * 
      * @param message
      *            contains data about all probe values and where to store them
+     * @throws IOException
      */
     @Override
-    public final void publish(final MonitoringMessageDto message) {
-        // local caches to keep from accessing the DB at each iteration
-        Map<String, Server> serverCache = new HashMap<String, Server>();
-        Map<String, ServerGroup> groupCache = new HashMap<String, ServerGroup>();
+    public final void publish(final MonitoringMessageDto message)
+            throws IOException {
 
-        for (ProbeValueDto pvDto : message.getProbeValues()) {
-            // add value to probe
-            ProbeValue pv = new ProbeValue();
-            pv.setProbe(findOrCreateProbe(pvDto, message, serverCache,
-                    groupCache));
-            pv.setValue(pvDto.getValue());
-            pv.setDate(new Date());
-            pv.persist();
+        for (ProbeDto probeDto : message.getProbes()) {
+            RrdDb rrdDb = findOrCreateRrdDb(probeDto);
+            Sample sample = rrdDb.createSample();
+            for (ValueDto valueDto : probeDto.getValues()) {
+                sample.setValue(valueDto.getName(), valueDto.getValue());
+            }
+            sample.update();
+
             // queue messages so they are processed by the analyzers
-            ProbeValueDateDto toAnalyze = new ProbeValueDateDto(
-                    UUID.fromString(pvDto.getUuid()), pv.getDate(),
-                    pvDto.getValue());
-            getQueue().add(toAnalyze);
+            // ProbeValueDateDto toAnalyze = new ProbeValueDateDto(
+            // UUID.fromString(pvDto.getUuid()), pv.getDate(),
+            // pvDto.getValue());
+            // getQueue().add(toAnalyze);
         }
     }
 
-    /**
-     * Find a {@link Probe}, create it if it doesnt exist.
-     * 
-     * @param pvDto
-     *            the probe value whose probe we are looking for
-     * @param message
-     *            the current message, used to retreive the server / server
-     *            group if needed
-     * @param serverCache
-     *            cache local to the call, if a server is found or created, it
-     *            is stored in this cache
-     * @param groupCache
-     *            cache local to the call, if a server group is found or
-     *            created, it is stored in this cache
-     * @return the {@link Probe} we are looking for, either found in the DB or
-     *         freshly created
-     */
-    private Probe findOrCreateProbe(final ProbeValueDto pvDto,
-            final MonitoringMessageDto message,
-            final Map<String, Server> serverCache,
-            final Map<String, ServerGroup> groupCache) {
+    private RrdDb findOrCreateRrdDb(ProbeDto probeDto) throws IOException {
+        Probe probe;
         try {
             if (LOG.isDebugEnabled()) {
-                LOG.debug("Looking for probe [" + pvDto.getUuid() + "]");
+                LOG.debug("Checking if probe [" + probeDto.getUuid()
+                        + "] exist.");
             }
-            return Probe.findProbeByUuidEquals(pvDto.getUuid());
+            probe = Probe.findProbeByUuidEquals(probeDto.getUuid());
         } catch (EmptyResultDataAccessException dataEx) {
             // probe does not exist
-            // TODO: if server does not exist, the group, hostname, etc...
-            // should be specified
             if (LOG.isDebugEnabled()) {
-                LOG.debug("Probe [" + pvDto.getUuid()
+                LOG.debug("Probe [" + probeDto.getUuid()
                         + "] not found, creating it.");
             }
-            Probe probe = new Probe();
-            probe.setName(pvDto.getName());
-            probe.setServer(findOrCreateServer(message, serverCache, groupCache));
-            probe.setUuid(pvDto.getUuid());
+            probe = new Probe();
+            probe.setUuid(probeDto.getUuid());
+            probe.setName(probeDto.getName());
             probe.persist();
 
             if (LOG.isDebugEnabled()) {
                 LOG.debug("Probe [" + probe + "] created.");
             }
-            return probe;
         }
-    }
-
-    /**
-     * Finds a {@link Server}, create it if it doesnt exist.
-     * 
-     * @param message
-     *            the message whose server we are looking for
-     * @param serverCache
-     *            cache local to the call, if a server is found or created, it
-     *            is stored in this cache
-     * @param groupCache
-     *            cache local to the call, if a server group is found or
-     *            created, it is stored in this cache
-     * @return the {@link Server} we are looking for, either found in the DB or
-     *         freshly created
-     */
-    private Server findOrCreateServer(final MonitoringMessageDto message,
-            final Map<String, Server> serverCache,
-            final Map<String, ServerGroup> groupCache) {
-        if (serverCache.containsKey(message.getUuid())) {
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("Returning server [" + message.getUuid()
-                        + "] from local cache.");
+        if (probe.getRrd() == null) {
+            LOG.debug("Initializing new RrdDb");
+            RrdDef rrdDef = new RrdDef(probeDto.getUuid());
+            rrdDef.addArchive(AVERAGE, 0.5, 1, 600);
+            rrdDef.addArchive(AVERAGE, 0.5, 6, 700);
+            rrdDef.addArchive(AVERAGE, 0.5, 24, 775);
+            rrdDef.addArchive(AVERAGE, 0.5, 288, 797);
+            for (ValueDto value : probeDto.getValues()) {
+                rrdDef.addDatasource(value.getName(), GAUGE, 600, Double.NaN,
+                        Double.NaN);
             }
-            return serverCache.get(message.getUuid());
+            return new RrdDb(rrdDef, getRrrdBackendFactory());
         }
-        try {
-            Server server = Server.findServerByUuidEquals(message.getUuid());
-            serverCache.put(message.getUuid(), server);
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("Returning server [" + message.getUuid()
-                        + "] from DB.");
-            }
-            return server;
-        } catch (EmptyResultDataAccessException dataEx) {
-
-            // server does not exist
-            // TODO: if server does not exist, the group, hostname, etc...
-            // should be specified
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("Server [" + message.getUuid()
-                        + "] not found, creating it.");
-            }
-            Server server = new Server();
-            server.setUuid(message.getUuid());
-            server.setHostname(message.getHostname());
-            server.setServerGroup(findOrCreateServerGroup(message.getGroup(),
-                    groupCache));
-            server.persist();
-            serverCache.put(message.getUuid(), server);
-            LOG.debug("Server created.");
-            return server;
-        }
-    }
-
-    /**
-     * Finds a {@link ServerGroup}, create it if it doesnt exist.
-     * 
-     * @param name
-     *            the name of the group
-     * @param groupCache
-     *            cache local to the call, if a server group is found or
-     *            created, it is stored in this cache
-     * @return the {@link ServerGroup} we are looking for, either found in the
-     *         DB or freshly created
-     */
-    private ServerGroup findOrCreateServerGroup(final String name,
-            final Map<String, ServerGroup> groupCache) {
-        if (groupCache.containsKey(name)) {
-            return groupCache.get(name);
-        }
-        try {
-            ServerGroup group = ServerGroup.findServerGroupsByNameEquals(name)
-                    .getSingleResult();
-            groupCache.put(name, group);
-            return group;
-        } catch (EmptyResultDataAccessException dataExGroup) {
-            // create group if it does not exist
-            ServerGroup group = new ServerGroup();
-            group.setName(name);
-            group.persist();
-            groupCache.put(name, group);
-            return group;
-        }
+        return new RrdDb(probeDto.getUuid(), getRrrdBackendFactory());
     }
 
     /**
@@ -237,4 +156,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
         return this.queue;
     }
 
+    private RrdBackendFactory getRrrdBackendFactory() {
+        return this.rrdBackendFactory;
+    }
 }

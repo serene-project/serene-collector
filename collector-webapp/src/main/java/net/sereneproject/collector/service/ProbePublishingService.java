@@ -28,6 +28,8 @@
  */
 package net.sereneproject.collector.service;
 
+import java.io.IOException;
+
 import net.sereneproject.collector.dto.MonitoringMessageDto;
 
 /**
@@ -47,7 +49,8 @@ public interface ProbePublishingService {
      * 
      * @param message
      *            the message received from a monitoring agent
+     * @throws IOException 
      */
-    void publish(MonitoringMessageDto message);
+    void publish(MonitoringMessageDto message) throws IOException;
 
 }

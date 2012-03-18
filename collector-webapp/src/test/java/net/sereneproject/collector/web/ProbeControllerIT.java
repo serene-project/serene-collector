@@ -28,13 +28,12 @@
  */
 package net.sereneproject.collector.web;
 
+import static net.sereneproject.collector.dto.MonitoringMessageTest.createTestMessage;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.UUID;
 
 import junit.framework.Assert;
 import net.sereneproject.collector.dto.MonitoringMessageDto;
-import net.sereneproject.collector.dto.ProbeValueDto;
 
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -77,23 +76,7 @@ public class ProbeControllerIT {
 	@Test
 	public final void sendProbe() throws IOException {
 
-		MonitoringMessageDto m = new MonitoringMessageDto();
-		m.setUuid(UUID.randomUUID().toString());
-		m.setGroup("non existing group");
-		m.setHostname("non existing hostname");
-		m.setProbeValues(new ArrayList<ProbeValueDto>());
-
-		ProbeValueDto pv = new ProbeValueDto();
-		pv.setName("CPU");
-		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue(35.0);
-		m.getProbeValues().add(pv);
-
-		pv = new ProbeValueDto();
-		pv.setName("Disk");
-		pv.setUuid(UUID.randomUUID().toString());
-		pv.setValue(256.3);
-		m.getProbeValues().add(pv);
+		MonitoringMessageDto m = createTestMessage();
 
 		HttpHost host = new HttpHost("localhost", SERVER_PORT, "http");
 		DefaultHttpClient client = new DefaultHttpClient();

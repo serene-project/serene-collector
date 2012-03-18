@@ -36,9 +36,10 @@
         <table:table data="${probes}" id="l_net_sereneproject_collector_domain_Probe" path="/probes" z="NKX+cXWB2xFczdXQeE1sHcD9GDg=">
             <table:column id="c_net_sereneproject_collector_domain_Probe_name" property="name" z="vLqPfvhtSppYM5uCWKVGtG2xCJs="/>
             <table:column id="c_net_sereneproject_collector_domain_Probe_uuid" property="uuid"/>
-            <table:column id="c_net_sereneproject_collector_domain_Probe_server" property="server" z="r/Vz+TODfdUamKbzOc3+RLX0LQI="/>
             <table:column id="c_net_sereneproject_collector_domain_Probe_uuidMostSigBits" property="uuidMostSigBits" z="ml1xCTcBjsXaN1PQiF+uFML06Lk="/>
             <table:column id="c_net_sereneproject_collector_domain_Probe_uuidLeastSigBits" property="uuidLeastSigBits" z="aEyU9J5sVrAJdOB6KSV1HM9TT+c="/>
+            <table:column id="c_net_sereneproject_collector_domain_Probe_node" property="node" z="vWDUuN3Ek0wPiXmTvEB5RQNCu4A="/>
+            <table:column id="c_net_sereneproject_collector_domain_Probe_rrd" property="rrd" z="8dV+JKyd+XJlg1vWXxLcVV75V18="/>
         </table:table>
     </page:list>
 </div>

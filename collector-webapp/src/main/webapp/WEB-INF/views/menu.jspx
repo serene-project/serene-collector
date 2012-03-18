@@ -29,13 +29,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-        <menu:category id="c_server" z="Hm0GrFXfueKwxPqAQou++DaYysQ=">
-            <menu:item id="i_server_new" messageCode="global_menu_new" url="/servers?form" z="yhR9MlzzLx68UV2kipD8FrmcRwY="/>
-            <menu:item id="i_server_list" messageCode="global_menu_list" url="/servers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="qJbOjtfF1BszGNn3L9fGGwQWd54="/>
-        </menu:category>
-        <menu:category id="c_servergroup" z="Cc4jwnPoFZyP80Qz862ME84of0o=">
-            <menu:item id="i_servergroup_new" messageCode="global_menu_new" url="/servergroups?form" z="ZS8qKzhZWFB3xDR+grEBy5ekiuQ="/>
-            <menu:item id="i_servergroup_list" messageCode="global_menu_list" url="/servergroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="4o5bXy/I29DK2ZjHEPLP0u/Vr7E="/>
+        <menu:category id="c_node">
+            <menu:item id="i_node_show" messageCode="global_menu_show" url="/nodes?id=1"/>
+            <menu:item id="i_node_new" messageCode="global_menu_new" url="/nodes?form" z="tj1P1wqQRAko39Fvin6hdqOR79o="/>
+            <menu:item id="i_node_list" messageCode="global_menu_list" url="/nodes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="AKlbqIMfx8JbSW5mVXqyCUncYdw="/>
         </menu:category>
         <menu:category id="c_probe" z="ci2oqgLTbQbT+fsJYWuxv+fLnZU=">
             <menu:item id="i_probe_new" messageCode="global_menu_new" url="/probes?form" z="+AkaOaooNBTqOZlkuz4qYTT5ZTQ="/>
@@ -48,6 +45,10 @@
         <menu:category id="c_probevalue" z="4IHBlj61vOwhgpM5cPpY5tLRA7E=">
             <menu:item id="i_probevalue_new" messageCode="global_menu_new" url="/probevalues?form" z="3ktyFq6xSG8p1jiSsmPUaWRhVzw="/>
             <menu:item id="i_probevalue_list" messageCode="global_menu_list" url="/probevalues?page=1&amp;size=${empty param.size ? 10 : param.size}" z="yajlWdqawZ/0GePpNfeomDkI65g="/>
+        </menu:category>
+        <menu:category id="c_pluginstatus" z="uXQQ/cbS6G0X3VA23ajlsiXc3xc=">
+            <menu:item id="i_pluginstatus_new" messageCode="global_menu_new" url="/pluginstatuses?form" z="dIvU+J5dWqxvv5ABYV5aLBQwQ98="/>
+            <menu:item id="i_pluginstatus_list" messageCode="global_menu_list" url="/pluginstatuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="xdio0x05NLuGxbFlmJ6E1yxTS/c="/>
         </menu:category>
     </menu:menu>
 </div>

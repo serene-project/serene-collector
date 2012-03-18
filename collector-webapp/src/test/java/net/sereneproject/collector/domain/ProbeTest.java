@@ -26,47 +26,45 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.validation;
+package net.sereneproject.collector.domain;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.UUID;
 
-import net.sereneproject.collector.dto.ProbeValueDto;
-
-import org.springframework.stereotype.Component;
-import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.Validator;
-
-import com.google.common.base.Strings;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Validator for probe values.
+ * Test the server domain class.
  * 
  * @author gehel
  */
-@Component
-public class ProbeValueDtoValidator implements Validator {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml")
+@Transactional
+public class ProbeTest {
 
-    @Override
-    public final boolean supports(final Class<?> clazz) {
-        return ProbeValueDto.class.equals(clazz);
-    }
+	/**
+	 * Test if we can find a server by its UUID.
+	 */
+	@Test
+	public final void findByUuid() {
+        UUID uuid = UUID.randomUUID();
 
-    @Override
-    public final void validate(final Object target, final Errors errors) {
-        ProbeValueDto probeValue = (ProbeValueDto) target;
-        ValidationUtils.rejectIfEmpty(errors, "uuid", "probeValue.uuid.empty");
-        ValidationUtils
-                .rejectIfEmpty(errors, "value", "probeValue.value.empty");
+        Probe group = new Probe();
+        group.setUuid(uuid);
+		group.setName("test probe");
+		group.persist();
 
-        // check if UUID is valid
-        if (!Strings.isNullOrEmpty(probeValue.getUuid())) {
-            try {
-                UUID.fromString(probeValue.getUuid());
-            } catch (IllegalArgumentException iae) {
-                errors.rejectValue("uuid", "probeValue.uuid.invalid");
-            }
-        }
-    }
-
+		Probe savedProbe = Probe.findProbeByUuidEquals(uuid);
+		assertNotNull(savedProbe);
+        assertEquals("test probe", savedProbe.getName());
+        assertEquals(uuid, savedProbe.getUuid());
+	}
 }

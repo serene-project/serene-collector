@@ -26,22 +26,27 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.web;
+package net.sereneproject.collector.domain;
 
-import net.sereneproject.collector.domain.Server;
-import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
-import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-/**
- * Roo controller for {@link Server}s.
- * 
- * @author gehel
- */
-@RooWebScaffold(path = "servers", formBackingObject = Server.class)
-@RequestMapping("/servers")
-@Controller
-@RooWebJson(jsonObject = Server.class)
-public class ServerController {
+import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
+import org.springframework.roo.addon.json.RooJson;
+import org.springframework.roo.addon.tostring.RooToString;
+
+@RooJavaBean
+@RooToString
+@RooJpaActiveRecord
+@RooJson
+public class Node {
+
+    /** Name of the {@link Node}. */
+    @NotNull
+    @Column(unique = true)
+    @Size(min = 3, max = 20)
+    private String name;
+
 }

@@ -37,7 +37,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author gehel
  */
 @RunWith(Suite.class)
-@SuiteClasses({ ServerTest.class })
+@SuiteClasses({ ProbeTest.class })
 public class DomainTests {
 
 }

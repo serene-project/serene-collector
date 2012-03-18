@@ -28,9 +28,10 @@
  */
 package net.sereneproject.collector.web;
 
+import java.io.IOException;
+
 import net.sereneproject.collector.dto.MonitoringMessageDto;
 import net.sereneproject.collector.service.ProbePublishingService;
-import net.sereneproject.collector.validation.MonitoringMessageDtoValidator;
 import net.sereneproject.collector.web.utils.WebUtils;
 
 import org.apache.log4j.Logger;
@@ -41,6 +42,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,7 +66,7 @@ public class CollectorController {
 
     /** Validator used to validate requests. */
     @Autowired(required = true)
-    private MonitoringMessageDtoValidator validator;
+    private Validator validator;
 
     /**
      * Collect probe values.
@@ -111,10 +113,11 @@ public class CollectorController {
      *         (BAD REQUEST) if the message was not valid. In case the message
      *         is not valid, a JSON response containing the error's detail is
      *         returned
+     * @throws IOException 
      */
     @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
     public final ResponseEntity<String> postMonitoring(
-            @RequestBody final String json) {
+            @RequestBody final String json) throws IOException {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Received message : [" + json + "]");
         }
@@ -148,7 +151,7 @@ public class CollectorController {
      * 
      * @return the validator
      */
-    private MonitoringMessageDtoValidator getValidator() {
+    private Validator getValidator() {
         return this.validator;
     }
 }

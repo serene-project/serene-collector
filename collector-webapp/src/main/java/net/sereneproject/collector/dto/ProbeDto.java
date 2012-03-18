@@ -34,6 +34,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
@@ -42,14 +43,14 @@ import org.springframework.roo.addon.tostring.RooToString;
 import flexjson.JSONSerializer;
 
 /**
- * DTO exposing a message sent from a probe agent to the collector.
+ * DTO presenting data about a probe and its multiple values.
  * 
  * @author gehel
  */
 @RooJavaBean
 @RooToString
 @RooJson
-public class MonitoringMessageDto implements Serializable {
+public class ProbeDto implements Serializable {
 
     /** Serial version UID. */
     private static final long serialVersionUID = 1L;
@@ -57,7 +58,7 @@ public class MonitoringMessageDto implements Serializable {
     /**
      * Default constructor.
      */
-    public MonitoringMessageDto() {
+    public ProbeDto() {
     }
 
     /**
@@ -66,20 +67,25 @@ public class MonitoringMessageDto implements Serializable {
      * @param hostname
      * @param probeValues
      */
-    public MonitoringMessageDto(final String hostname,
-            final List<ProbeDto> probes) {
-        this.hostname = hostname;
-        this.probes = probes;
+    public ProbeDto(final String uuid, final String name,
+            final List<ValueDto> values) {
+        this.uuid = uuid;
+        this.name = name;
+        this.values = values;
     }
 
-    /** Hostname of the server. */
-    @Nullable
-    private String hostname;
+    /** UUID of the probe. */
+    @NotNull
+    private String uuid;
 
-    /** List of probes for this server. */
+    /** Name of the probe. */
+    @Nullable
+    private String name;
+
+    /** List of values for this server. */
     @Nullable
     @Valid
-    private List<ProbeDto> probes;
+    private List<ValueDto> values;
 
     /**
      * Serialize this object as JSON.
@@ -94,7 +100,7 @@ public class MonitoringMessageDto implements Serializable {
     }
 
     /**
-     * Serialize a collection of {@link MonitoringMessageDto}s to JSON.
+     * Serialize a collection of {@link ProbeDto}s to JSON.
      * 
      * The ROO generated serializer doesnt do a
      * {@link JSONSerializer#deepSerialize(Object)}, so we override it.
@@ -103,8 +109,7 @@ public class MonitoringMessageDto implements Serializable {
      *            the collection to serialize
      * @return a JSON representation of the collection
      */
-    public static String toJsonArray(
-            final Collection<MonitoringMessageDto> collection) {
+    public static String toJsonArray(final Collection<ProbeDto> collection) {
         return new JSONSerializer().exclude("*.class")
                 .deepSerialize(collection);
     }

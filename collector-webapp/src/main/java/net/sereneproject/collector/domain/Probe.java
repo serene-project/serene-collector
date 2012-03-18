@@ -32,7 +32,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.annotation.Nullable;
 import javax.persistence.Column;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
@@ -76,19 +78,18 @@ public class Probe {
     @Column
     private Long uuidLeastSigBits;
 
-    /**
-     * {@link Server} to which this {@link Probe} belongs.
-     * 
-     * {@link Probe}s from a specific server are grouped together.
-     */
-    @NotNull
-    @ManyToOne
-    private Server server;
-
     /** List of analyzer {@link Plugin}s used whith this probe. */
     @NotNull
     @OneToMany
     private Set<Plugin> plugins = new HashSet<Plugin>();
+
+    /** The {@link Node} in which this {@link Probe} is classified. */
+    @Nullable
+    @ManyToOne
+    private Node node;
+
+    @Lob
+    private byte[] rrd;
 
     /**
      * Set the {@link UUID} of the {@link Probe} from its {@link String}

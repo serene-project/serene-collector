@@ -28,11 +28,11 @@
  */
 package net.sereneproject.collector.service.impl;
 
-import java.util.ArrayList;
-import java.util.UUID;
+import static net.sereneproject.collector.dto.MonitoringMessageTest.createTestMessage;
+
+import java.io.IOException;
 
 import net.sereneproject.collector.dto.MonitoringMessageDto;
-import net.sereneproject.collector.dto.ProbeValueDto;
 import net.sereneproject.collector.service.ProbePublishingService;
 
 import org.junit.Test;
@@ -60,28 +60,12 @@ public class ProbePublishingServiceTest {
      * 
      * This test ensures that publishing probe values where the server / probe /
      * group are not known by the system works.
+     * @throws IOException 
      */
     @Test
     @Transactional
-    public final void publishingBrandNewValue() {
-        MonitoringMessageDto m = new MonitoringMessageDto();
-        m.setUuid(UUID.randomUUID().toString());
-        m.setGroup("non existing group");
-        m.setHostname("non existing hostname");
-        m.setProbeValues(new ArrayList<ProbeValueDto>());
-
-        ProbeValueDto pv = new ProbeValueDto();
-        pv.setName("CPU");
-        pv.setUuid(UUID.randomUUID().toString());
-        pv.setValue(35.0);
-        m.getProbeValues().add(pv);
-
-        pv = new ProbeValueDto();
-        pv.setName("Disk");
-        pv.setUuid(UUID.randomUUID().toString());
-        pv.setValue(256.3);
-        m.getProbeValues().add(pv);
-
+    public final void publishingBrandNewValue() throws IOException {
+        MonitoringMessageDto m = createTestMessage();
         getProbePublishingService().publish(m);
     }
 

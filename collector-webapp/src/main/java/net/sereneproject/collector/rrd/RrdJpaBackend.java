@@ -26,33 +26,43 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.domain;
+package net.sereneproject.collector.rrd;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.io.IOException;
+import java.util.Arrays;
 
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.json.RooJson;
-import org.springframework.roo.addon.tostring.RooToString;
+import net.sereneproject.collector.domain.Probe;
 
-/**
- * Logical grouping of servers.
- * 
- * Used only for better navigation.
- * 
- * @author gehel
- */
-@RooJavaBean
-@RooToString
-@RooJpaActiveRecord(finders = { "findServerGroupsByNameEquals" })
-@RooJson
-public class ServerGroup {
+import org.apache.log4j.Logger;
+import org.rrd4j.core.RrdByteArrayBackend;
 
-    /** Name of the server group. */
-    @NotNull
-    @Column(unique = true)
-    @Size(min = 3, max = 20)
-    private String name;
+public class RrdJpaBackend extends RrdByteArrayBackend {
+
+    /** Logger. */
+    private static final Logger LOG = Logger.getLogger(RrdJpaBackend.class);
+
+    private volatile boolean dirty = false;
+
+    public RrdJpaBackend(String path) {
+        super(path);
+        Probe probe = Probe.findProbeByUuidEquals(path);
+        if (probe.getRrd() != null) {
+            this.buffer = Arrays.copyOf(probe.getRrd(), probe.getRrd().length);
+        }
+    }
+
+    @Override
+    protected synchronized void write(final long offset, final byte[] bytes)
+            throws IOException {
+        super.write(offset, bytes);
+        dirty = true;
+    }
+
+    @Override
+    public void close() throws IOException {
+        if (dirty) {
+            Probe probe = Probe.findProbeByUuidEquals(getPath());
+            probe.setRrd(buffer);
+        }
+    }
 }

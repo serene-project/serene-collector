@@ -36,8 +36,9 @@
         <field:input field="name" id="c_net_sereneproject_collector_domain_Probe_name" max="20" min="3" required="true" z="8zympgVX10FFUB0XBqF9rQopVmw="/>
         <field:input field="uuidMostSigBits" id="c_net_sereneproject_collector_domain_Probe_uuidMostSigBits" required="true" validationMessageCode="field_invalid_integer" z="LZCbQNzAUuAWoCmWfnGZA627Px8="/>
         <field:input field="uuidLeastSigBits" id="c_net_sereneproject_collector_domain_Probe_uuidLeastSigBits" required="true" validationMessageCode="field_invalid_integer" z="t3OSwdAzIRTgLnRMMmkeoP3kGjY="/>
-        <field:select field="server" id="c_net_sereneproject_collector_domain_Probe_server" itemValue="id" items="${servers}" path="/servers" required="true" z="n5JAabLu2gCbv+NafuulYSDfjhw="/>
         <field:simple field="plugins" id="c_net_sereneproject_collector_domain_Probe_plugins" messageCode="entity_reference_not_managed" messageCodeAttribute="Plugin" z="31n/wDm+JSpb2auBkp86ZJeepgs="/>
+        <field:select field="node" id="c_net_sereneproject_collector_domain_Probe_node" itemValue="id" items="${nodes}" path="/nodes" z="xBHf5OL9ALJM41WriqdOZcpopks="/>
+        <field:textarea field="rrd" id="c_net_sereneproject_collector_domain_Probe_rrd" z="z92e3tdx6+y4YBN0m/ec9KrmvaE="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_net_sereneproject_collector_domain_Probe" render="${not empty dependencies}" z="FCJh7pPN43ZVwW/nzxgeL9HfFgI="/>
 </div>

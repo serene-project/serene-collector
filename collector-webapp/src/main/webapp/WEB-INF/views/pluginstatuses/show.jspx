@@ -32,9 +32,9 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_net_sereneproject_collector_domain_Plugin" object="${plugin}" path="/plugins" z="mSIvSYo3Jk2bxdte4zq3ALKUMBE=">
-        <field:display field="url" id="s_net_sereneproject_collector_domain_Plugin_url" object="${plugin}" z="SuzjM4OpjCiO6yMb6REbAc9vOKk="/>
-        <field:display field="savedState" id="s_net_sereneproject_collector_domain_Plugin_savedState" object="${plugin}" z="hyGjIceAnLvsnP4vbng+PcGm2bA="/>
-        <field:display field="probe" id="s_net_sereneproject_collector_domain_Plugin_probe" object="${plugin}" z="PPryVxtazEG3i/0BDw4yPEqhXOk="/>
+    <page:show id="ps_net_sereneproject_collector_domain_PluginStatus" object="${pluginstatus}" path="/pluginstatuses" z="CsugoJxH7282oEXgDMVkcHTazUQ=">
+        <field:display field="status" id="s_net_sereneproject_collector_domain_PluginStatus_status" object="${pluginstatus}" z="2JY+USYE+fmm9SiZlRIDWGH98fM="/>
+        <field:display field="plugin" id="s_net_sereneproject_collector_domain_PluginStatus_plugin" object="${pluginstatus}" z="c+eqm9S547cPmXzSXxxaP8IJdyY="/>
+        <field:display date="true" dateTimePattern="${pluginStatus_date_date_format}" field="date" id="s_net_sereneproject_collector_domain_PluginStatus_date" object="${pluginstatus}" z="UkN5kPduhep9aeh1dP3s5S7vSh0="/>
     </page:show>
 </div>

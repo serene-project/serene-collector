@@ -26,36 +26,33 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.service;
+package net.sereneproject.collector.service.impl;
 
-import net.sereneproject.collector.dto.ProbeValueDateDto;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-/**
- * Service used to dispatch probe values to analyzers.
- * 
- * This service is responsible of locating the analyzers, preparing messages and
- * handling results from the analyzers.
- * 
- * @author gehel
- * 
- */
-public interface AnalyzerService {
+import net.sereneproject.collector.dto.NodeDto;
+import net.sereneproject.collector.service.NodeService;
 
-    /**
-     * Dispatch a probe value to the configured analyzers.
-     * 
-     * @param probeValue
-     *            the value to analyze
-     */
-//    void analyze(ProbeValue probeValue);
+import org.springframework.stereotype.Service;
 
-    /**
-     * Load a {@link ProbeValue} from permanent storage and dispatch it to the
-     * configured analyzers.
-     * 
-     * @param probeValueDateDto
-     *            object disconnected from permanent storage
-     */
-    void analyze(ProbeValueDateDto probeValueDateDto);
+@Service
+public class DummyNodeService implements NodeService {
+
+    @Override
+    public List<NodeDto> findAncestors(Long id) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public NodeDto findNodeAndDescendent(Long id) {
+        Set<NodeDto> children = new HashSet<NodeDto>();
+        children.add(new NodeDto(2L, "node 2", Collections.<NodeDto> emptySet()));
+        children.add(new NodeDto(3L, "node 3", Collections.<NodeDto> emptySet()));
+        children.add(new NodeDto(4L, "node 4", Collections.<NodeDto> emptySet()));
+        return new NodeDto(1L, "rootNode", children);
+    }
 
 }

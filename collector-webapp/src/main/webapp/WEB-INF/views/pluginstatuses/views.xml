@@ -29,12 +29,18 @@
     POSSIBILITY OF SUCH DAMAGE.
 
 -->
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_net_sereneproject_collector_domain_Plugin" object="${plugin}" path="/plugins" z="mSIvSYo3Jk2bxdte4zq3ALKUMBE=">
-        <field:display field="url" id="s_net_sereneproject_collector_domain_Plugin_url" object="${plugin}" z="SuzjM4OpjCiO6yMb6REbAc9vOKk="/>
-        <field:display field="savedState" id="s_net_sereneproject_collector_domain_Plugin_savedState" object="${plugin}" z="hyGjIceAnLvsnP4vbng+PcGm2bA="/>
-        <field:display field="probe" id="s_net_sereneproject_collector_domain_Plugin_probe" object="${plugin}" z="PPryVxtazEG3i/0BDw4yPEqhXOk="/>
-    </page:show>
-</div>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="pluginstatuses/list">
+        <put-attribute name="body" value="/WEB-INF/views/pluginstatuses/list.jspx"/>
+    </definition>
+<definition extends="default" name="pluginstatuses/show">
+        <put-attribute name="body" value="/WEB-INF/views/pluginstatuses/show.jspx"/>
+    </definition>
+<definition extends="default" name="pluginstatuses/create">
+        <put-attribute name="body" value="/WEB-INF/views/pluginstatuses/create.jspx"/>
+    </definition>
+<definition extends="default" name="pluginstatuses/update">
+        <put-attribute name="body" value="/WEB-INF/views/pluginstatuses/update.jspx"/>
+    </definition>
+</tiles-definitions>

@@ -28,7 +28,7 @@
  */
 package net.sereneproject.collector.web.utils;
 
-import net.sereneproject.collector.domain.ProbeValue;
+import net.sereneproject.collector.dto.ValueDto;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -47,13 +47,13 @@ public class WebUtilsTest {
      */
     @Test
     public final void serializeErrors() {
-        BindingResult errors = new BeanPropertyBindingResult(new ProbeValue(),
-                "probeValue");
-        errors.rejectValue("date", "date.empty");
+        BindingResult errors = new BeanPropertyBindingResult(new ValueDto(),
+                "valueDto");
+        errors.rejectValue("name", "value.empty");
         errors.rejectValue("value", "value.empty");
         String serializedErrors = WebUtils.toJson(errors);
-        Assert.assertTrue("We put a value about date file, "
+        Assert.assertTrue("We put an error about the name, "
                 + "so we should find it in the serialization",
-                serializedErrors.contains("date"));
+                serializedErrors.contains("name"));
     }
 }

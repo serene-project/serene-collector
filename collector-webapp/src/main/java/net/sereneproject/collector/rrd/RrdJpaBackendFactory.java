@@ -26,36 +26,50 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.sereneproject.collector.service;
+package net.sereneproject.collector.rrd;
 
-import net.sereneproject.collector.dto.ProbeValueDateDto;
+import java.io.IOException;
 
-/**
- * Service used to dispatch probe values to analyzers.
- * 
- * This service is responsible of locating the analyzers, preparing messages and
- * handling results from the analyzers.
- * 
- * @author gehel
- * 
- */
-public interface AnalyzerService {
+import net.sereneproject.collector.domain.Probe;
 
-    /**
-     * Dispatch a probe value to the configured analyzers.
-     * 
-     * @param probeValue
-     *            the value to analyze
-     */
-//    void analyze(ProbeValue probeValue);
+import org.rrd4j.core.RrdBackend;
+import org.rrd4j.core.RrdBackendFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Component;
 
-    /**
-     * Load a {@link ProbeValue} from permanent storage and dispatch it to the
-     * configured analyzers.
-     * 
-     * @param probeValueDateDto
-     *            object disconnected from permanent storage
-     */
-    void analyze(ProbeValueDateDto probeValueDateDto);
+@Component
+public class RrdJpaBackendFactory extends RrdBackendFactory {
+
+    public RrdJpaBackendFactory() {
+        RrdBackendFactory.registerAndSetAsDefaultFactory(this);
+    }
+
+    @Override
+    protected RrdBackend open(final String path, final boolean readOnly)
+            throws IOException {
+        return new RrdJpaBackend(path);
+    }
+
+    @Override
+    protected boolean exists(final String path) throws IOException {
+        // TODO : might be optimized
+        try {
+            Probe.findProbeByUuidEquals(path);
+            return true;
+        }catch (EmptyResultDataAccessException erdae) {
+            return false;
+        }
+    }
+
+    @Override
+    protected boolean shouldValidateHeader(final String path)
+            throws IOException {
+        return false;
+    }
+
+    @Override
+    public String getName() {
+        return "JPA";
+    }
 
 }

@@ -29,12 +29,10 @@
     POSSIBILITY OF SUCH DAMAGE.
 
 -->
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_net_sereneproject_collector_domain_Plugin" object="${plugin}" path="/plugins" z="mSIvSYo3Jk2bxdte4zq3ALKUMBE=">
-        <field:display field="url" id="s_net_sereneproject_collector_domain_Plugin_url" object="${plugin}" z="SuzjM4OpjCiO6yMb6REbAc9vOKk="/>
-        <field:display field="savedState" id="s_net_sereneproject_collector_domain_Plugin_savedState" object="${plugin}" z="hyGjIceAnLvsnP4vbng+PcGm2bA="/>
-        <field:display field="probe" id="s_net_sereneproject_collector_domain_Plugin_probe" object="${plugin}" z="PPryVxtazEG3i/0BDw4yPEqhXOk="/>
-    </page:show>
+    <form:update id="fu_net_sereneproject_collector_domain_Node" modelAttribute="node" path="/nodes" versionField="Version" z="b0J2gbM0BjQq0cmkiIOVNzLhAg4=">
+        <field:input field="name" id="c_net_sereneproject_collector_domain_Node_name" max="20" min="3" required="true" z="7dbA3AMdn4fE9dwh0hYoysWEXko="/>
+    </form:update>
 </div>
