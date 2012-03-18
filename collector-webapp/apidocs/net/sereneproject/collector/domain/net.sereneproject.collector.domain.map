@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="c141" href="./Probe.html" title="net.sereneproject.collector.domain.Probe" alt="" coords="15,294,310,447"/>
+<area shape="rect" id="c144" href="./Node.html" title="net.sereneproject.collector.domain.Node" alt="" coords="127,507,199,581"/>
+<area shape="rect" id="c142" href="./Plugin.html" title="net.sereneproject.collector.domain.Plugin" alt="" coords="107,145,219,234"/>
+<area shape="rect" id="c143" href="./PluginStatus.html" title="net.sereneproject.collector.domain.PluginStatus" alt="" coords="105,11,220,85"/>
+</map>

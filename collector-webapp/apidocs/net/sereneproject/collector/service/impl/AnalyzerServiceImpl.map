@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="c1263" href="../../dto/ProbeValueDateDto.html" title="net.sereneproject.collector.dto.ProbeValueDateDto" alt="" coords="946,350,1379,423"/>
+<area shape="rect" id="c1281" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Date.html" title="java.util.Date" alt="" coords="344,531,795,1117"/>
+<area shape="rect" id="c1282" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Double.html" title="java.lang.Double" alt="" coords="960,523,1243,1125"/>
+<area shape="rect" id="c1267" href="../../domain/Probe.html" title="net.sereneproject.collector.domain.Probe" alt="" coords="557,310,851,463"/>
+<area shape="rect" id="c1272" href="../AnalyzerPluginCommunicationService.html" title="net.sereneproject.collector.service.AnalyzerPluginCommunicationService" alt="" coords="16,342,461,431"/>
+<area shape="rect" id="c1273" href="../AnalyzerService.html" title="net.sereneproject.collector.service.AnalyzerService" alt="" coords="732,11,1060,101"/>
+<area shape="rect" id="c1277" href="./AnalyzerServiceImpl.html" title="net.sereneproject.collector.service.impl.AnalyzerServiceImpl" alt="" coords="441,161,967,250"/>
+</map>
