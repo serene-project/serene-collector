@@ -35,6 +35,7 @@ import net.sereneproject.collector.domain.Probe;
 
 import org.apache.log4j.Logger;
 import org.rrd4j.core.RrdByteArrayBackend;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 public class RrdJpaBackend extends RrdByteArrayBackend {
 
@@ -45,9 +46,15 @@ public class RrdJpaBackend extends RrdByteArrayBackend {
 
     public RrdJpaBackend(String path) {
         super(path);
-        Probe probe = Probe.findProbeByUuidEquals(path);
-        if (probe.getRrd() != null) {
-            this.buffer = Arrays.copyOf(probe.getRrd(), probe.getRrd().length);
+        try {
+            Probe probe = Probe.findProbeByUuidEquals(path);
+            if (probe.getRrd() != null) {
+                this.buffer = Arrays.copyOf(probe.getRrd(),
+                        probe.getRrd().length);
+            }
+        } catch (EmptyResultDataAccessException e) {
+            throw new IllegalStateException("The probe [" + path
+                    + "] should exist before its RRD database is accessed.");
         }
     }
 
