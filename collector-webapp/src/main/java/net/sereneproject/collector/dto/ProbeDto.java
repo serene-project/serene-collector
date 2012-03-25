@@ -30,12 +30,13 @@ package net.sereneproject.collector.dto;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Nullable;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import org.apache.commons.lang3.Validate;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -68,7 +69,11 @@ public class ProbeDto implements Serializable {
      * @param probeValues
      */
     public ProbeDto(final String uuid, final String name,
-            final List<ValueDto> values) {
+            final Set<ValueDto> values) {
+        Validate.notNull(uuid, "UUID of the probe cannot be null.");
+        Validate.notNull(name, "Name of the probe cannot be null.");
+        Validate.notNull(values, "Values of a probe cannot be null, "
+                + "use an empty collection if needed.");
         this.uuid = uuid;
         this.name = name;
         this.values = values;
@@ -85,7 +90,7 @@ public class ProbeDto implements Serializable {
     /** List of values for this server. */
     @Nullable
     @Valid
-    private List<ValueDto> values;
+    private Set<ValueDto> values;
 
     /**
      * Serialize this object as JSON.

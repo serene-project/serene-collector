@@ -29,6 +29,8 @@
 package net.sereneproject.collector.dto;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -48,8 +50,12 @@ public class AnalyzerRequestDtoTest {
 	 */
 	@Test
 	public final void printJson() {
+	    Set<ValueDto> values = new HashSet<ValueDto>();
+        values.add(new ValueDto("user", 5.0));
+        values.add(new ValueDto("system", 5.0));
+        values.add(new ValueDto("idle", 90.0));
 		AnalyzerRequestDto request = new AnalyzerRequestDto();
-		request.setValue(PROBE_VALUE);
+		request.setValues(values);
 		request.setDate(new Date());
 		request.setSavedState("etat courant du model");
 		System.out.println(request.toJson());

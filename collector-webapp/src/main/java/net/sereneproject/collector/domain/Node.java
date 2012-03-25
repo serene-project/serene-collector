@@ -37,6 +37,17 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+/**
+ * Data structure used to organize probes.
+ * 
+ * The user is responsible for the organization of all probes. Anything is
+ * possible as long as it is a tree structure. For example, we could have a node
+ * for each application, in which we have a node for each server. Or we could
+ * have a node for each function (database, web server, ...) in which we have a
+ * node for each server. Or something else...
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord

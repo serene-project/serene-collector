@@ -31,7 +31,9 @@ package net.sereneproject.collector.dto;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import org.junit.Test;
@@ -70,20 +72,21 @@ public class MonitoringMessageTest {
         assertEquals("myhost", m.getHostname());
         assertEquals(1, m.getProbes().size());
         assertEquals("CPU", m.getProbes().get(0).getName());
-        assertEquals(Double.valueOf(10.0), m.getProbes().get(0)
-                .getValues().get(1).getValue());
+
+        Set<ValueDto> values = m.getProbes().get(0).getValues();
+        assertEquals(3, values.size());
     }
-    
+
     public static final MonitoringMessageDto createTestMessage() {
         List<ProbeDto> probes = new ArrayList<ProbeDto>();
 
-        List<ValueDto> pvs = new ArrayList<ValueDto>();
+        Set<ValueDto> pvs = new HashSet<ValueDto>();
         pvs.add(new ValueDto("user", 20.0));
         pvs.add(new ValueDto("system", 10.0));
         pvs.add(new ValueDto("idle", 80.0));
         probes.add(new ProbeDto(UUID.randomUUID().toString(), "CPU", pvs));
 
-        pvs = new ArrayList<ValueDto>();
+        pvs = new HashSet<ValueDto>();
         pvs.add(new ValueDto("/dev/sda1", 50.0));
         pvs.add(new ValueDto("/dev/sda2", 150.0));
         pvs.add(new ValueDto("/dev/sdb1", 10.0));

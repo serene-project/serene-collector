@@ -28,7 +28,7 @@
  */
 package net.sereneproject.collector.service;
 
-import net.sereneproject.collector.dto.ProbeValueDateDto;
+import net.sereneproject.collector.dto.AnalyzeQueueMessage;
 
 /**
  * Service used to dispatch probe values to analyzers.
@@ -56,6 +56,6 @@ public interface AnalyzerService {
      * @param probeValueDateDto
      *            object disconnected from permanent storage
      */
-    void analyze(ProbeValueDateDto probeValueDateDto);
+    void analyze(AnalyzeQueueMessage analyzeQueueMessage);
 
 }

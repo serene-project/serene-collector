@@ -51,7 +51,7 @@ public class AnalyzerResponseDto {
      */
     private String status;
 
-    /** THe new saved state resulting from the request. */
+    /** The new saved state resulting from the request. */
     private String newSavedState;
 
 }

@@ -56,7 +56,7 @@ public class RrdJpaBackendFactory extends RrdBackendFactory {
         try {
             Probe.findProbeByUuidEquals(path);
             return true;
-        }catch (EmptyResultDataAccessException erdae) {
+        } catch (EmptyResultDataAccessException erdae) {
             return false;
         }
     }

@@ -37,9 +37,11 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.TypedQuery;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
@@ -152,5 +154,37 @@ public class Probe {
                 .findProbesByUuidMostSigBitsEqualsAndUuidLeastSigBitsEquals(
                         uuid.getMostSignificantBits(),
                         uuid.getLeastSignificantBits()).getSingleResult();
+    }
+
+    /**
+     * Check if a probe exists.
+     * 
+     * Will throw {@link DataIntegrityViolationException} if there is more than
+     * one probe with the given UUID.
+     * 
+     * @param uuid
+     *            the UUID of the probe to check
+     * @return true if the probe exists, false otherwise.
+     */
+    public static boolean exists(final UUID uuid) {
+        if (uuid == null) {
+            throw new IllegalArgumentException("The uuid argument is required");
+        }
+        TypedQuery<Long> q = entityManager().createQuery(
+                "SELECT COUNT(o) FROM Probe o"
+                        + "  WHERE o.uuidMostSigBits = :uuidMostSigBits"
+                        + "    AND o.uuidLeastSigBits = :uuidLeastSigBits",
+                Long.class);
+        q.setParameter("uuidMostSigBits", uuid.getMostSignificantBits());
+        q.setParameter("uuidLeastSigBits", uuid.getLeastSignificantBits());
+        Long count = q.getSingleResult();
+        if (count.equals(0)) {
+            return false;
+        } else if (count.equals(1)) {
+            return true;
+        } else {
+            throw new DataIntegrityViolationException(
+                    "There is more than one probe with UUID [" + uuid + "].");
+        }
     }
 }

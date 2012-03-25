@@ -30,21 +30,35 @@ package net.sereneproject.collector.rrd;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 
 import net.sereneproject.collector.domain.Probe;
 
-import org.apache.log4j.Logger;
 import org.rrd4j.core.RrdByteArrayBackend;
 import org.springframework.dao.EmptyResultDataAccessException;
 
+/**
+ * RRD Backend storing RRD database as an attibute of a {@link Probe}.
+ * 
+ * @author gehel
+ */
 public class RrdJpaBackend extends RrdByteArrayBackend {
-
-    /** Logger. */
-    private static final Logger LOG = Logger.getLogger(RrdJpaBackend.class);
 
     private volatile boolean dirty = false;
 
-    public RrdJpaBackend(String path) {
+    /**
+     * Construct a backend based on a {@link Probe}.
+     * 
+     * Note that the {@link Probe} needs to be constructed before the backend
+     * can be created.
+     * 
+     * <b>WARNING :</b> This class breaks the Lizkov substitution principle as
+     * it only accept a path that conform to the {@link UUID} specification.
+     * 
+     * @param path
+     *            UUID of the probe
+     */
+    public RrdJpaBackend(final String path) {
         super(path);
         try {
             Probe probe = Probe.findProbeByUuidEquals(path);

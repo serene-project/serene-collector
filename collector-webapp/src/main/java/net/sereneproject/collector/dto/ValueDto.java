@@ -32,6 +32,7 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
+import org.apache.commons.lang3.Validate;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -62,15 +63,17 @@ public class ValueDto implements Serializable {
      * @param value
      */
     public ValueDto(final String name, final Double value) {
+        Validate.notNull(name, "Value name cannot be null.");
+        Validate.notNull(value, "Value cannot be null");
         this.name = name;
         this.value = value;
     }
 
-    /** Name of the probe. */
+    /** Name of the value. */
     @NotNull
     private String name;
 
-    /** Value of the probe. */
+    /** Value itself. */
     @NotNull
     private Double value;
 

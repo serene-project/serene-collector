@@ -32,7 +32,7 @@ import java.util.concurrent.BlockingQueue;
 
 import javax.annotation.Resource;
 
-import net.sereneproject.collector.dto.ProbeValueDateDto;
+import net.sereneproject.collector.dto.AnalyzeQueueMessage;
 import net.sereneproject.collector.service.AnalyzerService;
 
 import org.apache.log4j.Logger;
@@ -52,7 +52,7 @@ public class AnalyzerQueueExecutor implements Runnable {
 
     /** Queue of {@link ProbeValueDateDto} to be consumed. */
     @Resource(name = "probeToAnalyzeQueue")
-    private BlockingQueue<ProbeValueDateDto> queue;
+    private BlockingQueue<AnalyzeQueueMessage> queue;
 
     /** Service to which we send the {@link ProbeValueDateDto}s. */
     private final AnalyzerService analyzerService;
@@ -75,15 +75,15 @@ public class AnalyzerQueueExecutor implements Runnable {
     public final void run() {
         try {
             while (true) {
-                ProbeValueDateDto pv = getQueue().take();
-                if (pv == null) {
+                AnalyzeQueueMessage msg = getQueue().take();
+                if (msg == null) {
                     LOG.error("Message queue returned empty message, "
                             + "it should have returned a value to analyze.");
                 } else {
                     if (LOG.isDebugEnabled()) {
-                        LOG.debug("Processing message [" + pv + "]");
+                        LOG.debug("Processing message [" + msg + "]");
                     }
-                    getAnalyzerService().analyze(pv);
+                    getAnalyzerService().analyze(msg);
                 }
             }
         } catch (InterruptedException ie) {
@@ -97,7 +97,7 @@ public class AnalyzerQueueExecutor implements Runnable {
      * 
      * @return the queue
      */
-    private BlockingQueue<ProbeValueDateDto> getQueue() {
+    private BlockingQueue<AnalyzeQueueMessage> getQueue() {
         return this.queue;
     }
 
@@ -115,7 +115,7 @@ public class AnalyzerQueueExecutor implements Runnable {
      * 
      * @param queue the queue
      */
-    final void setQueue(final BlockingQueue<ProbeValueDateDto> queue) {
+    final void setQueue(final BlockingQueue<AnalyzeQueueMessage> queue) {
         this.queue = queue;
     }
 }

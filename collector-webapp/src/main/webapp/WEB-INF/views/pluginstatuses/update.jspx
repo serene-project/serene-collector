@@ -33,8 +33,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_net_sereneproject_collector_domain_PluginStatus" modelAttribute="pluginStatus" path="/pluginstatuses" versionField="Version" z="fT0qv415aEVPvVymKbN4TTtuEKg=">
-        <field:input field="status" id="c_net_sereneproject_collector_domain_PluginStatus_status" z="Xlaw7jth6UnSL3J1HRAi/4p7dV8="/>
+        <field:input field="status" id="c_net_sereneproject_collector_domain_PluginStatus_status" max="30" min="6" required="true" z="uAr7Pc+0gf/E8EPhq+bg6ILJywE="/>
         <field:select field="plugin" id="c_net_sereneproject_collector_domain_PluginStatus_plugin" itemValue="id" items="${plugins}" path="/plugins" required="true" z="x39LofwpLYWxQOGu5ifS9AHc4uE="/>
-        <field:datetime dateTimePattern="${pluginStatus_date_date_format}" field="date" id="c_net_sereneproject_collector_domain_PluginStatus_date" z="lt3TsmZnaGfM2ZQs4z0Z02UFFtM="/>
+        <field:datetime dateTimePattern="${pluginStatus_date_date_format}" field="date" id="c_net_sereneproject_collector_domain_PluginStatus_date" required="true" z="I3oI8ODjQhUqJP2YVaKWYN+DAM4="/>
     </form:update>
 </div>

@@ -28,11 +28,17 @@
  */
 package net.sereneproject.collector.dto;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
+
+import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
+
+import flexjson.JSONSerializer;
 
 /**
  * DTO exposing a request to an analyzer.
@@ -44,13 +50,43 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJson
 public class AnalyzerRequestDto {
 
-    /** New value to analyze. */
-    private Double value;
+    /** New values to analyze. */
+    @NotNull
+    private Set<ValueDto> values;
 
     /** Date this value was observed. */
+    @NotNull
     private Date date;
 
     /** Last saved state of the analyzer. */
+    @NotNull
     private String savedState;
 
+    /**
+     * Serialize this object as JSON.
+     * 
+     * The ROO generated serializer doesnt do a
+     * {@link JSONSerializer#deepSerialize(Object)}, so we override it.
+     * 
+     * @return this object serialized as JSON
+     */
+    public final String toJson() {
+        return new JSONSerializer().exclude("*.class").deepSerialize(this);
+    }
+
+    /**
+     * Serialize a collection of {@link MonitoringMessageDto}s to JSON.
+     * 
+     * The ROO generated serializer doesnt do a
+     * {@link JSONSerializer#deepSerialize(Object)}, so we override it.
+     * 
+     * @param collection
+     *            the collection to serialize
+     * @return a JSON representation of the collection
+     */
+    public static String toJsonArray(
+            final Collection<AnalyzerRequestDto> collection) {
+        return new JSONSerializer().exclude("*.class")
+                .deepSerialize(collection);
+    }
 }

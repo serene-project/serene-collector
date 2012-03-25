@@ -31,7 +31,7 @@ package net.sereneproject.collector.utils;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-import net.sereneproject.collector.dto.ProbeValueDateDto;
+import net.sereneproject.collector.dto.AnalyzeQueueMessage;
 
 import org.springframework.beans.factory.FactoryBean;
 
@@ -41,7 +41,7 @@ import org.springframework.beans.factory.FactoryBean;
  * @author gehel
  */
 public class BlockingQueueProbeValueDateFactoryBean implements
-        FactoryBean<BlockingQueue<ProbeValueDateDto>> {
+        FactoryBean<BlockingQueue<AnalyzeQueueMessage>> {
 
     /** Capacity of the queues that will be created by this factory. */
     private final int capacity;
@@ -57,8 +57,8 @@ public class BlockingQueueProbeValueDateFactoryBean implements
     }
 
     @Override
-    public final BlockingQueue<ProbeValueDateDto> getObject() throws Exception {
-        return new ArrayBlockingQueue<ProbeValueDateDto>(getCapacity());
+    public final BlockingQueue<AnalyzeQueueMessage> getObject() throws Exception {
+        return new ArrayBlockingQueue<AnalyzeQueueMessage>(getCapacity());
     }
 
     @SuppressWarnings("rawtypes")

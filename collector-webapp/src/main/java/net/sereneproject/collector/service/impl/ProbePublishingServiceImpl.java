@@ -32,20 +32,20 @@ import static org.rrd4j.ConsolFun.AVERAGE;
 import static org.rrd4j.DsType.GAUGE;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.UUID;
 import java.util.concurrent.BlockingQueue;
 
 import javax.annotation.Resource;
 
 import net.sereneproject.collector.domain.Probe;
+import net.sereneproject.collector.dto.AnalyzeQueueMessage;
 import net.sereneproject.collector.dto.MonitoringMessageDto;
 import net.sereneproject.collector.dto.ProbeDto;
-import net.sereneproject.collector.dto.ProbeValueDateDto;
 import net.sereneproject.collector.dto.ValueDto;
 import net.sereneproject.collector.service.ProbePublishingService;
 
 import org.apache.log4j.Logger;
-import org.rrd4j.ConsolFun;
-import org.rrd4j.DsType;
 import org.rrd4j.core.RrdBackendFactory;
 import org.rrd4j.core.RrdDb;
 import org.rrd4j.core.RrdDef;
@@ -68,7 +68,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
 
     /** The message queue used to publish messages to analyzers. */
     @Resource(name = "probeToAnalyzeQueue")
-    private BlockingQueue<ProbeValueDateDto> queue;
+    private BlockingQueue<AnalyzeQueueMessage> queue;
 
     private final RrdBackendFactory rrdBackendFactory;
 
@@ -91,6 +91,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
     @Override
     public final void publish(final MonitoringMessageDto message)
             throws IOException {
+        Date now = new Date();
 
         for (ProbeDto probeDto : message.getProbes()) {
             RrdDb rrdDb = findOrCreateRrdDb(probeDto);
@@ -101,10 +102,10 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
             sample.update();
 
             // queue messages so they are processed by the analyzers
-            // ProbeValueDateDto toAnalyze = new ProbeValueDateDto(
-            // UUID.fromString(pvDto.getUuid()), pv.getDate(),
-            // pvDto.getValue());
-            // getQueue().add(toAnalyze);
+            AnalyzeQueueMessage toAnalyze = new AnalyzeQueueMessage(
+                    UUID.fromString(probeDto.getUuid()), now,
+                    probeDto.getValues());
+            getQueue().add(toAnalyze);
         }
     }
 
@@ -152,7 +153,7 @@ public class ProbePublishingServiceImpl implements ProbePublishingService {
      * 
      * @return the queue
      */
-    private BlockingQueue<ProbeValueDateDto> getQueue() {
+    private BlockingQueue<AnalyzeQueueMessage> getQueue() {
         return this.queue;
     }
 

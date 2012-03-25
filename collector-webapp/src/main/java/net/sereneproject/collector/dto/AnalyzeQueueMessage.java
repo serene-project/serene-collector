@@ -28,50 +28,27 @@
  */
 package net.sereneproject.collector.dto;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 import java.util.UUID;
 
-import javax.validation.constraints.NotNull;
-
-import org.springframework.roo.addon.equals.RooEquals;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.json.RooJson;
-import org.springframework.roo.addon.tostring.RooToString;
 
-/**
- * DTO exposing values of a probe at a given date.
- * 
- * Used for communication between publishing service and analyzer service.
- * 
- * @author gehel
- */
+import com.google.common.collect.ImmutableSet;
+
 @RooJavaBean
-@RooToString
-@RooEquals
 @RooJson
-public class ProbeValueDateDto implements Serializable {
-
-    /** Serial version UID. */
-    private static final long serialVersionUID = 1L;
-
-    /** UUID of the probe. */
-    @NotNull
+public class AnalyzeQueueMessage {
     private final UUID probeUUID;
-
-    /** Date of the sample. */
-    @NotNull
     private final Date date;
+    private final Set<ValueDto> values;
 
-    /** Value of the probe. */
-    @NotNull
-    private final Double value;
-
-    public ProbeValueDateDto(final UUID probeUUID, final Date date,
-            final Double value) {
+    public AnalyzeQueueMessage(final UUID probeUUID, final Date date,
+            final Set<ValueDto> values) {
         this.probeUUID = probeUUID;
-        this.date = date;
-        this.value = value;
+        this.date = (Date) date.clone();
+        this.values = new ImmutableSet.Builder<ValueDto>().addAll(values)
+                .build();
     }
-
 }

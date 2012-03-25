@@ -30,12 +30,14 @@ package net.sereneproject.collector.service.impl;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.Set;
 
 import net.sereneproject.collector.domain.Plugin;
 import net.sereneproject.collector.domain.Probe;
+import net.sereneproject.collector.dto.AnalyzeQueueMessage;
 import net.sereneproject.collector.dto.AnalyzerRequestDto;
 import net.sereneproject.collector.dto.AnalyzerResponseDto;
-import net.sereneproject.collector.dto.ProbeValueDateDto;
+import net.sereneproject.collector.dto.ValueDto;
 import net.sereneproject.collector.service.AnalyzerPluginCommunicationService;
 import net.sereneproject.collector.service.AnalyzerService;
 
@@ -72,18 +74,18 @@ public class AnalyzerServiceImpl implements AnalyzerService {
     }
 
     @Override
-    public final void analyze(final ProbeValueDateDto probeValueDateDto) {
-        Probe probe = Probe.findProbeByUuidEquals(probeValueDateDto
+    public final void analyze(final AnalyzeQueueMessage analyzeQueueMessage) {
+        Probe probe = Probe.findProbeByUuidEquals(analyzeQueueMessage
                 .getProbeUUID());
-        analyze(probe, probeValueDateDto.getDate(),
-                probeValueDateDto.getValue());
+        analyze(probe, analyzeQueueMessage.getDate(),
+                analyzeQueueMessage.getValues());
     }
 
-//    @Override
-//    public final void analyze(final ProbeValue probeValue) {
-//        Probe probe = probeValue.getProbe();
-//        analyze(probe, probeValue.getDate(), probeValue.getValue());
-//    }
+    // @Override
+    // public final void analyze(final ProbeValue probeValue) {
+    // Probe probe = probeValue.getProbe();
+    // analyze(probe, probeValue.getDate(), probeValue.getValue());
+    // }
 
     /**
      * Dispatch a probe value to the configured analyzers.
@@ -95,13 +97,13 @@ public class AnalyzerServiceImpl implements AnalyzerService {
      * @param value
      *            the value to analyze
      */
-    private void analyze(final Probe probe, final Date date, final Double value) {
+    private void analyze(final Probe probe, final Date date, final Set<ValueDto> values) {
         for (Plugin plugin : probe.getPlugins()) {
             // create request
             AnalyzerRequestDto request = new AnalyzerRequestDto();
             request.setDate(date);
             request.setSavedState(plugin.getSavedState());
-            request.setValue(value);
+            request.setValues(values);
 
             // send probe to analyzer plugins
             AnalyzerResponseDto response;
@@ -111,7 +113,7 @@ public class AnalyzerServiceImpl implements AnalyzerService {
 
                 // save response
                 plugin.setSavedState(response.getNewSavedState());
-                //plugin.setStatus(response.getStatus());
+                // plugin.setStatus(response.getStatus());
             } catch (ClientProtocolException e) {
                 // TODO encapsulate and rethrow the exception
                 LOG.error(e);

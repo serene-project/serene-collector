@@ -32,19 +32,36 @@ import java.util.Date;
 
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+/**
+ * Data structure used to store plugin status.
+ * 
+ * Note that persisted instances should never change (database immutability). A
+ * new entry is created only if the status is different than the previous
+ * status.
+ * 
+ * @author gehel
+ */
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
 @RooJson
 public class PluginStatus {
 
-    /** Status from the analyzer. */
+    /**
+     * Status from the analyzer.
+     * 
+     * Note: the status should probably be restricted to a few values (OK, KO,
+     * ...).
+     */
+    @NotNull
+    @Size(min = 6, max = 30)
     private String status;
 
     /** The {@link Plugin} to which this status belongs. */
@@ -53,5 +70,6 @@ public class PluginStatus {
     private Plugin plugin;
 
     /** The date at which this status was set. */
+    @NotNull
     private Date date;
 }

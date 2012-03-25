@@ -32,11 +32,14 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-import net.sereneproject.collector.dto.ProbeValueDateDto;
+import net.sereneproject.collector.dto.AnalyzeQueueMessage;
+import net.sereneproject.collector.dto.ValueDto;
 import net.sereneproject.collector.service.AnalyzerService;
 
 import org.junit.After;
@@ -59,7 +62,7 @@ public class AnalyzerQueueExecutorTest {
     /**
      * A blocking queue that will be used to transmit messages to the executor.
      */
-    private BlockingQueue<ProbeValueDateDto> queue;
+    private BlockingQueue<AnalyzeQueueMessage> queue;
 
     /** The executor that will be tested. */
     private AnalyzerQueueExecutor executor;
@@ -75,7 +78,7 @@ public class AnalyzerQueueExecutorTest {
      */
     @Before
     public final void init() {
-        this.queue = new ArrayBlockingQueue<ProbeValueDateDto>(QUEUE_SIZE);
+        this.queue = new ArrayBlockingQueue<AnalyzeQueueMessage>(QUEUE_SIZE);
         this.analyzerService = mock(AnalyzerService.class);
         this.executor = new AnalyzerQueueExecutor(this.analyzerService);
         this.executor.setQueue(this.queue);
@@ -92,14 +95,19 @@ public class AnalyzerQueueExecutorTest {
      */
     @Test
     public final void messagesDispatched() throws InterruptedException {
-        final ProbeValueDateDto pv = new ProbeValueDateDto(UUID.randomUUID(),
-                new Date(), 0.1);
+        Set<ValueDto> values = new HashSet<ValueDto>();
+        values.add(new ValueDto("user", 5.0));
+        values.add(new ValueDto("system", 5.0));
+        values.add(new ValueDto("idle", 90.0));
 
-        this.queue.add(pv);
+        final AnalyzeQueueMessage msg = new AnalyzeQueueMessage(
+                UUID.randomUUID(), new Date(), values);
+
+        this.queue.add(msg);
 
         Thread.sleep(100);
 
-        verify(this.analyzerService).analyze(pv);
+        verify(this.analyzerService).analyze(msg);
     }
 
     /**
