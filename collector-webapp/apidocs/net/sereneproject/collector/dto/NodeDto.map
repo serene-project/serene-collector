@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="c673" href="./NodeDto.html" title="net.sereneproject.collector.dto.NodeDto" alt="" coords="355,342,736,415"/>
+<area shape="rect" id="c694" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Long.html" title="java.lang.Long" alt="" coords="15,803,286,1485"/>
+<area shape="rect" id="c695" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html" title="java.lang.String" alt="" coords="330,475,851,1813"/>
+<area shape="rect" id="c696" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Set.html" title="java.util.Set" alt="" coords="896,987,1176,1301"/>
+<area shape="rect" id="c687" href="../service/NodeService.html" title="net.sereneproject.collector.service.NodeService" alt="" coords="198,11,498,117"/>
+<area shape="rect" id="c689" href="../service/impl/DummyNodeService.html" title="net.sereneproject.collector.service.impl.DummyNodeService" alt="" coords="198,177,498,282"/>
+</map>
