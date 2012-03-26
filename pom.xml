@@ -445,7 +445,8 @@
 						<exclude>target/**</exclude>
 						<exclude>.clover/**</exclude>
 						<exclude>**/.gitignore</exclude>
-						<exclude>**/*.aj</exclude>
+                        <exclude>**/*.aj</exclude>
+                        <exclude>**/*.tagx</exclude>
 						<exclude>bin/**</exclude>
 						<exclude>bin/src/etc/header.txt</exclude>
 					</excludes>
