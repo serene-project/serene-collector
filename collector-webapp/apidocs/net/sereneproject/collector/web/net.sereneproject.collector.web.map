@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c33" href="./PluginStatusController.html" title="net.sereneproject.collector.web.PluginStatusController" alt="" coords="16,35,187,109"/>
-<area shape="rect" id="c34" href="./NodeController.html" title="net.sereneproject.collector.web.NodeController" alt="" coords="231,27,499,117"/>
-<area shape="rect" id="c35" href="./CollectorController.html" title="net.sereneproject.collector.web.CollectorController" alt="" coords="543,27,894,117"/>
-<area shape="rect" id="c36" href="./ProbeController.html" title="net.sereneproject.collector.web.ProbeController" alt="" coords="939,35,1069,109"/>
-<area shape="rect" id="c37" href="./ApplicationConversionServiceFactoryBean.html" title="net.sereneproject.collector.web.ApplicationConversionServiceFactoryBean" alt="" coords="1115,11,1475,133"/>
-<area shape="rect" id="c38" href="./PluginController.html" title="net.sereneproject.collector.web.PluginController" alt="" coords="1520,35,1653,109"/>
-</map>

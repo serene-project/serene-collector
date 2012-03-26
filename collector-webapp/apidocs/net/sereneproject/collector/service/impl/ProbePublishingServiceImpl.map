@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c1295" href="../../dto/MonitoringMessageDto.html" title="net.sereneproject.collector.dto.MonitoringMessageDto" alt="" coords="16,686,448,807"/>
-<area shape="rect" id="c1299" href="../../dto/ProbeDto.html" title="net.sereneproject.collector.dto.ProbeDto" alt="" coords="493,686,893,807"/>
-<area shape="rect" id="c1304" href="../ProbePublishingService.html" title="net.sereneproject.collector.service.ProbePublishingService" alt="" coords="679,11,961,101"/>
-<area shape="rect" id="c1311" href="./ProbePublishingServiceImpl.html" title="net.sereneproject.collector.service.impl.ProbePublishingServiceImpl" alt="" coords="886,161,1327,250"/>
-<area shape="rect" id="c1314" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/concurrent/BlockingQueue.html" title="java.util.concurrent.BlockingQueue" alt="" coords="938,622,1275,871"/>
-<area shape="rect" id="c1315" href="http://java.sun.com/j2se/1.4.2/docs/api/org/rrd4j/core/RrdBackendFactory.html" title="org.rrd4j.core.RrdBackendFactory" alt="" coords="1320,638,1701,855"/>
-<area shape="rect" id="c1316" href="http://java.sun.com/j2se/1.4.2/docs/api/org/rrd4j/core/RrdDb.html" title="org.rrd4j.core.RrdDb" alt="" coords="1747,310,2307,1183"/>
-</map>

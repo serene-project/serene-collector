@@ -1,8 +1,0 @@
-net.sereneproject.collector
-net.sereneproject.collector.domain
-net.sereneproject.collector.dto
-net.sereneproject.collector.rrd
-net.sereneproject.collector.service.impl
-net.sereneproject.collector.utils
-net.sereneproject.collector.web
-net.sereneproject.collector.web.utils

@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c159" href="./AnalyzerQueueExecutorTest.html" title="net.sereneproject.collector.utils.AnalyzerQueueExecutorTest" alt="" coords="615,11,823,133"/>
-<area shape="rect" id="c176" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/concurrent/BlockingQueue.html" title="java.util.concurrent.BlockingQueue" alt="" coords="15,521,353,770"/>
-<area shape="rect" id="c178" href="http://java.sun.com/j2se/1.4.2/docs/api/net/sereneproject/collector/utils/AnalyzerQueueExecutor.html" title="net.sereneproject.collector.utils.AnalyzerQueueExecutor" alt="" coords="397,601,710,690"/>
-<area shape="rect" id="c180" href="http://java.sun.com/j2se/1.4.2/docs/api/net/sereneproject/collector/service/AnalyzerService.html" title="net.sereneproject.collector.service.AnalyzerService" alt="" coords="755,601,1016,690"/>
-<area shape="rect" id="c189" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Thread.html" title="java.lang.Thread" alt="" coords="1061,193,1561,1098"/>
-</map>

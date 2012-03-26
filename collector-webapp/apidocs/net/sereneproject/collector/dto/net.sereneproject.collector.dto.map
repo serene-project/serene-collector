@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="c103" href="./NodeDto.html" title="net.sereneproject.collector.dto.NodeDto" alt="" coords="16,35,397,109"/>
-<area shape="rect" id="c104" href="./AnalyzerResponseDto.html" title="net.sereneproject.collector.dto.AnalyzerResponseDto" alt="" coords="442,35,614,109"/>
-<area shape="rect" id="c105" href="./MonitoringMessageDto.html" title="net.sereneproject.collector.dto.MonitoringMessageDto" alt="" coords="659,11,1091,133"/>
-<area shape="rect" id="c106" href="./AnalyzerRequestDto.html" title="net.sereneproject.collector.dto.AnalyzerRequestDto" alt="" coords="1136,19,1555,125"/>
-<area shape="rect" id="c107" href="./AnalyzeQueueMessage.html" title="net.sereneproject.collector.dto.AnalyzeQueueMessage" alt="" coords="1600,35,2112,109"/>
-<area shape="rect" id="c108" href="./ValueDto.html" title="net.sereneproject.collector.dto.ValueDto" alt="" coords="2157,27,2422,117"/>
-<area shape="rect" id="c109" href="./ProbeDto.html" title="net.sereneproject.collector.dto.ProbeDto" alt="" coords="2467,11,2867,133"/>
-</map>
